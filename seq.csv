@@ -1,0 +1,95 @@
+id,type,name,sequence,dna,code,species,description,reference
+6xHis,seq,6xHis,HHHHHH,,,,,
+TEV_site,seq,TEV site,ENLYFQG,,,,Cleavage tag for the TEV protease (cleaves between Gln and Ser),
+ALFA_tag,seq,ALFA-tag,SRLEEELRRRLTE,,,,Helical peptide tag for recognition by a repertoire of antibodies,
+AviTag,seq,AviTag,GLNDIFEAQKIEWHE,,,,For biotinylation by BirA and streptavidin isolation,
+C_tag,seq,C-tag,EPEA,,,,,
+Calmodulin_tag,seq,Calmodulin-tag,KRRWKKNFIAVSAANRFKKISSSGAL,,,,Calmodulin-binding peptide (CBP),
+Polyglutamate_tag,seq,Polyglutamate tag,EEEEEE,,,,,
+E_tag,seq,E-tag,GAPVPYPDPLEPR,,,,Recognized by an antibody,
+HA_tag,pattern,HA-tag,(Y[PA]YDVPDYA)|(YDVPDYASL),,,,Recognized by an antibody,
+Myc_tag,seq,Myc-tag,EQKLISEEDL,,,,Recognized by an antibody,
+NE_tag,seq,NE-tag,TKENPRSNQEESYDDNES,,,,Recognized by an antibody,
+Rho1D4_tag,seq,Rho1D4-tag,TETSQVAPA,,,,For purification of membrane proteins,
+S_tag,seq,S-tag,KETAAAKFERQHMDS,,,,,
+SBP_tag,seq,SBP-tag,MDEKTTGWRGGHVVEGLAGELEQLRARLEHHPQGQREP,,,,Binds to streptavidin,
+Softag_1,seq,Softag 1,SLAELLNAGLGGS,,,,,
+Softag_3,seq,Softag 3,TQDPSRVG,,,,,
+Spot_tag,seq,Spot-tag,PDRVRAVSHWSS,,,,Recognized by a nanobody,
+Strep_tag,seq,Strep-tag,WSHPQFEK,,,,Binds to streptavidin,
+T7_tag,seq,T7-tag,MASMTGGQQMG,,,,For affinity purification,
+TC_tag,seq,TC tag,CCPGCC,,,,Recognized by FlAsH and ReAsH biarsenical compounds,
+Ty_tag ,seq,Ty tag ,EVHTNQDPLD,,,,,
+V5_tag,seq,V5 tag,GKPIPNPLLGLDST,,,,Recognized by an antibody,
+VSV_tag,seq,VSV-tag,YTDIEMNRLGK,,,,Recognized by an antibody,
+Xpress_tag ,seq,Xpress tag ,DLYDDDDK,,,,,
+Isopeptag,seq,Isopeptag,TDKDMTITFTNKKDAE,,,,Binds covalently to pilin-C,
+SpyTag,seq,SpyTag,AHIVMVDAYKPTK,,,,Binds covalently to SpyCatcher,
+SnoopTag,seq,SnoopTag,KLGDIEFIKVNK,,,,Binds covalently to SnoopCatcher,
+SnoopTagJr,seq,SnoopTagJr,KLGSIEFIKVNK,,,,Binds to SnoopCatcher or DogTag,
+DogTag,seq,DogTag,DIPATYEFTDGKHYITNEPIPPK,,,,Binds to SnoopTagJr,
+SdyTag,seq,SdyTag,DPIVMIDNDKPIT,,,,Binds covalently to SdyCatcher,
+Thrombin_site,seq,Thrombin site,LVPRGS,,,,For thrombin (cleaves between Arg and Gly),
+PreScission_site,seq,PreScission site,LEVLFQGP,,,,For PreScission protease (cleaves between Gln and Gly),
+TAP,seq,TAP,GRRIPGLINPWKRRWKKNFIAVSAANRFKKISSSGALDYDIPTTASENLYFQGEFGLAQHDEAVDNKFNKEQQNAFYEILHLPNLNEEQRNAFIQSLKDDPSQSANLLAEAKKLNDAQAPKVDNKFNKEQQNAFYEILHLPNLNEEQRNAFIQSLKDDPSQSANLLAEAKKLNDAQAPKVDANHQ ,,,,"Tandem affinity purification (TAP) combination tag: calmodulin binding peptide (CBP), TEV site, and two ProtA IgG-binding domains",
+TRX,seq,TRX,MSDKIIHLTDDSFDTDVLKADGAILVDFWAEWCGPCKMIAPILDEIADEYQGKLTVAKLNIDQNPGTAPKYGIRGIPTLLLFKNGEVAATKVGALSKGQLKEFLDANLAGSGSGHMHHHHHHSSGLVPRG ,,,,Thioredoxin (TRX) tag assists in folding,
+HiBiT,seq,HiBiT,VSGWRLFKKIS,,,,Binds to LgBiT. The complex has luciferase activity.,
+PPD_ribo_collision,seq,PPD ribosome collision site,PPD,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+PPE_ribo_collision,seq,PPE ribosome collision site,PPE,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+PDG_ribo_collision,seq,PDG ribosome collision site,PDG,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+PDD_ribo_collision,seq,PDD ribosome collision site,PDD,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+PGG_ribo_collision,seq,PGG ribosome collision site,PGG,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+RWK_ribo_collision,seq,RWK ribosome collision site,RWK,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+RFK_ribo_collision,seq,RFK ribosome collision site,RFK,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+RLK_ribo_collision,seq,RLK ribosome collision site,RLK,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+RKK_ribo_collision,seq,RKK ribosome collision site,RKK,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+RHK_ribo_collision,seq,RHK ribosome collision site,RHK,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+RMK_ribo_collision,seq,RMK ribosome collision site,RMK,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+RIK_ribo_collision,seq,RIK ribosome collision site,RIK,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
+PPP_bond,seq,Poly-Pro bond,PPP+,,,,The synthesis of Pro-Pro bonds is slow,"Schuller et al. (2018), Nat Rev Mol Cell Biol 19, 526–541"
+GPP_pause_site,seq,GPP pause site,GPP,,,,"Translation pauses strongly at Pro-Pro
+when Gly, Asp or Ala codons are positioned in the E site","Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
+DPP_pause_site,seq,DPP pause site,DPP,,,,"Translation pauses strongly at Pro-Pro
+when Gly, Asp or Ala codons are positioned in the E site","Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
+APP_pause_site,seq,APP pause site,APP,,,,"Translation pauses strongly at Pro-Pro
+when Gly, Asp or Ala codons are positioned in the E site","Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
+PPW_pause_site,seq,PPW pause site,PPW,,,,,"Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
+PPN_pause_site,seq,PPN_pause_site,PPN,,,,,"Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
+HGPP_arrest_peptide,seq,HGPP translational arrest peptide,HGPP,,,,,"Cymer et al. (2015), J Biol Chem 290(16): 10208–10215"
+SecM,seq,SecM arrest peptide,FSTPVWISQAQGIRAGP,,,Escherchia coli,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+SecM_Mannheimia,seq,SecM arrest peptide Mannheimia,HAPIRGSP,,,Mannheimia succiniciproducens,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+MifM,seq,MifM arrest peptide,RITTWIRKVFRMNSPVNDEEDAGS,,,Bacillus subtilis,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+ErmCL,seq,ErmCL arrest peptide,IFVI,,,Staphylococcus aureus (pE194),,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+ErmAL1,seq,ErmAL1 arrest peptide,IAVVE,,,Staphylococcus aureus (Tn554),,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+Cat leader,seq,Cat leader arrest peptide,VKTD,,,Bacillus subtilis,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+CmlA leader,seq,CmlA leader arrest peptide,KNAD,,,Escherchia coli,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+TnaC,seq,TnaC arrest peptide,WFNIDNKIVDHRP*,,,Escherchia coli,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+TnaC_Proteus,seq,TnaC Proteus arrest peptide,WFNIDSELAFFFP,,,Proteus vulgaris,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+AAP,seq,AAP arrest peptide,TSQDYLSDHLWRALNA*,,,Neurospora crassa,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+CGS1,seq,CGS1 arrest peptide,RRNCSNIGVAQIVAAKWS,,,Arabidopsis,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+AdoMet_DC_uORF,seq,AdoMet DC uORF arrest peptide,DIS*,,,Eukaryotes,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+UL4_uORF2,seq,UL4 uORF2 arrest peptide,SAKKLSSLLTCKYIPP*,,,Cytomegalovirus,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+2A_peptide,seq,2A peptide arrest peptide,LKLAGDVESNPG,,,Foot-and-mouth disease virus,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+XBP1u,seq,XBP1u arrest peptide,YQPPFLCQWGRHQPSWKPLMN,,,Homo sapiens,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+WPPP,seq,WPPP arrest peptide,FQKYGIWPPP,,,Escherchia coli,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+MCPC603_linker,seq,MCPC603 flexible linker,KESGSVSSEQLAQFRSLD,,,,Recombinant antibody linker,"Bird et al. (1988), Science 242(4877):423-6"
+Linker_202,seq,Flexible linker 202,EGKSSGSGSESKST,,,,Recombinant antibody linker,"Bird et al. (1988), Science 242(4877):423-6"
+Poly_Gly_linker,seq,Poly-Gly linker,GGGGGGGG,,,Saccharomyces cerevisiae,Flexible linker,"Sabourin et al. (2007), Yeast 24(1): 39–45"
+Gly_Ser_linker,seq,Gly-Ser rich flexible linker,GSAGSAAGSGEF,,,,Flexible linker,"Waldo et al. (1999), Nat Biotechnol 17(7):691-5"
+Disulfide_linker,seq,Disulfide linker,LEAGCKNFFPRSFTSCGSLE,,,,Cyclopeptide linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+Cyclopeptide_linker,seq,Cyclopeptide linker,CRRRRRREAEAC,,,,Dithiocyclopeptide linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+hexaGly_linker,seq,Hexa-Gly linker,GGGGGG,,,,Flexible linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+Pro_rich_linker,seq,Pro rich linker,PAPAP,,,,Rigid linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+helical linker,seq,Helical linker,AEAAAKEAAAKA,,,,Rigid helical linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+FIX_linker,seq,FIX linker,VSQTSKLTRAETVFPDV,,,,Proteolytically cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+MMP_1_9_site,seq,MMP 1/9 cleavage site,PLGLWA,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+HIV_protease_site,seq,HIV protease cleavage site,RVLAEA,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+HCV_NS3_protease_site,seq,HCV NS3 protease cleavage site,EDVVCCSMSY,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+Factor_Xa_site,seq,Factor Xa cleavage site,GGIEGRGS,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+Furin_site_PEA,seq,Furin cleavage site,TRHRQPRGWE,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+Furin_site_diphteria,seq,Furin site from diphteria,AGNRVRRSVG,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+Furin_site_polyarginine,seq,Polyarginine tract for furin cleavage,RRRRRRRRR,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+Cathepsin_B_site,seq,Cathepsin B site,GFLG,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+FLAG_tag_pattern,pattern,FLAG tag,DYKDDD[D|K|DK],,,,"Recognized by an antibody, for purification; has enterokinase cleavage site",
+Polyarginine_tag_pattern,pattern,Polyarginine tag,"R{5,9}",,,,Binds efficiently to cation-exchange resin,
+His_tag_pattern,pattern,His tag,"H{5,10}",,,,Bound by a nickel or cobalt chelate,
