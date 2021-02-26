@@ -76,6 +76,7 @@ def annotate_record(seqrecord, seq_dataset=seq_dataset):
 def create_and_annotate_record(sequence, seq_dataset=seq_dataset):
     """Create a SeqRecord from an amino acid sequence string.
 
+
     **Parameters**
 
     **sequence**
@@ -94,6 +95,7 @@ def create_and_annotate_record(sequence, seq_dataset=seq_dataset):
 
 def convert_prosite_to_regex(prosite_string):
     """Convert a PROSITE motif string to a regex string.
+
 
     **Parameters**
 

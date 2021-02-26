@@ -1,0 +1,1103 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.0">
+    
+    
+      
+        <title>Minotaor - Minotaor</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.b5d04df8.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9ab2c1f8.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="lightgreen">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-minotaorminotaor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="Minotaor" class="md-header-nav__button md-logo" aria-label="Minotaor">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis md-ellipsis">
+          Minotaor
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/Edinburgh-Genome-Foundry/Minotaor/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Minotaor
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Minotaor" class="md-nav__button md-logo" aria-label="Minotaor">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Minotaor
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Edinburgh-Genome-Foundry/Minotaor/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Minotaor
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Reference
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Minotaor
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Minotaor" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Minotaor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Minotaor
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Minotaor" class="md-nav__link md-nav__link--active">
+      Minotaor
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotate_record" class="md-nav__link">
+    annotate_record
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert_prosite_to_regex" class="md-nav__link">
+    convert_prosite_to_regex
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_and_annotate_record" class="md-nav__link">
+    create_and_annotate_record
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../version/" title="Version" class="md-nav__link">
+      Version
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotate_record" class="md-nav__link">
+    annotate_record
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert_prosite_to_regex" class="md-nav__link">
+    convert_prosite_to_regex
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_and_annotate_record" class="md-nav__link">
+    create_and_annotate_record
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Edinburgh-Genome-Foundry/Minotaor/edit/master/reference/minotaor/minotaor.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="module-minotaorminotaor">Module minotaor.minotaor</h1>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="s s-Atom">import</span> <span class="s s-Atom">os</span>
+
+<span class="s s-Atom">import</span> <span class="s s-Atom">re</span>
+
+<span class="s s-Atom">import</span> <span class="s s-Atom">pandas</span>
+
+<span class="s s-Atom">from</span> <span class="nv">Bio</span><span class="p">.</span><span class="nv">Seq</span> <span class="s s-Atom">import</span> <span class="nv">Seq</span>
+
+<span class="s s-Atom">from</span> <span class="nv">Bio</span><span class="p">.</span><span class="nv">SeqFeature</span> <span class="s s-Atom">import</span> <span class="nv">SeqFeature</span><span class="p">,</span> <span class="nv">FeatureLocation</span>
+
+<span class="s s-Atom">from</span> <span class="nv">Bio</span><span class="p">.</span><span class="nv">SeqRecord</span> <span class="s s-Atom">import</span> <span class="nv">SeqRecord</span>
+
+<span class="nv">DATA_DIR</span> <span class="o">=</span> <span class="s s-Atom">os</span><span class="p">.</span><span class="s s-Atom">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s s-Atom">os</span><span class="p">.</span><span class="s s-Atom">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="s s-Atom">os</span><span class="p">.</span><span class="s s-Atom">path</span><span class="p">.</span><span class="nf">realpath</span><span class="p">(</span><span class="k">__</span><span class="s s-Atom">file__</span><span class="p">)),</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+
+<span class="s s-Atom">seq_dataset</span> <span class="o">=</span> <span class="s s-Atom">pandas</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s s-Atom">os</span><span class="p">.</span><span class="s s-Atom">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="nv">DATA_DIR</span><span class="p">,</span> <span class="s2">&quot;seq.csv&quot;</span><span class="p">))</span>
+
+<span class="s s-Atom">def</span> <span class="nf">annotate_record</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">,</span> <span class="s s-Atom">seq_dataset</span><span class="o">=</span><span class="s s-Atom">seq_dataset</span><span class="p">)</span><span class="s s-Atom">:</span>
+
+    <span class="s2">&quot;&quot;&quot;Annotate a record with a reference sequence dataset.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **seqrecord**</span>
+
+<span class="s2">    &gt; SeqRecord to annotate.</span>
+
+<span class="s2">    **seq_dataset**</span>
+
+<span class="s2">    &gt; A minotaor sequence dataset (`pandas.DataFrame`).</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">FLAG</span> <span class="nv">NO</span> <span class="nv">START</span><span class="s s-Atom">:</span> <span class="nv">M</span>
+
+    <span class="s s-Atom">if</span> <span class="nf">str</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">seq</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="p">!</span><span class="o">=</span> <span class="s2">&quot;M&quot;</span><span class="s s-Atom">:</span>
+
+        <span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">features</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span>
+
+            <span class="nv">SeqFeature</span><span class="p">(</span><span class="nv">FeatureLocation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s s-Atom">type=</span><span class="s2">&quot;warning&quot;</span><span class="p">,</span> <span class="s s-Atom">id=</span><span class="s2">&quot;no start codon&quot;</span><span class="p">)</span>
+
+        <span class="p">)</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">FLAG</span> <span class="nv">NO</span> <span class="nv">END</span><span class="s s-Atom">:</span> <span class="o">*</span>
+
+    <span class="s s-Atom">if</span> <span class="nf">str</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">seq</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">!</span><span class="o">=</span> <span class="s2">&quot;*&quot;</span><span class="s s-Atom">:</span>
+
+        <span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">features</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span>
+
+            <span class="nv">SeqFeature</span><span class="p">(</span>
+
+                <span class="nv">FeatureLocation</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">)),</span>
+
+                <span class="s s-Atom">type=</span><span class="s2">&quot;warning&quot;</span><span class="p">,</span>
+
+                <span class="s s-Atom">id=</span><span class="s2">&quot;not a stop codon&quot;</span><span class="p">,</span>
+
+            <span class="p">)</span>
+
+        <span class="p">)</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">FLAG</span> <span class="nv">STOP</span> <span class="nv">CODONS</span><span class="s s-Atom">:</span> <span class="o">*</span>
+
+    <span class="s s-Atom">stop_positions</span> <span class="o">=</span> <span class="p">[</span><span class="s s-Atom">i</span> <span class="s s-Atom">for</span> <span class="s s-Atom">i</span><span class="p">,</span> <span class="s s-Atom">letter</span> <span class="s s-Atom">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">seq</span><span class="p">))</span> <span class="s s-Atom">if</span> <span class="s s-Atom">letter</span> <span class="o">==</span> <span class="s2">&quot;*&quot;</span><span class="p">]</span>
+
+    <span class="s s-Atom">for</span> <span class="s s-Atom">position</span> <span class="s s-Atom">in</span> <span class="s s-Atom">stop_positions:</span>
+
+        <span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">features</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span>
+
+            <span class="nv">SeqFeature</span><span class="p">(</span>
+
+                <span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">position</span><span class="p">,</span> <span class="s s-Atom">position</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s s-Atom">type=</span><span class="s2">&quot;warning&quot;</span><span class="p">,</span> <span class="s s-Atom">id=</span><span class="s2">&quot;STOP&quot;</span>
+
+            <span class="p">)</span>
+
+        <span class="p">)</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">ANNOTATE</span> <span class="nv">SEQUENCES</span>
+
+    <span class="s s-Atom">sequences</span> <span class="o">=</span> <span class="s s-Atom">seq_dataset</span><span class="p">.</span><span class="s s-Atom">loc</span><span class="p">[</span><span class="s s-Atom">seq_dataset</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;seq&quot;</span><span class="p">][</span><span class="s2">&quot;sequence&quot;</span><span class="p">].</span><span class="nf">to_list</span><span class="p">()</span>
+
+    <span class="s s-Atom">names</span> <span class="o">=</span> <span class="s s-Atom">seq_dataset</span><span class="p">.</span><span class="s s-Atom">loc</span><span class="p">[</span><span class="s s-Atom">seq_dataset</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;seq&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">].</span><span class="nf">to_list</span><span class="p">()</span>
+
+    <span class="s s-Atom">for</span> <span class="s s-Atom">index</span><span class="p">,</span> <span class="s s-Atom">sequence</span> <span class="s s-Atom">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="s s-Atom">sequences</span><span class="p">)</span><span class="s s-Atom">:</span>
+
+        <span class="s s-Atom">len_sequence</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="s s-Atom">sequence</span><span class="p">)</span>
+
+        <span class="s s-Atom">name</span> <span class="o">=</span> <span class="s s-Atom">names</span><span class="p">[</span><span class="s s-Atom">index</span><span class="p">]</span>
+
+        <span class="s s-Atom">matches</span> <span class="o">=</span> <span class="p">[</span>
+
+            <span class="s s-Atom">m</span><span class="p">.</span><span class="nf">start</span><span class="p">()</span> <span class="s s-Atom">for</span> <span class="s s-Atom">m</span> <span class="s s-Atom">in</span> <span class="s s-Atom">re</span><span class="p">.</span><span class="nf">finditer</span><span class="p">(</span><span class="s s-Atom">re</span><span class="p">.</span><span class="nf">escape</span><span class="p">(</span><span class="s s-Atom">sequence</span><span class="p">),</span> <span class="nf">str</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">seq</span><span class="p">))</span>
+
+        <span class="p">]</span>
+
+        <span class="s s-Atom">for</span> <span class="s s-Atom">match</span> <span class="s s-Atom">in</span> <span class="nn">matches</span><span class="p">:</span>
+
+            <span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">features</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span>
+
+                <span class="nv">SeqFeature</span><span class="p">(</span>
+
+                    <span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">match</span><span class="p">,</span> <span class="p">(</span><span class="s s-Atom">match</span> <span class="o">+</span> <span class="s s-Atom">len_sequence</span><span class="p">)),</span> <span class="s s-Atom">type=</span><span class="s2">&quot;CDS&quot;</span><span class="p">,</span> <span class="s s-Atom">id</span><span class="o">=</span><span class="s s-Atom">name</span>
+
+                <span class="p">)</span>
+
+            <span class="p">)</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">ANNOTATE</span> <span class="nv">PATTERNS</span>
+
+    <span class="s s-Atom">patterns</span> <span class="o">=</span> <span class="s s-Atom">seq_dataset</span><span class="p">.</span><span class="s s-Atom">loc</span><span class="p">[</span><span class="s s-Atom">seq_dataset</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pattern&quot;</span><span class="p">][</span><span class="s2">&quot;sequence&quot;</span><span class="p">].</span><span class="nf">to_list</span><span class="p">()</span>
+
+    <span class="s s-Atom">names</span> <span class="o">=</span> <span class="s s-Atom">seq_dataset</span><span class="p">.</span><span class="s s-Atom">loc</span><span class="p">[</span><span class="s s-Atom">seq_dataset</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pattern&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">].</span><span class="nf">to_list</span><span class="p">()</span>
+
+    <span class="s s-Atom">for</span> <span class="s s-Atom">index</span><span class="p">,</span> <span class="s s-Atom">pattern</span> <span class="s s-Atom">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="s s-Atom">patterns</span><span class="p">)</span><span class="s s-Atom">:</span>
+
+        <span class="s s-Atom">name</span> <span class="o">=</span> <span class="s s-Atom">names</span><span class="p">[</span><span class="s s-Atom">index</span><span class="p">]</span>
+
+        <span class="s s-Atom">matches</span> <span class="o">=</span> <span class="p">{</span><span class="s s-Atom">m</span><span class="p">.</span><span class="nf">start</span><span class="p">()</span><span class="s s-Atom">:</span> <span class="s s-Atom">m</span><span class="p">.</span><span class="nf">end</span><span class="p">()</span> <span class="s s-Atom">for</span> <span class="s s-Atom">m</span> <span class="s s-Atom">in</span> <span class="s s-Atom">re</span><span class="p">.</span><span class="nf">finditer</span><span class="p">(</span><span class="s s-Atom">pattern</span><span class="p">,</span> <span class="nf">str</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">seq</span><span class="p">))}</span>
+
+        <span class="s s-Atom">for</span> <span class="s s-Atom">start</span><span class="p">,</span> <span class="s s-Atom">end</span> <span class="s s-Atom">in</span> <span class="s s-Atom">matches</span><span class="p">.</span><span class="nf">items</span><span class="p">()</span><span class="s s-Atom">:</span>
+
+            <span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">features</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span>
+
+                <span class="nv">SeqFeature</span><span class="p">(</span><span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">start</span><span class="p">,</span> <span class="s s-Atom">end</span><span class="p">),</span> <span class="s s-Atom">type=</span><span class="s2">&quot;CDS&quot;</span><span class="p">,</span> <span class="s s-Atom">id</span><span class="o">=</span><span class="s s-Atom">name</span><span class="p">)</span>
+
+            <span class="p">)</span>
+
+    <span class="s s-Atom">return</span> <span class="s s-Atom">seqrecord</span>
+
+<span class="s s-Atom">def</span> <span class="nf">create_and_annotate_record</span><span class="p">(</span><span class="s s-Atom">sequence</span><span class="p">,</span> <span class="s s-Atom">seq_dataset</span><span class="o">=</span><span class="s s-Atom">seq_dataset</span><span class="p">)</span><span class="s s-Atom">:</span>
+
+    <span class="s2">&quot;&quot;&quot;Create a SeqRecord from an amino acid sequence string.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **sequence**</span>
+
+<span class="s2">    &gt; Sequence (`str`).</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="s s-Atom">if</span> <span class="s s-Atom">seq_dataset</span> <span class="o">is</span> <span class="nv">None</span><span class="s s-Atom">:</span>
+
+        <span class="s s-Atom">seq_dataset</span> <span class="o">=</span> <span class="s s-Atom">seq_dataset</span>
+
+    <span class="s s-Atom">protein</span> <span class="o">=</span> <span class="nv">Seq</span><span class="p">(</span><span class="s s-Atom">sequence</span><span class="p">)</span>
+
+    <span class="s s-Atom">protein_record</span> <span class="o">=</span> <span class="nv">SeqRecord</span><span class="p">(</span>
+
+        <span class="s s-Atom">protein</span><span class="p">,</span> <span class="s s-Atom">id=</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s s-Atom">annotations=</span><span class="p">{</span><span class="s2">&quot;molecule_type&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;protein&quot;</span><span class="p">}</span>
+
+    <span class="p">)</span>
+
+    <span class="s s-Atom">protein_record</span> <span class="o">=</span> <span class="nf">annotate_record</span><span class="p">(</span><span class="s s-Atom">protein_record</span><span class="p">)</span>
+
+    <span class="s s-Atom">return</span> <span class="s s-Atom">protein_record</span>
+
+<span class="s s-Atom">def</span> <span class="nf">convert_prosite_to_regex</span><span class="p">(</span><span class="s s-Atom">prosite_string</span><span class="p">)</span><span class="s s-Atom">:</span>
+
+    <span class="s2">&quot;&quot;&quot;Convert a PROSITE motif string to a regex string.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **prosite_string**</span>
+
+<span class="s2">    &gt; The PROSITE string (`str`).</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">Implemented</span> <span class="s s-Atom">with</span> <span class="s s-Atom">a</span> <span class="nn">hack</span><span class="p">:</span> <span class="s s-Atom">by</span> <span class="s s-Atom">replacing</span> <span class="s s-Atom">characters</span><span class="p">,</span> <span class="s s-Atom">instead</span> <span class="s s-Atom">of</span> <span class="s s-Atom">using</span> <span class="s s-Atom">a</span> <span class="s s-Atom">lexer</span><span class="p">.</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">See</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="s s-Atom">prosite</span><span class="p">.</span><span class="s s-Atom">expasy</span><span class="p">.</span><span class="s s-Atom">org</span><span class="o">/</span><span class="s s-Atom">prosuser</span><span class="p">.</span><span class="s s-Atom">html#conv_pa</span> <span class="s s-Atom">for</span> <span class="s s-Atom">definition</span><span class="p">.</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">Remove</span> <span class="s s-Atom">period</span> <span class="s s-Atom">that</span> <span class="s s-Atom">ends</span> <span class="s s-Atom">the</span> <span class="nn">pattern</span><span class="p">:</span>
+
+    <span class="s s-Atom">if</span> <span class="s s-Atom">prosite_string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="s s-Atom">:</span>
+
+        <span class="s s-Atom">prosite_string</span> <span class="o">=</span> <span class="s s-Atom">prosite_string</span><span class="p">[:-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="nn">else</span><span class="p">:</span>
+
+        <span class="s s-Atom">raise</span> <span class="nv">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid format: a period (&#39;.&#39;) must end the pattern&quot;</span><span class="p">)</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">N</span><span class="o">-</span> <span class="s s-Atom">and</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">terminal</span> <span class="nn">restrictions</span><span class="p">:</span>
+
+    <span class="s s-Atom">if</span> <span class="s2">&quot;&lt;&quot;</span> <span class="s s-Atom">in</span> <span class="s s-Atom">prosite_string:</span>
+
+        <span class="nv">N_terminal</span> <span class="o">=</span> <span class="nv">True</span>
+
+        <span class="s s-Atom">prosite_string</span> <span class="o">=</span> <span class="s s-Atom">prosite_string</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;&lt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="nn">else</span><span class="p">:</span>
+
+        <span class="nv">N_terminal</span> <span class="o">=</span> <span class="nv">False</span>
+
+    <span class="s s-Atom">if</span> <span class="s2">&quot;&gt;&quot;</span> <span class="s s-Atom">in</span> <span class="s s-Atom">prosite_string:</span>
+
+        <span class="s s-Atom">if</span> <span class="s s-Atom">prosite_string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">!</span><span class="o">=</span> <span class="s2">&quot;&gt;&quot;</span><span class="s s-Atom">:</span>
+
+            <span class="s s-Atom">raise</span> <span class="nv">Exception</span><span class="p">(</span><span class="s2">&quot;&#39;&gt;&#39; inside square brackets is not supported yet&quot;</span><span class="p">)</span>
+
+        <span class="nv">C_terminal</span> <span class="o">=</span> <span class="nv">True</span>
+
+        <span class="s s-Atom">prosite_string</span> <span class="o">=</span> <span class="s s-Atom">prosite_string</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="nn">else</span><span class="p">:</span>
+
+        <span class="nv">C_terminal</span> <span class="o">=</span> <span class="nv">False</span>
+
+    <span class="s s-Atom">tokens</span> <span class="o">=</span> <span class="s s-Atom">prosite_string</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+
+    <span class="s s-Atom">regex_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="s s-Atom">for</span> <span class="s s-Atom">token</span> <span class="s s-Atom">in</span> <span class="nn">tokens</span><span class="p">:</span>
+
+        <span class="s s-Atom">#</span> <span class="nv">Convert</span> <span class="s s-Atom">&#39;x&#39;</span> <span class="s s-Atom">to</span> <span class="nn">regex</span><span class="p">:</span> <span class="s s-Atom">any</span> <span class="s s-Atom">amino</span> <span class="s s-Atom">acid</span><span class="p">,</span> <span class="s s-Atom">but</span> <span class="s s-Atom">don</span><span class="err">&#39;</span><span class="s s-Atom">t</span> <span class="s s-Atom">match</span> <span class="s s-Atom">stop</span> <span class="s s-Atom">codons</span><span class="p">.</span>
+
+        <span class="s s-Atom">token</span> <span class="o">=</span> <span class="s s-Atom">token</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="err">&quot;</span><span class="p">[</span><span class="s s-Atom">^\\*</span><span class="p">]</span><span class="s2">&quot;)</span>
+
+<span class="s2">        # Replace braces for exceptions.</span>
+
+<span class="s2">        if token[0] == &quot;</span><span class="p">{</span><span class="s2">&quot;:</span>
+
+<span class="s2">            token = token.replace(&quot;</span><span class="p">{</span><span class="s2">&quot;, &quot;</span><span class="p">[</span><span class="s s-Atom">^</span><span class="s2">&quot;)</span>
+
+<span class="s2">            token = token.replace(&quot;</span><span class="p">}</span><span class="s2">&quot;, &quot;</span><span class="p">]</span><span class="s2">&quot;)</span>
+
+<span class="s2">        # Replace for repetition. Must come after exception replacement.</span>
+
+<span class="s2">        token = token.replace(&quot;</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">{</span><span class="s2">&quot;)</span>
+
+<span class="s2">        token = token.replace(&quot;</span><span class="p">)</span><span class="s2">&quot;, &quot;</span><span class="p">}</span><span class="s2">&quot;)</span>
+
+<span class="s2">        regex_tokens += [token]</span>
+
+<span class="s2">    regex = &quot;&quot;.join(regex_tokens)</span>
+
+<span class="s2">    if N_terminal:</span>
+
+<span class="s2">        regex = &quot;</span><span class="s s-Atom">^</span><span class="s2">&quot; + regex</span>
+
+<span class="s2">    if C_terminal:</span>
+
+<span class="s2">        regex += &quot;</span><span class="err">$&quot;</span>
+
+    <span class="s s-Atom">return</span> <span class="s s-Atom">regex</span>
+</code></pre></div>
+
+
+</details>
+<h2 id="variables">Variables</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">DATA_DIR</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">seq_dataset</span>
+</code></pre></div>
+
+
+<h2 id="functions">Functions</h2>
+<h3 id="annotate_record">annotate_record</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">annotate_record</span><span class="p">(</span>
+    <span class="n">seqrecord</span><span class="p">,</span>
+    <span class="n">seq_dataset</span><span class="o">=</span>                          <span class="nb">id</span>  <span class="o">...</span>                                          <span class="n">reference</span>
+<span class="mi">0</span>                      <span class="mi">6</span><span class="n">xHis</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">1</span>                   <span class="n">TEV_site</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">2</span>                   <span class="n">ALFA_tag</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">3</span>                     <span class="n">AviTag</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">4</span>                      <span class="n">C_tag</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="o">..</span>                       <span class="o">...</span>  <span class="o">...</span>                                                <span class="o">...</span>
+<span class="mi">86</span>   <span class="n">Furin_site_polyarginine</span>  <span class="o">...</span>  <span class="n">Chen</span> <span class="n">et</span> <span class="n">al</span><span class="o">.</span> <span class="p">(</span><span class="mi">2013</span><span class="p">),</span> <span class="n">Adv</span> <span class="n">Drug</span> <span class="n">Deliv</span> <span class="n">Rev</span> <span class="mi">65</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span><span class="o">...</span>
+<span class="mi">87</span>          <span class="n">Cathepsin_B_site</span>  <span class="o">...</span>  <span class="n">Chen</span> <span class="n">et</span> <span class="n">al</span><span class="o">.</span> <span class="p">(</span><span class="mi">2013</span><span class="p">),</span> <span class="n">Adv</span> <span class="n">Drug</span> <span class="n">Deliv</span> <span class="n">Rev</span> <span class="mi">65</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span><span class="o">...</span>
+<span class="mi">88</span>          <span class="n">FLAG_tag_pattern</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">89</span>  <span class="n">Polyarginine_tag_pattern</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">90</span>           <span class="n">His_tag_pattern</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+
+<span class="p">[</span><span class="mi">91</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">9</span> <span class="n">columns</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Annotate a record with a reference sequence dataset.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>seqrecord</strong></p>
+<blockquote>
+<p>SeqRecord to annotate.</p>
+</blockquote>
+<p><strong>seq_dataset</strong></p>
+<blockquote>
+<p>A minotaor sequence dataset (<code>pandas.DataFrame</code>).</p>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">annotate_record</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">,</span><span class="w"> </span><span class="n">seq_dataset</span><span class="o">=</span><span class="n">seq_dataset</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;Annotate a record with a reference sequence dataset.</span>
+
+<span class="ss">    **Parameters**</span>
+
+<span class="ss">    **seqrecord**</span>
+
+<span class="ss">    &gt; SeqRecord to annotate.</span>
+
+<span class="ss">    **seq_dataset**</span>
+
+<span class="ss">    &gt; A minotaor sequence dataset (`pandas.DataFrame`).</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">FLAG</span><span class="w"> </span><span class="k">NO</span><span class="w"> </span><span class="k">START</span><span class="err">:</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">.</span><span class="n">seq</span><span class="p">)</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="ss">&quot;M&quot;</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">SeqFeature</span><span class="p">(</span><span class="n">FeatureLocation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;warning&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="ss">&quot;no start codon&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">FLAG</span><span class="w"> </span><span class="k">NO</span><span class="w"> </span><span class="k">END</span><span class="err">:</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">.</span><span class="n">seq</span><span class="p">)</span><span class="o">[</span><span class="n">-1</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="ss">&quot;*&quot;</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">SeqFeature</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">FeatureLocation</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">)),</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;warning&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">id</span><span class="o">=</span><span class="ss">&quot;not a stop codon&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">FLAG</span><span class="w"> </span><span class="n">STOP</span><span class="w"> </span><span class="nl">CODONS</span><span class="p">:</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">stop_positions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">i for i, letter in enumerate(str(seqrecord.seq)) if letter == &quot;*&quot;</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="k">position</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">stop_positions</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">SeqFeature</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">FeatureLocation</span><span class="p">(</span><span class="k">position</span><span class="p">,</span><span class="w"> </span><span class="k">position</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;warning&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="ss">&quot;STOP&quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">ANNOTATE</span><span class="w"> </span><span class="n">SEQUENCES</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">sequences</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq_dataset</span><span class="p">.</span><span class="n">loc</span><span class="o">[</span><span class="n">seq_dataset[&quot;type&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;seq&quot;</span><span class="err">]</span><span class="o">[</span><span class="n">&quot;sequence&quot;</span><span class="o">]</span><span class="p">.</span><span class="n">to_list</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq_dataset</span><span class="p">.</span><span class="n">loc</span><span class="o">[</span><span class="n">seq_dataset[&quot;type&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;seq&quot;</span><span class="err">]</span><span class="o">[</span><span class="n">&quot;name&quot;</span><span class="o">]</span><span class="p">.</span><span class="n">to_list</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="k">index</span><span class="p">,</span><span class="w"> </span><span class="k">sequence</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">sequences</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">len_sequence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="k">sequence</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">names</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
+
+<span class="n">            m.start() for m in re.finditer(re.escape(sequence), str(seqrecord.seq))</span>
+
+<span class="n">        </span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">matches</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">SeqFeature</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">FeatureLocation</span><span class="p">(</span><span class="k">match</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">match</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">len_sequence</span><span class="p">)),</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;CDS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="n">name</span><span class="w"></span>
+
+<span class="w">                </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">ANNOTATE</span><span class="w"> </span><span class="n">PATTERNS</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">patterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq_dataset</span><span class="p">.</span><span class="n">loc</span><span class="o">[</span><span class="n">seq_dataset[&quot;type&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;pattern&quot;</span><span class="err">]</span><span class="o">[</span><span class="n">&quot;sequence&quot;</span><span class="o">]</span><span class="p">.</span><span class="n">to_list</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq_dataset</span><span class="p">.</span><span class="n">loc</span><span class="o">[</span><span class="n">seq_dataset[&quot;type&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;pattern&quot;</span><span class="err">]</span><span class="o">[</span><span class="n">&quot;name&quot;</span><span class="o">]</span><span class="p">.</span><span class="n">to_list</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="k">index</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">patterns</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">names</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="n">m</span><span class="p">.</span><span class="k">start</span><span class="p">()</span><span class="err">:</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="k">end</span><span class="p">()</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">re</span><span class="p">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">.</span><span class="n">seq</span><span class="p">))</span><span class="err">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="k">start</span><span class="p">,</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">matches</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">SeqFeature</span><span class="p">(</span><span class="n">FeatureLocation</span><span class="p">(</span><span class="k">start</span><span class="p">,</span><span class="w"> </span><span class="k">end</span><span class="p">),</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;CDS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="n">name</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">seqrecord</span><span class="w"></span>
+</code></pre></div>
+
+
+</details>
+<h3 id="convert_prosite_to_regex">convert_prosite_to_regex</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">convert_prosite_to_regex</span><span class="p">(</span>
+    <span class="n">prosite_string</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Convert a PROSITE motif string to a regex string.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>prosite_string</strong></p>
+<blockquote>
+<p>The PROSITE string (<code>str</code>).</p>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="s s-Atom">def</span> <span class="nf">convert_prosite_to_regex</span><span class="p">(</span><span class="s s-Atom">prosite_string</span><span class="p">)</span><span class="s s-Atom">:</span>
+
+    <span class="s2">&quot;&quot;&quot;Convert a PROSITE motif string to a regex string.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **prosite_string**</span>
+
+<span class="s2">    &gt; The PROSITE string (`str`).</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">Implemented</span> <span class="s s-Atom">with</span> <span class="s s-Atom">a</span> <span class="nn">hack</span><span class="p">:</span> <span class="s s-Atom">by</span> <span class="s s-Atom">replacing</span> <span class="s s-Atom">characters</span><span class="p">,</span> <span class="s s-Atom">instead</span> <span class="s s-Atom">of</span> <span class="s s-Atom">using</span> <span class="s s-Atom">a</span> <span class="s s-Atom">lexer</span><span class="p">.</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">See</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="s s-Atom">prosite</span><span class="p">.</span><span class="s s-Atom">expasy</span><span class="p">.</span><span class="s s-Atom">org</span><span class="o">/</span><span class="s s-Atom">prosuser</span><span class="p">.</span><span class="s s-Atom">html#conv_pa</span> <span class="s s-Atom">for</span> <span class="s s-Atom">definition</span><span class="p">.</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">Remove</span> <span class="s s-Atom">period</span> <span class="s s-Atom">that</span> <span class="s s-Atom">ends</span> <span class="s s-Atom">the</span> <span class="nn">pattern</span><span class="p">:</span>
+
+    <span class="s s-Atom">if</span> <span class="s s-Atom">prosite_string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="s s-Atom">:</span>
+
+        <span class="s s-Atom">prosite_string</span> <span class="o">=</span> <span class="s s-Atom">prosite_string</span><span class="p">[:-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="nn">else</span><span class="p">:</span>
+
+        <span class="s s-Atom">raise</span> <span class="nv">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid format: a period (&#39;.&#39;) must end the pattern&quot;</span><span class="p">)</span>
+
+    <span class="s s-Atom">#</span> <span class="nv">N</span><span class="o">-</span> <span class="s s-Atom">and</span> <span class="nv">C</span><span class="o">-</span><span class="s s-Atom">terminal</span> <span class="nn">restrictions</span><span class="p">:</span>
+
+    <span class="s s-Atom">if</span> <span class="s2">&quot;&lt;&quot;</span> <span class="s s-Atom">in</span> <span class="s s-Atom">prosite_string:</span>
+
+        <span class="nv">N_terminal</span> <span class="o">=</span> <span class="nv">True</span>
+
+        <span class="s s-Atom">prosite_string</span> <span class="o">=</span> <span class="s s-Atom">prosite_string</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;&lt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="nn">else</span><span class="p">:</span>
+
+        <span class="nv">N_terminal</span> <span class="o">=</span> <span class="nv">False</span>
+
+    <span class="s s-Atom">if</span> <span class="s2">&quot;&gt;&quot;</span> <span class="s s-Atom">in</span> <span class="s s-Atom">prosite_string:</span>
+
+        <span class="s s-Atom">if</span> <span class="s s-Atom">prosite_string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">!</span><span class="o">=</span> <span class="s2">&quot;&gt;&quot;</span><span class="s s-Atom">:</span>
+
+            <span class="s s-Atom">raise</span> <span class="nv">Exception</span><span class="p">(</span><span class="s2">&quot;&#39;&gt;&#39; inside square brackets is not supported yet&quot;</span><span class="p">)</span>
+
+        <span class="nv">C_terminal</span> <span class="o">=</span> <span class="nv">True</span>
+
+        <span class="s s-Atom">prosite_string</span> <span class="o">=</span> <span class="s s-Atom">prosite_string</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="nn">else</span><span class="p">:</span>
+
+        <span class="nv">C_terminal</span> <span class="o">=</span> <span class="nv">False</span>
+
+    <span class="s s-Atom">tokens</span> <span class="o">=</span> <span class="s s-Atom">prosite_string</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+
+    <span class="s s-Atom">regex_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="s s-Atom">for</span> <span class="s s-Atom">token</span> <span class="s s-Atom">in</span> <span class="nn">tokens</span><span class="p">:</span>
+
+        <span class="s s-Atom">#</span> <span class="nv">Convert</span> <span class="s s-Atom">&#39;x&#39;</span> <span class="s s-Atom">to</span> <span class="nn">regex</span><span class="p">:</span> <span class="s s-Atom">any</span> <span class="s s-Atom">amino</span> <span class="s s-Atom">acid</span><span class="p">,</span> <span class="s s-Atom">but</span> <span class="s s-Atom">don</span><span class="err">&#39;</span><span class="s s-Atom">t</span> <span class="s s-Atom">match</span> <span class="s s-Atom">stop</span> <span class="s s-Atom">codons</span><span class="p">.</span>
+
+        <span class="s s-Atom">token</span> <span class="o">=</span> <span class="s s-Atom">token</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="err">&quot;</span><span class="p">[</span><span class="s s-Atom">^\\*</span><span class="p">]</span><span class="s2">&quot;)</span>
+
+<span class="s2">        # Replace braces for exceptions.</span>
+
+<span class="s2">        if token[0] == &quot;</span><span class="p">{</span><span class="s2">&quot;:</span>
+
+<span class="s2">            token = token.replace(&quot;</span><span class="p">{</span><span class="s2">&quot;, &quot;</span><span class="p">[</span><span class="s s-Atom">^</span><span class="s2">&quot;)</span>
+
+<span class="s2">            token = token.replace(&quot;</span><span class="p">}</span><span class="s2">&quot;, &quot;</span><span class="p">]</span><span class="s2">&quot;)</span>
+
+<span class="s2">        # Replace for repetition. Must come after exception replacement.</span>
+
+<span class="s2">        token = token.replace(&quot;</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">{</span><span class="s2">&quot;)</span>
+
+<span class="s2">        token = token.replace(&quot;</span><span class="p">)</span><span class="s2">&quot;, &quot;</span><span class="p">}</span><span class="s2">&quot;)</span>
+
+<span class="s2">        regex_tokens += [token]</span>
+
+<span class="s2">    regex = &quot;&quot;.join(regex_tokens)</span>
+
+<span class="s2">    if N_terminal:</span>
+
+<span class="s2">        regex = &quot;</span><span class="s s-Atom">^</span><span class="s2">&quot; + regex</span>
+
+<span class="s2">    if C_terminal:</span>
+
+<span class="s2">        regex += &quot;</span><span class="err">$&quot;</span>
+
+    <span class="s s-Atom">return</span> <span class="s s-Atom">regex</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="create_and_annotate_record">create_and_annotate_record</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">create_and_annotate_record</span><span class="p">(</span>
+    <span class="n">sequence</span><span class="p">,</span>
+    <span class="n">seq_dataset</span><span class="o">=</span>                          <span class="nb">id</span>  <span class="o">...</span>                                          <span class="n">reference</span>
+<span class="mi">0</span>                      <span class="mi">6</span><span class="n">xHis</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">1</span>                   <span class="n">TEV_site</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">2</span>                   <span class="n">ALFA_tag</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">3</span>                     <span class="n">AviTag</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">4</span>                      <span class="n">C_tag</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="o">..</span>                       <span class="o">...</span>  <span class="o">...</span>                                                <span class="o">...</span>
+<span class="mi">86</span>   <span class="n">Furin_site_polyarginine</span>  <span class="o">...</span>  <span class="n">Chen</span> <span class="n">et</span> <span class="n">al</span><span class="o">.</span> <span class="p">(</span><span class="mi">2013</span><span class="p">),</span> <span class="n">Adv</span> <span class="n">Drug</span> <span class="n">Deliv</span> <span class="n">Rev</span> <span class="mi">65</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span><span class="o">...</span>
+<span class="mi">87</span>          <span class="n">Cathepsin_B_site</span>  <span class="o">...</span>  <span class="n">Chen</span> <span class="n">et</span> <span class="n">al</span><span class="o">.</span> <span class="p">(</span><span class="mi">2013</span><span class="p">),</span> <span class="n">Adv</span> <span class="n">Drug</span> <span class="n">Deliv</span> <span class="n">Rev</span> <span class="mi">65</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span><span class="o">...</span>
+<span class="mi">88</span>          <span class="n">FLAG_tag_pattern</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">89</span>  <span class="n">Polyarginine_tag_pattern</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+<span class="mi">90</span>           <span class="n">His_tag_pattern</span>  <span class="o">...</span>                                                <span class="n">NaN</span>
+
+<span class="p">[</span><span class="mi">91</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">9</span> <span class="n">columns</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Create a SeqRecord from an amino acid sequence string.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>sequence</strong></p>
+<blockquote>
+<p>Sequence (<code>str</code>).</p>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">create_and_annotate_record</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">seq_dataset</span><span class="o">=</span><span class="n">seq_dataset</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Create a SeqRecord from an amino acid sequence string.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **sequence**</span>
+
+<span class="s2">    &gt; Sequence (`str`).</span>
+
+<span class="s2">    </span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+
+    <span class="k">if</span> <span class="n">seq_dataset</span> <span class="k">is</span> <span class="k">None</span><span class="o">:</span>
+
+        <span class="n">seq_dataset</span> <span class="o">=</span> <span class="n">seq_dataset</span>
+
+    <span class="n">protein</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+
+    <span class="n">protein_record</span> <span class="o">=</span> <span class="n">SeqRecord</span><span class="p">(</span>
+
+        <span class="n">protein</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="err">{</span><span class="s2">&quot;molecule_type&quot;</span><span class="o">:</span> <span class="s2">&quot;protein&quot;</span><span class="err">}</span>
+
+    <span class="p">)</span>
+
+    <span class="n">protein_record</span> <span class="o">=</span> <span class="n">annotate_record</span><span class="p">(</span><span class="n">protein_record</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">protein_record</span>
+</code></pre></div>
+
+
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../" title="Index" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Index
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../version/" title="Version" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Version
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Powered by
+        <a href="http://timothycrosley.github.io/portray">portray.</a>
+        You too can
+        <a href="http://timothycrosley.github.io/portray">
+          portray</a>
+        your Python project well using automatic documentation.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.92ffa368.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5123e3d4.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
