@@ -1,3 +1,8 @@
+<p align="center">
+<img alt="Minotaor logo" title="Minotaor" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Minotaor/main/images/minotaor.png" width="120">
+</p>
+
+
 # Minotaor
 
 **Under construction**
@@ -37,4 +42,4 @@ graphic_record = MinotaorTranslator().translate_record(protein_record)
 ax, _ = graphic_record.plot(figure_width=10, strand_in_label_threshold=7)
 graphic_record.plot_sequence(ax)
 ```
-![Example](example.png)
+![Example](images/example.png)
