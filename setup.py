@@ -14,6 +14,6 @@ setup(
     url="https://github.com/Edinburgh-Genome-Foundry/Minotaor",
     keywords="biology",
     packages=find_packages(exclude="docs"),
-    install_requires=["biopython"],
+    install_requires=["pandas", "biopython"],
     include_package_data=True,
 )
