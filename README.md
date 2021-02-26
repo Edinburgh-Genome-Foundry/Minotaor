@@ -5,17 +5,27 @@
 
 # Minotaor
 
-**Under construction**
+**Work in progress**
 
 Minotaor is an a**mino** acid sequence anno**ta**t**or** for quickly identifying common protein tags and linkers in an ORF. Additionally, it can flag peptide sequences or patterns that are known to cause problems during translation. It uses Biopython.
+
+
+## Install
+
+```
+pip install minotaor
+```
 
 
 ## Usage
 
 ```python
 import minotaor
-protein = minotaor.Seq("SYYHHHHHHDYDIPTTENLYFQG*EDINBURGHGENQMEFQUNDRY*")
-protein_record = minotaor.SeqRecord(protein, id="example", annotations={"molecule_type": "protein"})
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+
+protein = Seq("SYYHHHHHHDYDIPTTENLYFQG*EDINBURGHGENQMEFQUNDRY*")
+protein_record = SeqRecord(protein, id="example", annotations={"molecule_type": "protein"})
 
 protein_record = minotaor.annotate_record(protein_record)
 
@@ -43,3 +53,15 @@ ax, _ = graphic_record.plot(figure_width=10, strand_in_label_threshold=7)
 graphic_record.plot_sequence(ax)
 ```
 ![Example](images/example.png)
+
+
+## Versioning
+
+Minotaor uses the [semantic versioning](https://semver.org) scheme.
+
+
+## License = MIT
+
+Minotaor is [free software](https://www.gnu.org/philosophy/free-sw.en.html), which means the users have the freedom to run, copy, distribute, study, change and improve the software.
+
+Minotaor was written at the [Edinburgh Genome Foundry](https://edinburgh-genome-foundry.github.io/) by [Peter Vegh](https://github.com/veghp) and is released under the MIT license.
