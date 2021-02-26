@@ -15,4 +15,5 @@ setup(
     keywords="biology",
     packages=find_packages(exclude="docs"),
     install_requires=["biopython"],
+    include_package_data=True,
 )

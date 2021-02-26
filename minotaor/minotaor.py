@@ -6,8 +6,8 @@ from Bio.Seq import Seq
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 from Bio.SeqRecord import SeqRecord
 
-script_dir = os.path.dirname(__file__)
-seq_dataset = pandas.read_csv(os.path.join(script_dir, "seq.csv"))
+DATA_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data")
+seq_dataset = pandas.read_csv(os.path.join(DATA_DIR, "seq.csv"))
 
 
 def annotate_record(seqrecord, seq_dataset=seq_dataset):
