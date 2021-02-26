@@ -5,6 +5,9 @@
 
 # Minotaor
 
+[![Build Status](https://travis-ci.org/Edinburgh-Genome-Foundry/Minotaor.svg?branch=main)](https://travis-ci.org/Edinburgh-Genome-Foundry/Minotaor)
+[![Coverage Status](https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/Minotaor/badge.svg?branch=main)](https://coveralls.io/github/Edinburgh-Genome-Foundry/Minotaor?branch=main)
+
 **Work in progress**
 
 Minotaor is an a**mino** acid sequence anno**ta**t**or** for quickly identifying common protein tags and linkers in an ORF. Additionally, it can flag peptide sequences or patterns that are known to cause problems during translation. It uses Biopython.
