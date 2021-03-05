@@ -150,6 +150,52 @@ def convert_prosite_to_regex(prosite_string):
     return regex
 
 
+def convert_regex_to_prosite(regex):
+    tokens = tokenize_simple_regex(regex)
+    regex = convert_tokens_to_prosite(tokens)
+    return regex
+
+
+def convert_tokens_to_prosite(tokens):
+    # The first ^ signifies N-terminal position
+    if tokens[0] == "^":
+        is_N_terminal = True
+        del tokens[0]
+    else:
+        is_N_terminal = False
+    regex_tokens = []
+
+    # These are in reverse order compared to convert_prosite_to_regex():
+    for token in tokens:
+        # Replace for repetition. Must come before exception replacement.
+        token = token.replace("{", "(")
+        token = token.replace("}", ")")
+
+        # Replace braces for exceptions.
+        if token[0:2] == "[^":
+            token = token.replace("[^", "{")
+            token = token.replace("]", "}")
+
+        # Convert wildcard to 'x'; but keep repetition (x,y)
+        if "*" in token:
+            token = token.replace("{", "")
+            token = token.replace("}", "")
+            token = token.replace("\\", "")
+            token = token.replace("*", "x")
+
+        regex_tokens = regex_tokens + [token]
+
+    regex = "-".join(regex_tokens)
+
+    if is_N_terminal:
+        regex = "<" + regex
+
+    # Add period that must end the pattern:
+    regex = regex + "."
+
+    return regex
+
+
 def read_subregex(regex, index, symbol):
     reverse_symbols = {"[": "]", "{": "}", "(": ")"}
     subtoken = symbol
@@ -190,10 +236,11 @@ def tokenize_simple_regex(regex):
         else:
             token = letter
             # Check repetition:
-            if letter == "(":
-                repetition_token, index = read_subregex(regex, index, symbol="(")
+            index += 1
+            letter = regex[index]
+            if letter == "{":
+                repetition_token, index = read_subregex(regex, index, symbol="{")
                 token = token + repetition_token
             tokens += [token]
-            index += 1
 
     return tokens
