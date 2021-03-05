@@ -2,6 +2,7 @@ from .minotaor import (
     annotate_record,
     create_and_annotate_record,
     convert_prosite_to_regex,
+    tokenize_simple_regex,
     seq_dataset,
 )
 

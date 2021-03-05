@@ -148,3 +148,52 @@ def convert_prosite_to_regex(prosite_string):
         regex += "$"
 
     return regex
+
+
+def read_subregex(regex, index, symbol):
+    reverse_symbols = {"[": "]", "{": "}", "(": ")"}
+    subtoken = symbol
+    index += 1
+    subletter = regex[index]
+    while subletter != reverse_symbols[symbol]:
+        subtoken = subtoken + subletter
+        index += 1
+        subletter = regex[index]
+    subtoken = subtoken + reverse_symbols[symbol]
+    index += 1
+
+    return subtoken, index
+
+
+def tokenize_simple_regex(regex):
+    tokens = []
+    # Check first character
+    if regex[-1] == "^":
+        tokens += regex[-1]
+        tokens = tokens[1:]
+
+    index = 0
+    while index < len(regex):
+        letter = regex[index]
+
+        # Letter groups:
+        if letter == "[":
+            token, index = read_subregex(regex, index, symbol="[")
+            # Check repetition:
+            letter = regex[index]
+            if letter == "{":
+                repetition_token, index = read_subregex(regex, index, symbol="{")
+                token = token + repetition_token
+            tokens += [token]
+
+        # Single letter:
+        else:
+            token = letter
+            # Check repetition:
+            if letter == "(":
+                repetition_token, index = read_subregex(regex, index, symbol="(")
+                token = token + repetition_token
+            tokens += [token]
+            index += 1
+
+    return tokens
