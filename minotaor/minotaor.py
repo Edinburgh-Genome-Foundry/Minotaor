@@ -151,6 +151,14 @@ def convert_prosite_to_regex(prosite_string):
 
 
 def convert_regex_to_prosite(regex):
+    """Convert a compatible regex string to a PROSITE motif.
+
+
+    **Parameters**
+
+    **regex**
+    > The regex string (`str`).
+    """
     tokens = tokenize_simple_regex(regex)
     regex = convert_tokens_to_prosite(tokens)
     return regex
@@ -164,6 +172,11 @@ def convert_tokens_to_prosite(tokens):
     else:
         is_N_terminal = False
     regex_tokens = []
+    if tokens[-1] == "$":
+        is_C_terminal = True
+        del tokens[-1]
+    else:
+        is_C_terminal = False
 
     # These are in reverse order compared to convert_prosite_to_regex():
     for token in tokens:
@@ -188,8 +201,9 @@ def convert_tokens_to_prosite(tokens):
     regex = "-".join(regex_tokens)
 
     if is_N_terminal:
-        regex = "<" + regex
-
+        regex = "<" + regex  # < is a prosite symbol
+    if is_C_terminal:
+        regex = regex + ">"  # > is a prosite symbol
     # Add period that must end the pattern:
     regex = regex + "."
 
@@ -197,9 +211,27 @@ def convert_tokens_to_prosite(tokens):
 
 
 def read_subregex(regex, index, symbol):
+    """Collect characters within brackets.
+
+    Collect from opening bracket until closing bracket in the string.
+
+
+    **Parameters**
+
+    **regex**
+    > A string (`str`).
+
+    **index**
+    > Index of opening bracket character (`int`).
+
+    **symbol**
+    > The type of bracket (`[`, `{` or `(`).
+    """
     reverse_symbols = {"[": "]", "{": "}", "(": ")"}
+
     subtoken = symbol
     index += 1
+
     subletter = regex[index]
     while subletter != reverse_symbols[symbol]:
         subtoken = subtoken + subletter
@@ -212,35 +244,38 @@ def read_subregex(regex, index, symbol):
 
 
 def tokenize_simple_regex(regex):
+    """Lex regex into list of tokens."""
+    # As the format of compatible regexes are simple, a tokenizer is implemented here,
+    # instead of using an external lexer with a grammar definition.
     tokens = []
-    # Check first character
-    if regex[-1] == "^":
-        tokens += regex[-1]
-        tokens = tokens[1:]
 
     index = 0
     while index < len(regex):
-        letter = regex[index]
-
         # Letter groups:
-        if letter == "[":
+        if regex[index] == "[":
             token, index = read_subregex(regex, index, symbol="[")
             # Check repetition:
-            letter = regex[index]
-            if letter == "{":
-                repetition_token, index = read_subregex(regex, index, symbol="{")
-                token = token + repetition_token
-            tokens += [token]
-
+            try:  # test for last character
+                letter = regex[index]
+            except:
+                pass
+            else:
+                if letter == "{":
+                    repetition_token, index = read_subregex(regex, index, symbol="{")
+                    token = token + repetition_token
         # Single letter:
         else:
-            token = letter
-            # Check repetition:
+            token = regex[index]
             index += 1
-            letter = regex[index]
-            if letter == "{":
-                repetition_token, index = read_subregex(regex, index, symbol="{")
-                token = token + repetition_token
-            tokens += [token]
+            try:  # test for last character
+                letter = regex[index]
+            except:
+                pass
+                # Check repetition:
+                if letter == "{":
+                    repetition_token, index = read_subregex(regex, index, symbol="{")
+                    token = token + repetition_token
+
+        tokens += [token]
 
     return tokens
