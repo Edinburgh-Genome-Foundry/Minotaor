@@ -4,6 +4,27 @@ from Bio.SeqRecord import SeqRecord
 import minotaor
 
 
+testdata = [
+    "F-G-Q.",
+    "[GSTALIVN]-{PCHR}-{KND}-H-E-[LIVMFYW]-{DEHRKP}-H-{EKPC}-[LIVMFYWGSPQ].",
+    "P-x(2)-R-G-[STAIV](2)-x-N-[APK]-x-[DE].",
+    "[IV]-x-[IV]-[SA]-T-[NQ]-M-A-G-R-G-x-D-I-x-L.",
+    "[GLES]-x-[LIVM]-x(2)-L-[KR]-[KRHNS]-x-K-x(5)-[LIVM]-x(2)-[GNKADS]-x-[DEN]-[CRG]-[GI].",
+    "[DNSTAGC]-[GSTAPIMVQH]-x(2)-G-[DE]-S-G-[GS]-[SAPHV]-[LIVMFYWH]-[LIVMFYSTANQH].",
+    "C-x(1,2)-C-x(5)-G-x(2)-C-x(2)-C-x(3,4)-[FYW]-x(3,15)-C.",
+    "A-G-Y-G-S-T-x-T.",
+    "[IVAG]-x-[KR]-x(2)-[DE]-[GDE](2)-x(1,2)-[EQHF]-x-[LIV]-x(4)-P-x-[LIVM](2)-[TACS].",
+    "[SAPG]-[LIVMST]-[CS]-[STACG]-P-[STA]-R-x(2)-[LIVMFW](2)-[TAR]-G.",
+    "C-{C}(6)-C-{C}(5)-C-C-x(1,3)-C-C-x(2,4)-C-x(3,10)-C.",
+    "[LIVM]-x-[LIVMFYW]-E-G-x-[LSI]-L-K-[PA]-[SN].",
+    "[FYWS]-[RK]-x-G-F-F-x-R.",
+    "S-x-[LIVMF]-K-R-x(4)-K-D-x-[GSA]-x(2)-[LIF]-[PGS]-x-H-G-G-[LIVMF]-x-D-R-[LIVMFT]-D.",
+    "[SA]-[FY]-[LIV]-L-[STN]-E-S-S-[LIVMF]-F-[LIV].",
+    "[GR]-C-[IV]-G-R-[ILS]-x-W.",
+    "<F-G(3)-x-x(0,1)-[GSTV]-[ST](2,3)-{PR}-{L}(2,5)-x-A>.",
+]
+
+
 def test_annotate_record():
     protein = Seq("HHHHHHDLG*EDINBURGHGENQMEFQUNDRY")
     protein_record = SeqRecord(
@@ -24,3 +45,72 @@ def test_create_and_annotate_record():
 
     assert type(protein_record) == SeqRecord
     assert protein_record.features[0].id == "no start codon"
+
+
+def test_convert_prosite_to_regex():
+    assert (
+        minotaor.convert_prosite_to_regex("[AC]-x-V-x(4)-{ED}>.")
+        == "[AC][^\*]V[^\*]{4}[^ED]$"
+    )
+    assert (
+        minotaor.convert_prosite_to_regex("<F-[AC]-x-V-x(4)-{ED}.")
+        == "^F[AC][^\*]V[^\*]{4}[^ED]"
+    )
+    assert (
+        minotaor.convert_prosite_to_regex("<F-[AC]-x-V-x(4)-{ED}.")
+        == "^F[AC][^\*]V[^\*]{4}[^ED]"
+    )
+    assert (
+        minotaor.convert_prosite_to_regex("C-x-C-x(2)-[GP]-[FYW]-x(4,8)-C.")
+        == "C[^\*]C[^\*]{2}[GP][FYW][^\*]{4,8}C"
+    )
+    assert (
+        minotaor.convert_prosite_to_regex("<A-x-[ST](2)-x(0,1)-V.")
+        == "^A[^\*][ST]{2}[^\*]{0,1}V"
+    )
+
+
+def test_tokenize_simple_regex():
+    regex = "^A[GV][^PR][FYW]{2}[^P]{4}[^\\*][^\\*]{8}$"
+    assert minotaor.tokenize_simple_regex(regex) == [
+        "^",
+        "A",
+        "[GV]",
+        "[^PR]",
+        "[FYW]",
+        "{2}",
+        "[^P]",
+        "{4}",
+        "[^\\*]",
+        "[^\\*]",
+        "{8}",
+        "$",
+    ]
+
+
+def test_convert_tokens_to_prosite():
+    tokens = [
+        "^",
+        "A",
+        "[GV]",
+        "[^PR]",
+        "[FYW]",
+        "{2}",
+        "[^P]",
+        "{4}",
+        "[^\\*]",
+        "[^\\*]",
+        "{8}",
+        "$",
+    ]
+    assert (
+        minotaor.minotaor.convert_tokens_to_prosite(tokens)
+        == "<A-[GV]-{PR}-[FYW](2)-{P}(4)-x-x(8)>."
+    )
+
+
+def test_convert_regex_to_prosite():
+    for prosite in testdata:
+        assert prosite == minotaor.convert_regex_to_prosite(
+            minotaor.convert_prosite_to_regex(prosite)
+        )
