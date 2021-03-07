@@ -1,3 +1,5 @@
+import pytest
+
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 
@@ -45,6 +47,23 @@ def test_create_and_annotate_record():
 
     assert type(protein_record) == SeqRecord
     assert protein_record.features[0].id == "no start codon"
+
+
+def test_convert_dna_to_aa_pattern():
+    with pytest.raises(ValueError):
+        minotaor.convert_dna_to_aa_pattern("A")  # length less than 3
+
+    expected = [
+        "L",
+        "[YSNIDVTPRCFGHAL][FL]",
+        "[TSAP][YS*WCFL]",
+        "K",
+        "[SIVQETKP*RGAL][RS]",
+        "[*QKE][VDEGA]",
+    ]
+    patterns = minotaor.convert_dna_to_aa_pattern("CTT")
+    for index, pattern in enumerate(patterns):
+        assert set(pattern) == set(expected[index])
 
 
 def test_convert_prosite_to_regex():
