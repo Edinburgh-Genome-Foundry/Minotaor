@@ -94,8 +94,14 @@ def create_and_annotate_record(sequence, seq_dataset=seq_dataset):
 
 
 def convert_dna_to_aa_pattern(dna):
+    """Convert a DNA string to a list of patterns representing its translations.
+
+
+    **Parameters**
+
+    **dna**
+    > DNA (`str` of `ATCG`)"""
     patterns = []
-    # len_dna = len(dna)
 
     for frame in [0, 1, 2]:
         aa_dna = dna[frame:]
@@ -128,6 +134,24 @@ def convert_dna_to_aa_pattern(dna):
 
 
 def make_regex_from_dna(dna, prefix, postfix):
+    """Convert three DNA strings into a regex.
+
+    The first DNA string (`dna`) must be divisible by 3, the length of the
+     second (`prefix`) and third (`postfix`) must be 1 or 2.
+
+
+    **Parameters**
+
+    **dna**
+    > DNA (`str` of `ATCG`).
+
+    **prefix**
+    > DNA (`str` of `ATCG`).
+
+    **postfix**
+    > DNA (`str` of `ATCG`).
+    """
+
     aa = str(Seq(dna).translate())
     prefix_regex = create_prefix_regex(prefix)
     postfix_regex = create_postfix_regex(postfix)
