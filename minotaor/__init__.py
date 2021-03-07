@@ -1,5 +1,6 @@
 from .minotaor import (
     seq_dataset,
+    MinotaorTranslator,
     annotate_record,
     create_and_annotate_record,
     convert_dna_to_aa_pattern,

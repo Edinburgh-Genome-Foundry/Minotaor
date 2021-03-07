@@ -9,6 +9,36 @@ from Bio.SeqRecord import SeqRecord
 DATA_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data")
 seq_dataset = pandas.read_csv(os.path.join(DATA_DIR, "seq.csv"))
 
+try:
+    from dna_features_viewer import BiopythonTranslator
+except ImportError:
+
+    class MinotaorTranslator:
+        """Please install dna_features_viewer to use this class."""
+
+        def __init__(self):
+            raise Exception("Please install dna_features_viewer to use this class.")
+
+
+else:
+
+    class MinotaorTranslator(BiopythonTranslator):
+        """Custom translator.
+
+        Color warnings in red, CDS in default color, all other features in blue.
+        """
+
+        def compute_feature_color(self, feature):
+            if feature.type == "warning":
+                return "red"
+            elif feature.type == "CDS":
+                return "#7245dc"
+            else:
+                return "blue"
+
+        def compute_feature_label(self, feature):
+            return feature.id
+
 
 def annotate_record(seqrecord, seq_dataset=seq_dataset):
     """Annotate a record with a reference sequence dataset.
