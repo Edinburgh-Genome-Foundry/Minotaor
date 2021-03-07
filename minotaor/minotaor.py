@@ -93,6 +93,32 @@ def create_and_annotate_record(sequence, seq_dataset=seq_dataset):
     return protein_record
 
 
+def convert_dna_to_aa_pattern(dna):
+    pass
+
+
+def generate_prefix_codons(prefix):
+    # get all codons possible, based on extension.
+    codons = []
+    if len(prefix) == 1:
+        for second_letter in ["A", "T", "C", "G"]:
+            for third_letter in ["A", "T", "C", "G"]:
+                codon = prefix + second_letter + third_letter
+                codons += [codon]
+    elif len(prefix) == 2:
+        for third_letter in ["A", "T", "C", "G"]:
+            codon = prefix + third_letter
+            codons += [codon]
+    else:
+        raise ValueError("Length of prefix must be 1 or 2")
+
+    return codons
+
+
+def generate_postfix_codons(postfix):
+    pass
+
+
 def convert_prosite_to_regex(prosite_string):
     """Convert a PROSITE motif string to a regex string.
 
