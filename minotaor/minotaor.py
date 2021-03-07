@@ -116,7 +116,20 @@ def generate_prefix_codons(prefix):
 
 
 def generate_postfix_codons(postfix):
-    pass
+    codons = []
+    if len(postfix) == 1:
+        for first_letter in ["A", "T", "C", "G"]:
+            for second_letter in ["A", "T", "C", "G"]:
+                codon = first_letter + second_letter + postfix
+                codons += [codon]
+    elif len(postfix) == 2:
+        for first_letter in ["A", "T", "C", "G"]:
+            codon = first_letter + postfix
+            codons += [codon]
+    else:
+        raise ValueError("Length of postfix must be 1 or 2")
+
+    return codons
 
 
 def convert_prosite_to_regex(prosite_string):
