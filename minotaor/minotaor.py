@@ -94,11 +94,81 @@ def create_and_annotate_record(sequence, seq_dataset=seq_dataset):
 
 
 def convert_dna_to_aa_pattern(dna):
-    pass
+    patterns = []
+    # len_dna = len(dna)
+
+    for frame in [0, 1, 2]:
+        aa_dna = dna[frame:]
+        prefix = dna[:frame]
+        modulo = len(aa_dna) % 3  # codon length is 3
+        if modulo != 0:
+            postfix = aa_dna[-modulo:]
+            aa_dna = aa_dna[:-modulo]
+        else:
+            postfix = ""
+
+        regex = make_regex_from_dna(aa_dna, prefix, postfix)
+        patterns += [regex]
+
+    dna_reverse_complement = str(Seq(dna).reverse_complement())
+    for frame in [0, 1, 2]:
+        aa_dna = dna_reverse_complement[frame:]
+        prefix = dna_reverse_complement[:frame]
+        modulo = len(aa_dna) % 3  # codon length is 3
+        if modulo != 0:
+            postfix = aa_dna[-modulo:]
+            aa_dna = aa_dna[:-modulo]
+        else:
+            postfix = ""
+
+        regex = make_regex_from_dna(aa_dna, prefix, postfix)
+        patterns += [regex]
+
+    return patterns
+
+
+def make_regex_from_dna(dna, prefix, postfix):
+    aa = str(Seq(dna).translate())
+    prefix_regex = create_prefix_regex(prefix)
+    postfix_regex = create_postfix_regex(postfix)
+    regex = prefix_regex + aa + postfix_regex
+
+    return regex
+
+
+def create_prefix_regex(prefix):
+    if prefix:
+        prefix_codons = generate_prefix_codons(prefix)
+        translated_prefixes = []
+        for codon in prefix_codons:
+            aa = str(Seq(codon).translate())
+            translated_prefixes += [aa]
+        translated_prefixes = list(set(translated_prefixes))  # remove duplicates
+        prefix_regex = "".join(translated_prefixes)
+        prefix_regex = "[" + prefix_regex + "]"  # match 1
+    else:
+        prefix_regex = ""
+
+    return prefix_regex
+
+
+def create_postfix_regex(postfix):
+    if postfix:
+        postfix_codons = generate_postfix_codons(postfix)
+        translated_postfixes = []
+        for codon in postfix_codons:
+            aa = str(Seq(codon).translate())
+            translated_postfixes += [aa]
+        translated_postfixes = list(set(translated_postfixes))  # remove duplicates
+        postfix_regex = "".join(translated_postfixes)
+        postfix_regex = "[" + postfix_regex + "]"  # match 1
+    else:
+        postfix_regex = ""
+
+    return postfix_regex
 
 
 def generate_prefix_codons(prefix):
-    # get all codons possible, based on extension.
     codons = []
     if len(prefix) == 1:
         for second_letter in ["A", "T", "C", "G"]:
@@ -199,7 +269,6 @@ def convert_regex_to_prosite(regex):
     > The regex string (`str`).
     """
     tokens = tokenize_simple_regex(regex)
-    # print(tokens)
     regex = convert_tokens_to_prosite(tokens)
     return regex
 
