@@ -47,19 +47,16 @@ RHK_ribo_collision,seq,RHK ribosome collision site,RHK,,,,Amino acid sequence en
 RMK_ribo_collision,seq,RMK ribosome collision site,RMK,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
 RIK_ribo_collision,seq,RIK ribosome collision site,RIK,,,,Amino acid sequence enriched in ribosome collision site,"Han et al. (2020), Cell Reports 31, 107610"
 PPP_bond,seq,Poly-Pro bond,PPP+,,,,The synthesis of Pro-Pro bonds is slow,"Schuller et al. (2018), Nat Rev Mol Cell Biol 19, 526–541"
-GPP_pause_site,seq,GPP pause site,GPP,,,,"Translation pauses strongly at Pro-Pro
-when Gly, Asp or Ala codons are positioned in the E site","Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
-DPP_pause_site,seq,DPP pause site,DPP,,,,"Translation pauses strongly at Pro-Pro
-when Gly, Asp or Ala codons are positioned in the E site","Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
-APP_pause_site,seq,APP pause site,APP,,,,"Translation pauses strongly at Pro-Pro
-when Gly, Asp or Ala codons are positioned in the E site","Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
+GPP_pause_site,seq,GPP pause site,GPP,,,,"Translation pauses strongly at Pro-Pro when Gly, Asp or Ala codons are positioned in the E site","Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
+DPP_pause_site,seq,DPP pause site,DPP,,,,"Translation pauses strongly at Pro-Pro when Gly, Asp or Ala codons are positioned in the E site","Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
+APP_pause_site,seq,APP pause site,APP,,,,"Translation pauses strongly at Pro-Pro when Gly, Asp or Ala codons are positioned in the E site","Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
 PPW_pause_site,seq,PPW pause site,PPW,,,,,"Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
 PPN_pause_site,seq,PPN_pause_site,PPN,,,,,"Buskirk et al. (2017), Phil. Trans. R. Soc. B 372: 20160183"
 HGPP_arrest_peptide,seq,HGPP translational arrest peptide,HGPP,,,,,"Cymer et al. (2015), J Biol Chem 290(16): 10208–10215"
-SecM,seq,SecM arrest peptide,FSTPVWISQAQGIRAGP,,,Escherchia coli,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+SecM,seq,SecM arrest peptide,FSTPVWISQAQGIRAGP,,,Escherchia coli,Nascent peptide-induced arrest,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
 SecM_Mannheimia,seq,SecM arrest peptide Mannheimia,HAPIRGSP,,,Mannheimia succiniciproducens,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
 MifM,seq,MifM arrest peptide,RITTWIRKVFRMNSPVNDEEDAGS,,,Bacillus subtilis,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
-ErmCL,seq,ErmCL arrest peptide,IFVI,,,Staphylococcus aureus (pE194),,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+ErmCL,seq,ErmCL arrest peptide,IFVI,,,Staphylococcus aureus (pE194),Small molecule–induced arrest (erythromycin),"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
 ErmAL1,seq,ErmAL1 arrest peptide,IAVVE,,,Staphylococcus aureus (Tn554),,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
 Cat leader,seq,Cat leader arrest peptide,VKTD,,,Bacillus subtilis,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
 CmlA leader,seq,CmlA leader arrest peptide,KNAD,,,Escherchia coli,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
@@ -69,7 +66,7 @@ AAP,seq,AAP arrest peptide,TSQDYLSDHLWRALNA*,,,Neurospora crassa,,"Ito and Chiba
 CGS1,seq,CGS1 arrest peptide,RRNCSNIGVAQIVAAKWS,,,Arabidopsis,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
 AdoMet_DC_uORF,seq,AdoMet DC uORF arrest peptide,DIS*,,,Eukaryotes,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
 UL4_uORF2,seq,UL4 uORF2 arrest peptide,SAKKLSSLLTCKYIPP*,,,Cytomegalovirus,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
-2A_peptide,seq,2A peptide arrest peptide,LKLAGDVESNPG,,,Foot-and-mouth disease virus,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+2A_peptide,seq,2A arrest peptide,LKLAGDVESNPG,,,Foot-and-mouth disease virus,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
 XBP1u,seq,XBP1u arrest peptide,YQPPFLCQWGRHQPSWKPLMN,,,Homo sapiens,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
 WPPP,seq,WPPP arrest peptide,FQKYGIWPPP,,,Escherchia coli,,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
 MCPC603_linker,seq,MCPC603 flexible linker,KESGSVSSEQLAQFRSLD,,,,Recombinant antibody linker,"Bird et al. (1988), Science 242(4877):423-6"
@@ -79,7 +76,7 @@ Gly_Ser_linker,seq,Gly-Ser rich flexible linker,GSAGSAAGSGEF,,,,Flexible linker,
 Disulfide_linker,seq,Disulfide linker,LEAGCKNFFPRSFTSCGSLE,,,,Cyclopeptide linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
 Cyclopeptide_linker,seq,Cyclopeptide linker,CRRRRRREAEAC,,,,Dithiocyclopeptide linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
 hexaGly_linker,seq,Hexa-Gly linker,GGGGGG,,,,Flexible linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
-Pro_rich_linker,seq,Pro rich linker,PAPAP,,,,Rigid linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+PAPAP_linker,seq,Pro rich linker,PAPAP,,,,Rigid linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
 helical linker,seq,Helical linker,AEAAAKEAAAKA,,,,Rigid helical linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
 FIX_linker,seq,FIX linker,VSQTSKLTRAETVFPDV,,,,Proteolytically cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
 MMP_1_9_site,seq,MMP 1/9 cleavage site,PLGLWA,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
@@ -90,6 +87,21 @@ Furin_site_PEA,seq,Furin cleavage site,TRHRQPRGWE,,,,Cleavable linker,"Chen et a
 Furin_site_diphteria,seq,Furin site from diphteria,AGNRVRRSVG,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
 Furin_site_polyarginine,seq,Polyarginine tract for furin cleavage,RRRRRRRRR,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
 Cathepsin_B_site,seq,Cathepsin B site,GFLG,,,,Cleavable linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
-FLAG_tag_pattern,pattern,FLAG tag,DYKDDD[D|K|DK],,,,"Recognized by an antibody, for purification; has enterokinase cleavage site",
+FLAG_tag_pattern,pattern,FLAG tag,DYKDDD((DK)|D|K),,,,"Recognized by an antibody, for purification; has enterokinase cleavage site",
 Polyarginine_tag_pattern,pattern,Polyarginine tag,"R{5,9}",,,,Binds efficiently to cation-exchange resin,
 His_tag_pattern,pattern,His tag,"H{5,10}",,,,Bound by a nickel or cobalt chelate,
+AP_1,pattern,Arrest peptide,GI[RH][^\*]PP,,,,Translational arrest peptide,"Cymer et al. (2015), J Biol Chem 290(16): 10208–10215"
+AP_2,pattern,Arrest peptide,F[^\*][^\*]Y[^\*]IWPPP,,,,Translational arrest peptide,"Cymer et al. (2015), J Biol Chem 290(16): 10208–10215"
+AP_3,pattern,Arrest peptide,R[SA]PP,,,,Translational arrest peptide,"Cymer et al. (2015), J Biol Chem 290(16): 10208–10215"
+2A_peptide_2,pattern,2A oligopeptide,D[VI]E[^\*]NPGP,,,,Terminates at GP and results in two separate polypeptides,"Doronina et al. (2008), Mol. Cell. Biol. 28(13): 4227–4239"
+SecM_pattern,pattern,SecM pattern,F[^\*][^\*][^\*][^\*]WI[^\*][^\*][^\*][^\*]GIRAGP,,,,Nascent peptide-induced arrest,"Ito and Chiba (2013), Annu. Rev. Biochem. 82, 171–202"
+GGGGS_linker,pattern,GGGGS linker,"(GGGGS){1,4}",,,,Flexible linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+EAAAK_linker,pattern,EAAAK linker,"(EAAAK){1,3}",,,,Rigid linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+G_CSF_Tf_linker,seq,G-CSF-Tf linker,AEAAAKEAAAKEAAAKEAAAKALEAEAAAKEAAAKEAAAKEAAAKA,,,,Rigid linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+AlaPro_linker,pattern,Ala-Pro linker,"(AP){5,17}",,,,Rigid linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+Pro_rich_linker,pattern,Pro-rich linker,[AKE]P[AKE]P([AKE]P)+,,,,Rigid linker,"Chen et al. (2013), Adv Drug Deliv Rev 65(10): 1357–1369"
+NLS_SV40_Large_T_antigen,seq,NLS of SV40 Large T-antigen,PKKKRKV,,,,Nuclear localization signal,
+cMyc_NLS,seq,c-Myc NLS,PAAKRVKLD,,,,Nuclear localization signal,
+EGL13_NLS,seq,EGL-13 NLS,MSRRRKANPTKLSENAKKLAKEVEN,,,,Nuclear localization signal,
+TUS_NLS,seq,TUS-protein NLS,KLKIKRPVK,,,,Nuclear localization signal,
+Exportin_NES,pattern,Exportin NES,"([DEQ].{0,1}[LIM].{2,3}[LIVMF][^P]{2,3}[LMVF].[LMIV].{0,3}[DE])|([DE].{0,1}[LIM].{2,3}[LIVMF][^P]{2,3}[LMVF].[LMIV].{0,3}[DEQ])",,,,Nuclear export signal,
