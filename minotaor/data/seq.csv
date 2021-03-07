@@ -105,3 +105,21 @@ cMyc_NLS,seq,c-Myc NLS,PAAKRVKLD,,,,Nuclear localization signal,
 EGL13_NLS,seq,EGL-13 NLS,MSRRRKANPTKLSENAKKLAKEVEN,,,,Nuclear localization signal,
 TUS_NLS,seq,TUS-protein NLS,KLKIKRPVK,,,,Nuclear localization signal,
 Exportin_NES,pattern,Exportin NES,"([DEQ].{0,1}[LIM].{2,3}[LIVMF][^P]{2,3}[LMVF].[LMIV].{0,3}[DE])|([DE].{0,1}[LIM].{2,3}[LIVMF][^P]{2,3}[LMVF].[LMIV].{0,3}[DEQ])",,,,Nuclear export signal,
+Tat,seq,Tat,GRKKRRQRRRPPQ,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+Ant,seq,Ant,RQIKIWFQNRRMKWKK,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+Arginine_x8,seq,Arginine x8,RRRRRRRR,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+Lysine_x8,seq,Lysine x8,KKKKKKKK,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+PTD_5,seq,PTD-5,RRQRRTSKLMKR,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+Transportan,seq,Transportan,GWTLNSAGYLLGKINLKALAALAKKIL,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+MAP,seq,MAP,KLALKLALKALKAALKLA,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+TP10,seq,TP10,AGYLLGKINLKALAALAKKIL,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+Pep7,seq,Pep-7,SDLWEMMMVSLACQY,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+Azurin_p18,seq,Azurin p18,LSTAADMQGVVTDGMASG,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+Azurin_p28,seq,Azurin p28,LSTAADMQGVVTDGMASGLDKDYLKPDD,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+hCT18_32,seq,hCT18-32,KFHTFPQTAIGVGAP,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+Bac_7,seq,Bac 7,RRIRPRPPRLPRPRPRPLPFPRPG,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+CTP,seq,CTP,APWHLSSQYSRT,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+K5_FGF,seq,K5-FGF,AAVALLPAVLLALLP,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+HAP_1,seq,HAP-1,SFHQFARATLAS,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+293P_1,seq,293P-1,SNNNVRPIHIWP,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
+SIGYPLP_CP_peptide,seq,SIGYPLP cell penetrating peptide,SIGYPLP,,,,Cell penetrating peptide,"Taylor et al. (2020), Pharmaceutics 12(3): 225"
