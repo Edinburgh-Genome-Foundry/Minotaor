@@ -101,6 +101,9 @@ def convert_dna_to_aa_pattern(dna):
 
     **dna**
     > DNA (`str` of `ATCG`)"""
+    if len(dna) < 3:
+        raise ValueError("Minimum DNA length is 3")
+
     patterns = []
 
     for frame in [0, 1, 2]:
@@ -172,7 +175,6 @@ def create_prefix_regex(prefix):
         prefix_regex = "[" + prefix_regex + "]"  # match 1
     else:
         prefix_regex = ""
-
     return prefix_regex
 
 
@@ -195,13 +197,13 @@ def create_postfix_regex(postfix):
 def generate_prefix_codons(prefix):
     codons = []
     if len(prefix) == 1:
-        for second_letter in ["A", "T", "C", "G"]:
-            for third_letter in ["A", "T", "C", "G"]:
-                codon = prefix + second_letter + third_letter
+        for first_letter in ["A", "T", "C", "G"]:
+            for second_letter in ["A", "T", "C", "G"]:
+                codon = first_letter + second_letter + prefix
                 codons += [codon]
     elif len(prefix) == 2:
-        for third_letter in ["A", "T", "C", "G"]:
-            codon = prefix + third_letter
+        for first_letter in ["A", "T", "C", "G"]:
+            codon = first_letter + prefix
             codons += [codon]
     else:
         raise ValueError("Length of prefix must be 1 or 2")
@@ -212,13 +214,13 @@ def generate_prefix_codons(prefix):
 def generate_postfix_codons(postfix):
     codons = []
     if len(postfix) == 1:
-        for first_letter in ["A", "T", "C", "G"]:
-            for second_letter in ["A", "T", "C", "G"]:
-                codon = first_letter + second_letter + postfix
+        for second_letter in ["A", "T", "C", "G"]:
+            for third_letter in ["A", "T", "C", "G"]:
+                codon = postfix + second_letter + third_letter
                 codons += [codon]
     elif len(postfix) == 2:
-        for first_letter in ["A", "T", "C", "G"]:
-            codon = first_letter + postfix
+        for third_letter in ["A", "T", "C", "G"]:
+            codon = postfix + third_letter
             codons += [codon]
     else:
         raise ValueError("Length of postfix must be 1 or 2")
