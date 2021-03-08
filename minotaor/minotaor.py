@@ -114,8 +114,6 @@ def create_and_annotate_record(sequence, seq_dataset=seq_dataset):
     **sequence**
     > Sequence (`str`).
     """
-    if seq_dataset is None:
-        seq_dataset = seq_dataset
     protein = Seq(sequence)
     protein_record = SeqRecord(
         protein, id="example", annotations={"molecule_type": "protein"}
