@@ -135,6 +135,29 @@ def test_convert_regex_to_prosite():
         )
 
 
+def test_add_scanprosite_results():
+    mock_scanprosite_result = [
+        {
+            "sequence_ac": "USERSEQ1",
+            "start": 24,
+            "stop": 37,
+            "signature_ac": "PS00905",
+            "level_tag": "(0)",
+        }
+    ]
+    protein = Seq("SYYHHHHHHDYDIPTTENLYFAGDLPGLMDGAAAGGGAA")
+    protein_record = SeqRecord(
+        protein, id="example", annotations={"molecule_type": "protein"}
+    )
+    protein_record = minotaor.add_scanprosite_results(
+        protein_record, mock_scanprosite_result
+    )
+    assert len(protein_record.features) == 1
+    assert protein_record.features[0].id == "PROSITE:PS00905"
+    assert int(protein_record.features[0].location.start) == 23
+    assert int(protein_record.features[0].location.end) == 37
+
+
 def test_get_content():
     pass
 
