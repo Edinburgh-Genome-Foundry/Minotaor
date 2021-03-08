@@ -10,9 +10,7 @@
 
 **Work in progress**
 
-Minotaor is an a**mino** acid sequence anno**ta**t**or** for quickly identifying common
-protein tags and linkers in an ORF. Additionally, it can flag peptide sequences or
-patterns that are known to cause problems during translation. It uses Biopython.
+Minotaor is an a**mino** acid sequence anno**ta**t**or** for quickly identifying common protein tags and linkers in an ORF. Additionally, it can flag peptide motifs that are known to cause problems during translation. It uses Biopython.
 
 
 ## Background
@@ -56,7 +54,7 @@ graphic_record.plot_sequence(ax)
 
 ### Reference datasets
 
-Minotaor can use custom reference pandas dataframes, specified with `seq_dataset`. The `sequence` and `name` columns are used for search and naming of the motifs. The `type` column sets the search type, which can be `seq` for strings or `pattern` or regexes. This above is shown in examples of epitope datasets.
+Minotaor can use custom reference pandas dataframes, specified with `seq_dataset`. The `sequence` and `name` columns are used for search and naming of the motifs. The `type` column sets the search type, which can be `seq` for strings or `pattern` or regexes (regular expressions). This is shown in the below examples of epitope datasets.
 
 
 #### Immune Epitope Database
@@ -92,8 +90,8 @@ vdjdb_dataset['name'] = ['VDJdb epitope ' + str(antigen)
 
 protein_record = minotaor.annotate_record(protein_record, seq_dataset=vdjdb_dataset)
 ```
-The found motifs then can be looked up in VDJdb for more details.
-Similar approach can be used for the McPAS-TCR database.
+The motifs then can be looked up in VDJdb for more details.
+A similar approach can be used for the McPAS-TCR database.
 
 
 ### PROSITE
@@ -115,7 +113,7 @@ protein_record = minotaor.add_scanprosite_results(protein_record, scanprosite_re
 
 #### Conversion
 
-Convert between PROSITE and regex (regular expression) formats:
+Convert between PROSITE and regex formats:
 ```python
 regex = minotaor.convert_prosite_to_regex("<A-[GV]-{PR}-[FYW](2)-{P}(4)-x-x(8)>.")
 regex

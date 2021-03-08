@@ -41,8 +41,10 @@ else:
 
 
 def annotate_record(seqrecord, seq_dataset=seq_dataset):
-    """Annotate a record with a reference sequence dataset.
+    """Annotate a record with entries of a reference sequence dataset.
 
+
+    Note that the search is case sensitive.
 
     **Parameters**
 
