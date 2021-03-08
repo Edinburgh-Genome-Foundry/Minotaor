@@ -27,6 +27,17 @@ testdata = [
 ]
 
 
+def test_MinotaorTranslator():
+    try:
+        import dna_features_viewer
+    except ImportError:
+        with pytest.raises(Exception):
+            minotaor.MinotaorTranslator()
+
+    else:
+        minotaor.MinotaorTranslator()
+
+
 def test_annotate_record():
     protein = Seq("HHHHHHDLG*EDINBURGHGENQMEFQUNDRY")
     protein_record = SeqRecord(
