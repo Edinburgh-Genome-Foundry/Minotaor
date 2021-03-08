@@ -410,3 +410,14 @@ def tokenize_simple_regex(regex):
         tokens += [token]
 
     return tokens
+
+
+def add_scanprosite_results(seqrecord, scanprosite_record):
+    for entry in scanprosite_record:
+        start_index = entry["start"] - 1  # convert to Python indexing
+        stop_index = entry["stop"]  # prosite range inclusive, Python not
+        name = "PROSITE:" + entry["signature_ac"]  # key for the prosite ID
+        seqrecord.features.append(
+            SeqFeature(FeatureLocation(start_index, stop_index), type="CDS", id=name)
+        )
+    return seqrecord

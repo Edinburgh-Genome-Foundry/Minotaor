@@ -54,39 +54,12 @@ graphic_record.plot_sequence(ax)
 ![Example](images/example.png)
 
 
-### Conversion
-
-Convert between PROSITE and regex (regular expression) formats:
-```python
-regex = minotaor.convert_prosite_to_regex("<A-[GV]-{PR}-[FYW](2)-{P}(4)-x-x(8)>.")
-regex
-# '^A[GV][^PR][FYW]{2}[^P]{4}[^\\*][^\\*]{8}$'
-minotaor.convert_regex_to_prosite(regex)
-# '<A-[GV]-{PR}-[FYW](2)-{P}(4)-x-x(8)>.'
-```
-
-Given a DNA sequence, return amino acid sequences that may contain it:
-```python
-bsmbi_site = "CGTCTC"
-print(minotaor.convert_dna_to_aa_pattern(bsmbi_site))
-# ['RL', '[DATRSICYNLFPHVG]V[S]', '[SPAT]S[RPLQH]', 'ET', '[MAT*RSPKLEVQGW]R[R]', '[G*R]D[DAVEG]']
-```
-Returns a regex for each of the 6 translation frames.
-
-
 ### Reference datasets
 
-Minotaor uses the `sequence` and `name` columns of the `seq_dataset` pandas dataframe to
-use for search and naming the motifs. The `type` column sets the search type, which can
-be `seq` for strings or `pattern` or regexes.
+Minotaor can use custom reference pandas dataframes, specified with `seq_dataset`. The `sequence` and `name` columns are used for search and naming of the motifs. The `type` column sets the search type, which can be `seq` for strings or `pattern` or regexes. This above is shown in examples of epitope datasets.
 
 
-#### Epitope datasets
-
-The above is shown in examples of epitope datasets.
-
-
-##### Immune Epitope Database
+#### Immune Epitope Database
 
 Download and unzip a *CSV Metric Export* of your choice from the [IEDB website](https://www.iedb.org/database_export_v3.php), then:
 ```python
@@ -102,7 +75,7 @@ The epitopes can then be looked up with the link provided as their names. Altern
 a more informative epitope name can be constructed from the other columns, as shown in the next section.
 
 
-##### VDJdb
+#### VDJdb
 
 Download and unzip the latest [VDJdb release](https://github.com/antigenomics/vdjdb-db/releases/latest), then:
 ```python
@@ -121,6 +94,43 @@ protein_record = minotaor.annotate_record(protein_record, seq_dataset=vdjdb_data
 ```
 The found motifs then can be looked up in VDJdb for more details.
 Similar approach can be used for the McPAS-TCR database.
+
+
+### PROSITE
+
+A function is provided for reading [ScanProsite](https://prosite.expasy.org/scanprosite) results.
+Query your sequence with Biopython:
+```python
+from Bio.ExPASy import ScanProsite
+my_seq = 'MYHHHHHHYAGDLPGLMDGAAAGGGA'  # cannot contain '*'
+scanprosite_handle = ScanProsite.scan(seq=my_seq, mirror='https://prosite.expasy.org/', output='xml')
+scanprosite_record = ScanProsite.read(scanprosite_handle)
+
+protein_record = SeqRecord(Seq(my_seq), id="my_seq", annotations={"molecule_type": "protein"})
+protein_record = minotaor.add_scanprosite_results(protein_record, scanprosite_record)
+```
+
+![Prosite](images/example_prosite.png)
+
+
+#### Conversion
+
+Convert between PROSITE and regex (regular expression) formats:
+```python
+regex = minotaor.convert_prosite_to_regex("<A-[GV]-{PR}-[FYW](2)-{P}(4)-x-x(8)>.")
+regex
+# '^A[GV][^PR][FYW]{2}[^P]{4}[^\\*][^\\*]{8}$'
+minotaor.convert_regex_to_prosite(regex)
+# '<A-[GV]-{PR}-[FYW](2)-{P}(4)-x-x(8)>.'
+```
+
+Given a DNA sequence, return amino acid sequences that may contain it:
+```python
+bsmbi_site = "CGTCTC"
+print(minotaor.convert_dna_to_aa_pattern(bsmbi_site))
+# ['RL', '[DATRSICYNLFPHVG]V[S]', '[SPAT]S[RPLQH]', 'ET', '[MAT*RSPKLEVQGW]R[R]', '[G*R]D[DAVEG]']
+```
+Returns a regex for each of the 6 translation frames.
 
 
 ## Versioning
