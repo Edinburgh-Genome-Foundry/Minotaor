@@ -133,3 +133,24 @@ def test_convert_regex_to_prosite():
         assert prosite == minotaor.convert_regex_to_prosite(
             minotaor.convert_prosite_to_regex(prosite)
         )
+
+
+def test_get_content():
+    pass
+
+
+def test_evaluate_content():
+    pass
+
+
+def test_add_aa_content():
+    my_seq = "DGGGGGGGGGGGGAAAGGGGGAAAD"
+    protein_record = SeqRecord(
+        Seq(my_seq), id="example", annotations={"molecule_type": "protein"}
+    )
+    protein_record = minotaor.add_aa_content(
+        protein_record, aa=["A", "H"], window_size=10, cutoff=0.3
+    )
+    assert len(protein_record.features) == 1
+    assert int(protein_record.features[0].location.start) == 6
+    assert int(protein_record.features[0].location.end) == 25

@@ -40,7 +40,7 @@ from Bio.SeqRecord import SeqRecord
 protein = Seq("SYYHHHHHHDYDIPTTENLYFQG*EDINBURGHGENQMEFQUNDRY*")
 protein_record = SeqRecord(protein, id="example", annotations={"molecule_type": "protein"})
 
-protein_record = minotaor.annotate_record(protein_record)
+protein_record = minotaor.annotate_record(protein_record)  # search is case sensitive
 ```
 
 ### Plotting
@@ -130,7 +130,7 @@ bsmbi_site = "CGTCTC"
 print(minotaor.convert_dna_to_aa_pattern(bsmbi_site))
 # ['RL', '[DATRSICYNLFPHVG]V[S]', '[SPAT]S[RPLQH]', 'ET', '[MAT*RSPKLEVQGW]R[R]', '[G*R]D[DAVEG]']
 ```
-Returns a regex for each of the 6 translation frames.
+Returns a regex for each of the 6 translation frames. Note that the search with regex is case sensitive.
 
 
 ## Versioning
