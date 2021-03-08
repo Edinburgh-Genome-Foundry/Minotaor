@@ -87,6 +87,10 @@ def test_convert_prosite_to_regex():
         minotaor.convert_prosite_to_regex("<A-x-[ST](2)-x(0,1)-V.")
         == "^A[^\*][ST]{2}[^\*]{0,1}V"
     )
+    with pytest.raises(ValueError):
+        minotaor.convert_prosite_to_regex("V")  # no period
+    with pytest.raises(Exception):
+        minotaor.convert_prosite_to_regex("V-[D>].")  # '>' inside square brackets
 
 
 def test_tokenize_simple_regex():
@@ -105,6 +109,8 @@ def test_tokenize_simple_regex():
         "{8}",
         "$",
     ]
+    with pytest.raises(Exception):
+        minotaor.tokenize_simple_regex("[A}")  # incorrect regex
 
 
 def test_convert_tokens_to_prosite():
@@ -167,13 +173,15 @@ def test_evaluate_content():
 
 
 def test_add_aa_content():
-    my_seq = "DGGGGGGGGGGGGAAAGGGGGAAAD"
+    my_seq = "DDDAAADDDDDAAADAAA"  # non-overlapping and overlapping
     protein_record = SeqRecord(
         Seq(my_seq), id="example", annotations={"molecule_type": "protein"}
     )
     protein_record = minotaor.add_aa_content(
-        protein_record, aa=["A", "H"], window_size=10, cutoff=0.3
+        protein_record, aa=["A", "H"], window_size=5, cutoff=0.6
     )
-    assert len(protein_record.features) == 1
-    assert int(protein_record.features[0].location.start) == 6
-    assert int(protein_record.features[0].location.end) == 25
+    assert len(protein_record.features) == 2
+    assert protein_record.features[0].location.start == 1
+    assert protein_record.features[0].location.end == 8
+    assert protein_record.features[1].location.start == 9
+    assert protein_record.features[1].location.end == 18
