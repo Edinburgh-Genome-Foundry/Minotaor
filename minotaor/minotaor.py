@@ -421,3 +421,78 @@ def add_scanprosite_results(seqrecord, scanprosite_record):
             SeqFeature(FeatureLocation(start_index, stop_index), type="CDS", id=name)
         )
     return seqrecord
+
+
+def get_content(sequence, aa, window_size):
+    """Compute proportion of selected amino acids in string."""
+    proportions = []
+    for index in range(0, (len(sequence) - window_size + 1)):
+        subseq = sequence[index : index + window_size]
+        occurrences = 0
+        for letter in aa:
+            occurrences += subseq.count(letter)
+        proportion = occurrences / window_size
+        proportions += [proportion]
+
+    return proportions
+
+
+def evaluate_content(sequence, aa, window_size, cutoff):
+    """Compute global or local content of selected amino acids."""
+    proportions = get_content(sequence, aa, window_size)
+
+    positions = []
+    for index, proportion in enumerate(proportions):
+        if proportion >= cutoff:
+            positions += [index]  # add to breaches
+
+    # sum positions:
+    ranges = {}
+    ranges[positions[0]] = positions[0] + window_size  # initialize
+    previous = positions[0]
+    for position in positions[1:]:
+        if ranges[previous] >= position:
+            new_end = position + window_size
+            ranges[previous] = new_end
+            # key remains `previous`
+        else:
+            end = position + window_size
+            ranges[position] = end
+            previous = position
+
+    return positions, ranges
+
+
+def add_aa_content(seqrecord, aa, window_size, cutoff, name=None):
+    """Compute and annotate global or local content of selected amino acids.
+
+
+    **Parameters**
+
+    **seqrecord*
+    > The amino acid SeqRecord to annotate.
+
+    **aa**
+    > List of amino acids to search for (`list`).
+
+    **window_size**
+    > The search window size (`int`).
+
+    **cutoff**
+    > Annotate section with at least this proportion (between 0 and 1).
+
+    *name**
+    > Annotation label (`str`). Default: `>=#% X/Y/Z`.
+    """
+    if name is None:
+        name = ">=" + str(int(cutoff * 100)) + "% " + "/".join(aa)
+    sequence = str(seqrecord.seq)
+    positions, ranges = evaluate_content(
+        sequence, aa=aa, window_size=window_size, cutoff=cutoff
+    )
+    for start, stop in ranges.items():
+        seqrecord.features.append(
+            SeqFeature(FeatureLocation(start, stop), type="CDS", id=name)
+        )
+
+    return seqrecord

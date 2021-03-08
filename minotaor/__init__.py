@@ -9,6 +9,9 @@ from .minotaor import (
     tokenize_simple_regex,
     convert_regex_to_prosite,
     add_scanprosite_results,
+    get_content,
+    evaluate_content,
+    add_aa_content,
 )
 
 from .version import __version__
