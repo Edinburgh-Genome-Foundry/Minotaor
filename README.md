@@ -88,26 +88,35 @@ The above is shown in examples of epitope datasets.
 
 ##### Immune Epitope Database
 
-Download and unzip a *CSV Metric Export* of your choice from the [IEDB website](https://www.iedb.org/database_export_v3.php).
+Download and unzip a *CSV Metric Export* of your choice from the [IEDB website](https://www.iedb.org/database_export_v3.php), then:
 ```python
-
+import pandas
+iedb_file = 'epitope_full_v3.csv'
+iedb = pandas.read_csv(iedb_file, skiprows=1, dtype='str')
+iedb.rename(columns={"Epitope IRI": "name", "Description": "sequence"}, inplace=True)
+iedb['type'] = 'seq'
+# The dataframe can be used as shown above (note: this is a huge dataset):
+protein_record = minotaor.annotate_record(protein_record, seq_dataset=iedb)
 ```
+The epitopes can then be looked up with the link provided as their names. Alternatively,
+a more informative epitope name can be constructed from the other columns, as shown in the next section.
 
 
 ##### VDJdb
 
 Download and unzip the latest [VDJdb release](https://github.com/antigenomics/vdjdb-db/releases/latest), then:
-```
+```python
 import pandas
 vdjdb_file = 'vdjdb-YYYY-MM-DD/vdjdb.slim.txt'
 vdjdb = pandas.read_csv(vdjdb_file, sep='\t')
 # Create a unique subset of the epitopes:
 vdjdb_dataset = vdjdb.copy(deep=True)
 vdjdb_dataset.drop_duplicates(subset=['antigen.gene'], inplace=True, ignore_index=True)
-vdjdb_dataset['sequence'] = vdjdb_dataset['antigen.epitope']  # or 'cdr3' if you want to annotate antibodies
+vdjdb_dataset['sequence'] = vdjdb_dataset['antigen.epitope']  # or 'cdr3' for antibodies
 vdjdb_dataset['type'] = 'seq'
-vdjdb_dataset['name'] = ['VDJdb epitope ' + str(antigen) for antigen in vdjdb_dataset['antigen.gene'].to_list()]
-# The dataframe can be used as shown above:
+vdjdb_dataset['name'] = ['VDJdb epitope ' + str(antigen)
+                         for antigen in vdjdb_dataset['antigen.gene'].to_list()]
+
 protein_record = minotaor.annotate_record(protein_record, seq_dataset=vdjdb_dataset)
 ```
 The found motifs then can be looked up in VDJdb for more details.
