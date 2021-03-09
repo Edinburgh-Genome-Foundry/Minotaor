@@ -136,14 +136,22 @@ Returns a regex for each of the 6 translation frames. Note that the search with 
 [InterPro](http://www.ebi.ac.uk/interpro/) provides functional analysis of protein sequences, using several databases. We can annotate our protein with the results, as shown below:
 ```python
 import minotaor
-from Bio import SearchIO
-from Bio import SeqIO
+from Bio import SearchIO, SeqIO
 
 interpro = SearchIO.read(handle, 'interproscan-xml')  # handle is an InterProScan xml file
 seqrecord = SeqIO.read("protein.fasta", "fasta")
 
 seqrecord_annotated = minotaor.add_interpro(seqrecord, interpro, hit_types=['phobius'])
 ```
+
+
+### Short linear motifs (SLiMs)
+
+The Eukaryotic Linear Motif (ELM) database is a manually curated collection of experimentally validated SLiMs. The [ELM API](http://elm.eu.org/api/manual.html) returns a tab-separated values (TSV) text file that can be used for annotation:
+```python
+seqrecord_annotated = minotaor.add_elm_tsv(seqrecord, elm_tsv="elm.tsv")
+```
+Alternatively, TSV files of the datasets [can be downloaded](http://elm.eu.org/downloads.html) then edited for use with `annotate_record(seqrecord, seq_dataset=`). Note that ELM indexing starts from 1.
 
 
 ## Versioning
