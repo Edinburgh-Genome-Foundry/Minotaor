@@ -12,6 +12,7 @@ from .minotaor import (
     get_content,
     evaluate_content,
     add_aa_content,
+    add_interpro,
 )
 
 from .version import __version__

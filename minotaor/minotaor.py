@@ -500,3 +500,43 @@ def add_aa_content(seqrecord, aa, window_size, cutoff, name=None):
         )
 
     return seqrecord
+
+
+def add_interpro(seqrecord, interpro, hit_types=None, include_description=True):
+    """Annotate SeqRecord with InterPro results.
+
+
+    **Parameters**
+
+    **seqrecord**
+    > `SeqRecord` to annotate.
+
+    **interpro**
+    > `QueryResult` object output of `Bio.SearchIO.read(handle, "interproscan-xml")`.
+
+    **hit_types**
+    > The InterProScan hit types to filter for (`list`). Default includes all.
+
+    **include_description**
+    > If True, includes description in the label, otherwise only in the `note`
+    qualifier of the SeqRecord.
+    """
+    for hit in interpro.hits:
+        if hit_types is None or hit.attributes["Hit type"] in hit_types:
+            for fragment in hit.fragments:
+                start = fragment.query_start
+                end = fragment.query_end
+                identifier = "%s: %s" % (hit.attributes["Hit type"], fragment.hit_id)
+                if include_description:
+                    identifier = identifier + " " + fragment.hit_description
+                qualifier = {"note": fragment.hit_description}
+                seqrecord.features.append(
+                    SeqFeature(
+                        FeatureLocation(start, end),
+                        type="interpro",
+                        id=identifier,
+                        qualifiers=qualifier,
+                    )
+                )
+
+    return seqrecord
