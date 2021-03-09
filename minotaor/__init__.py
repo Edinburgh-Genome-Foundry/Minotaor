@@ -1,5 +1,5 @@
 from .minotaor import (
-    seq_dataset,
+    SEQ_DATA,
     MinotaorTranslator,
     annotate_record,
     create_and_annotate_record,

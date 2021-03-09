@@ -7,7 +7,7 @@ from Bio.SeqFeature import SeqFeature, FeatureLocation
 from Bio.SeqRecord import SeqRecord
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data")
-seq_dataset = pandas.read_csv(os.path.join(DATA_DIR, "seq.csv"))
+SEQ_DATA = pandas.read_csv(os.path.join(DATA_DIR, "seq.csv"))
 
 try:
     from dna_features_viewer import BiopythonTranslator
@@ -40,7 +40,7 @@ else:
             return feature.id
 
 
-def annotate_record(seqrecord, seq_dataset=seq_dataset):
+def annotate_record(seqrecord, seq_dataset=None):
     """Annotate a record with entries of a reference sequence dataset.
 
 
@@ -52,8 +52,10 @@ def annotate_record(seqrecord, seq_dataset=seq_dataset):
     > SeqRecord to annotate.
 
     **seq_dataset**
-    > A minotaor sequence dataset (`pandas.DataFrame`).
+    > A minotaor sequence dataset (`pandas.DataFrame`). Default uses the built-in data.
     """
+    if seq_dataset is None:
+        seq_dataset = SEQ_DATA
     # FLAG NO START: M
     if str(seqrecord.seq)[0] != "M":
         seqrecord.features.append(
@@ -105,7 +107,7 @@ def annotate_record(seqrecord, seq_dataset=seq_dataset):
     return seqrecord
 
 
-def create_and_annotate_record(sequence, seq_dataset=seq_dataset):
+def create_and_annotate_record(sequence, seq_dataset=None):
     """Create a SeqRecord from an amino acid sequence string.
 
 
@@ -114,6 +116,8 @@ def create_and_annotate_record(sequence, seq_dataset=seq_dataset):
     **sequence**
     > Sequence (`str`).
     """
+    if seq_dataset is None:
+        seq_dataset = SEQ_DATA
     protein = Seq(sequence)
     protein_record = SeqRecord(
         protein, id="example", annotations={"molecule_type": "protein"}
