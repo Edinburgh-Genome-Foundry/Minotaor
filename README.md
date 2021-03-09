@@ -131,6 +131,21 @@ print(minotaor.convert_dna_to_aa_pattern(bsmbi_site))
 Returns a regex for each of the 6 translation frames. Note that the search with regex is case sensitive.
 
 
+### InterPro
+
+[InterPro](http://www.ebi.ac.uk/interpro/) provides functional analysis of protein sequences, using several databases. We can annotate our protein with the results, as shown below:
+```python
+import minotaor
+from Bio import SearchIO
+from Bio import SeqIO
+
+interpro = SearchIO.read(handle, 'interproscan-xml')  # handle is an InterProScan xml file
+seqrecord = SeqIO.read("protein.fasta", "fasta")
+
+seqrecord_annotated = minotaor.add_interpro(seqrecord, interpro, hit_types=['phobius'])
+```
+
+
 ## Versioning
 
 Minotaor uses the [semantic versioning](https://semver.org) scheme.
