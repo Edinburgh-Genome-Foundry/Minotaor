@@ -29,15 +29,24 @@ else:
         """
 
         def compute_feature_color(self, feature):
-            if feature.type == "warning":
+            if feature.qualifiers["mino_type"] == "error":
                 return "red"
-            elif feature.type == "CDS":
-                return "#7245dc"
+            elif feature.qualifiers["mino_type"] == "warning":
+                return "yellow"
+            elif feature.qualifiers["mino_type"] == "tag":
+                return "tab:blue"
+            elif feature.qualifiers["mino_type"] == "linker":
+                return "tab:cyan"
             else:
-                return "blue"
+                return "#7245dc"  # default dna_features_viewer color
 
         def compute_feature_label(self, feature):
-            return feature.id
+            try:
+                label = feature.qualifiers["label"]
+            except Exception:
+                label = feature.id
+
+            return label
 
 
 def annotate_record(seqrecord, seq_dataset=None):
@@ -59,15 +68,21 @@ def annotate_record(seqrecord, seq_dataset=None):
     # FLAG NO START: M
     if str(seqrecord.seq)[0] != "M":
         seqrecord.features.append(
-            SeqFeature(FeatureLocation(0, 1), type="warning", id="no start codon")
+            SeqFeature(
+                FeatureLocation(0, 1),
+                type="misc_feature",
+                id="no start codon",
+                qualifiers={"label": "no start codon", "mino_type": "warning"},
+            )
         )
     # FLAG NO END: *
     if str(seqrecord.seq)[-1] != "*":
         seqrecord.features.append(
             SeqFeature(
                 FeatureLocation(len(seqrecord) - 1, len(seqrecord)),
-                type="warning",
+                type="misc_feature",
                 id="not a stop codon",
+                qualifiers={"label": "not a stop codon", "mino_type": "warning"},
             )
         )
     # FLAG STOP CODONS: *
@@ -75,7 +90,10 @@ def annotate_record(seqrecord, seq_dataset=None):
     for position in stop_positions:
         seqrecord.features.append(
             SeqFeature(
-                FeatureLocation(position, position + 1), type="warning", id="STOP"
+                FeatureLocation(position, position + 1),
+                type="misc_feature",
+                id="STOP",
+                qualifiers={"label": "STOP", "mino_type": "error"},
             )
         )
     # ANNOTATE SEQUENCES
@@ -90,7 +108,10 @@ def annotate_record(seqrecord, seq_dataset=None):
         for match in matches:
             seqrecord.features.append(
                 SeqFeature(
-                    FeatureLocation(match, (match + len_sequence)), type="CDS", id=name
+                    FeatureLocation(match, (match + len_sequence)),
+                    type="misc_feature",
+                    id=name,
+                    qualifiers={"label": name, "mino_type": "default"},
                 )
             )
     # ANNOTATE PATTERNS
@@ -101,7 +122,12 @@ def annotate_record(seqrecord, seq_dataset=None):
         matches = {m.start(): m.end() for m in re.finditer(pattern, str(seqrecord.seq))}
         for start, end in matches.items():
             seqrecord.features.append(
-                SeqFeature(FeatureLocation(start, end), type="CDS", id=name)
+                SeqFeature(
+                    FeatureLocation(start, end),
+                    type="misc_feature",
+                    id=name,
+                    qualifiers={"label": name, "mino_type": "default"},
+                )
             )
 
     return seqrecord
@@ -422,7 +448,12 @@ def add_scanprosite_results(seqrecord, scanprosite_record):
         stop_index = entry["stop"]  # prosite range inclusive, Python not
         name = "PROSITE:" + entry["signature_ac"]  # key for the prosite ID
         seqrecord.features.append(
-            SeqFeature(FeatureLocation(start_index, stop_index), type="CDS", id=name)
+            SeqFeature(
+                FeatureLocation(start_index, stop_index),
+                type="misc_feature",
+                id=name,
+                qualifiers={"label": name, "mino_type": "default"},
+            )
         )
     return seqrecord
 
@@ -496,7 +527,12 @@ def add_aa_content(seqrecord, aa, window_size, cutoff, name=None):
     )
     for start, stop in ranges.items():
         seqrecord.features.append(
-            SeqFeature(FeatureLocation(start, stop), type="CDS", id=name)
+            SeqFeature(
+                FeatureLocation(start, stop),
+                type="misc_feature",
+                id=name,
+                qualifiers={"label": name, "mino_type": "warning"},
+            )
         )
 
     return seqrecord
@@ -529,7 +565,11 @@ def add_interpro(seqrecord, interpro, hit_types=None, include_description=True):
                 identifier = "%s: %s" % (hit.attributes["Hit type"], fragment.hit_id)
                 if include_description:
                     identifier = identifier + " " + fragment.hit_description
-                qualifier = {"note": fragment.hit_description}
+                qualifier = {
+                    "note": fragment.hit_description,
+                    "label": identifier,
+                    "mino_type": "default",
+                }
                 seqrecord.features.append(
                     SeqFeature(
                         FeatureLocation(start, end),
@@ -553,8 +593,12 @@ def add_elm(seqrecord, elm):
         seqrecord.features.append(
             SeqFeature(
                 FeatureLocation(row.start - 1, row.stop - 1),  # indexing starts from 1
-                type="elm",
+                type="misc_feature",
                 id="ELM:" + row.elm_identifier,
+                qualifiers={
+                    "label": "ELM:" + row.elm_identifier,
+                    "mino_type": "default",
+                },
             )
         )
 
