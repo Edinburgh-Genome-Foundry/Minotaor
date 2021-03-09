@@ -13,6 +13,7 @@ from .minotaor import (
     evaluate_content,
     add_aa_content,
     add_interpro,
+    add_elm_tsv,
 )
 
 from .version import __version__

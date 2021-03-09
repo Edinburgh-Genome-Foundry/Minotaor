@@ -540,3 +540,22 @@ def add_interpro(seqrecord, interpro, hit_types=None, include_description=True):
                 )
 
     return seqrecord
+
+
+def add_elm_tsv(seqrecord, elm_tsv):
+    elm = pandas.read_csv(elm_tsv, sep="\t")
+
+    return add_elm(seqrecord, elm)
+
+
+def add_elm(seqrecord, elm):
+    for row in elm.itertuples(index=True, name="Pandas"):
+        seqrecord.features.append(
+            SeqFeature(
+                FeatureLocation(row.start - 1, row.stop - 1),  # indexing starts from 1
+                type="elm",
+                id="ELM:" + row.elm_identifier,
+            )
+        )
+
+    return seqrecord
