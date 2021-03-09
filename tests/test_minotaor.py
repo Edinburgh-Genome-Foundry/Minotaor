@@ -61,6 +61,16 @@ def test_create_and_annotate_record():
     assert protein_record.features[0].id == "no start codon"
 
 
+def test_generate_prefix_codons():
+    with pytest.raises(ValueError):
+        minotaor.minotaor.generate_prefix_codons("")  # length not 1 nor 2
+
+
+def test_generate_postfix_codons():
+    with pytest.raises(ValueError):
+        minotaor.minotaor.generate_postfix_codons("")  # length not 1 nor 2
+
+
 def test_convert_dna_to_aa_pattern():
     with pytest.raises(ValueError):
         minotaor.convert_dna_to_aa_pattern("A")  # length less than 3
