@@ -1,4 +1,5 @@
 import pytest
+from unittest import mock
 
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
@@ -196,3 +197,26 @@ def test_add_aa_content():
     assert protein_record.features[0].location.end == 8
     assert protein_record.features[1].location.start == 9
     assert protein_record.features[1].location.end == 18
+
+
+def test_add_interpro():
+    mock_interpro = mock.Mock()
+    hit = mock.Mock()
+    fragment = mock.Mock()
+
+    mock_interpro.hits = [hit]
+    hit.attributes = {"Hit type": "phobius"}
+    hit.fragments = [fragment]
+    fragment.query_start = 2
+    fragment.query_end = 5
+    fragment.hit_id = "Mock_ID"
+    fragment.hit_description = "Mock_description"
+
+    protein = Seq("HHHHHHDLGEDINBURGHGENQMEFQUNDRY")
+    protein_record = SeqRecord(
+        protein, id="example", annotations={"molecule_type": "protein"}
+    )
+
+    protein_record = minotaor.add_interpro(protein_record, mock_interpro)
+    assert len(protein_record.features) == 1
+    assert protein_record.features[0].id == "phobius: Mock_ID Mock_description"
