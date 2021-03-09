@@ -221,6 +221,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install" class="md-nav__link">
     Install
   </a>
@@ -231,6 +238,66 @@
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plotting" class="md-nav__link">
+    Plotting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-datasets" class="md-nav__link">
+    Reference datasets
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#immune-epitope-database" class="md-nav__link">
+    Immune Epitope Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdjdb" class="md-nav__link">
+    VDJdb
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prosite" class="md-nav__link">
+    PROSITE
+  </a>
+  
+    <nav class="md-nav" aria-label="PROSITE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conversion" class="md-nav__link">
+    Conversion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -377,6 +444,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install" class="md-nav__link">
     Install
   </a>
@@ -387,6 +461,66 @@
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plotting" class="md-nav__link">
+    Plotting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-datasets" class="md-nav__link">
+    Reference datasets
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#immune-epitope-database" class="md-nav__link">
+    Immune Epitope Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdjdb" class="md-nav__link">
+    VDJdb
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prosite" class="md-nav__link">
+    PROSITE
+  </a>
+  
+    <nav class="md-nav" aria-label="PROSITE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conversion" class="md-nav__link">
+    Conversion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -432,7 +566,12 @@
 <p><a href="https://travis-ci.org/Edinburgh-Genome-Foundry/Minotaor"><img alt="Build Status" src="https://travis-ci.org/Edinburgh-Genome-Foundry/Minotaor.svg?branch=main" /></a>
 <a href="https://coveralls.io/github/Edinburgh-Genome-Foundry/Minotaor?branch=main"><img alt="Coverage Status" src="https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/Minotaor/badge.svg?branch=main" /></a></p>
 <p><strong>Work in progress</strong></p>
-<p>Minotaor is an a<strong>mino</strong> acid sequence anno<strong>ta</strong>t<strong>or</strong> for quickly identifying common protein tags and linkers in an ORF. Additionally, it can flag peptide sequences or patterns that are known to cause problems during translation. It uses Biopython.</p>
+<p>Minotaor is an a<strong>mino</strong> acid sequence anno<strong>ta</strong>t<strong>or</strong> for quickly identifying common protein tags and linkers in an ORF. Additionally, it can flag peptide motifs that are known to cause problems during translation. It uses Biopython.</p>
+<h2 id="background">Background</h2>
+<p>In the <a href="https://prosite.expasy.org/">PROSITE</a> nomenclature, a sequence <em>motif</em> is a description
+of the occurrence of amino acids (signature, fingerprint), and can be either a pattern or a profile.
+A <em>pattern</em> is a qualitative description of a motif in a regular expression-like syntax.
+A <em>profile</em> (or weight matrix) is a table of position-specific amino acid weights and gap costs.</p>
 <h2 id="install">Install</h2>
 <div class="codehilite"><pre><span></span><code><span class="err">pip install minotaor</span>
 </code></pre></div>
@@ -446,39 +585,93 @@
 <span class="n">protein</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;SYYHHHHHHDYDIPTTENLYFQG*EDINBURGHGENQMEFQUNDRY*&quot;</span><span class="p">)</span>
 <span class="n">protein_record</span> <span class="o">=</span> <span class="n">SeqRecord</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;molecule_type&quot;</span><span class="p">:</span> <span class="s2">&quot;protein&quot;</span><span class="p">})</span>
 
-<span class="n">protein_record</span> <span class="o">=</span> <span class="n">minotaor</span><span class="o">.</span><span class="n">annotate_record</span><span class="p">(</span><span class="n">protein_record</span><span class="p">)</span>
+<span class="n">protein_record</span> <span class="o">=</span> <span class="n">minotaor</span><span class="o">.</span><span class="n">annotate_record</span><span class="p">(</span><span class="n">protein_record</span><span class="p">)</span>  <span class="c1"># search is case sensitive</span>
+</code></pre></div>
 
-<span class="c1"># Define a custom translator:</span>
-<span class="kn">from</span> <span class="nn">dna_features_viewer</span> <span class="kn">import</span> <span class="n">BiopythonTranslator</span>
-<span class="k">class</span> <span class="nc">MinotaorTranslator</span><span class="p">(</span><span class="n">BiopythonTranslator</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Custom translator.</span>
 
-<span class="sd">    Color warnings in red, CDS in default color, all other features in blue.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">compute_feature_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">feature</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;warning&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;red&quot;</span>
-        <span class="k">elif</span> <span class="n">feature</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;CDS&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;#7245dc&quot;</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;blue&quot;</span>
-
-    <span class="k">def</span> <span class="nf">compute_feature_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">feature</span><span class="o">.</span><span class="n">id</span>
-
-<span class="n">graphic_record</span> <span class="o">=</span> <span class="n">MinotaorTranslator</span><span class="p">()</span><span class="o">.</span><span class="n">translate_record</span><span class="p">(</span><span class="n">protein_record</span><span class="p">)</span>
+<h3 id="plotting">Plotting</h3>
+<p>Plotting requires <a href="https://github.com/Edinburgh-Genome-Foundry/DnaFeaturesViewer">DNA Features Viewer</a> installed:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">graphic_record</span> <span class="o">=</span> <span class="n">minotaor</span><span class="o">.</span><span class="n">MinotaorTranslator</span><span class="p">()</span><span class="o">.</span><span class="n">translate_record</span><span class="p">(</span><span class="n">protein_record</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">graphic_record</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figure_width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">strand_in_label_threshold</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="n">graphic_record</span><span class="o">.</span><span class="n">plot_sequence</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 </code></pre></div>
 
 
 <p><img alt="Example" src="images/example.png" /></p>
+<h3 id="reference-datasets">Reference datasets</h3>
+<p>Minotaor can use custom reference pandas dataframes, specified with <code>seq_dataset</code>. The <code>sequence</code> and <code>name</code> columns are used for search and naming of the motifs. The <code>type</code> column sets the search type, which can be <code>seq</code> for strings or <code>pattern</code> or regexes (regular expressions). This is shown in the below examples of epitope datasets.</p>
+<h4 id="immune-epitope-database">Immune Epitope Database</h4>
+<p>Download and unzip a <em>CSV Metric Export</em> of your choice from the <a href="https://www.iedb.org/database_export_v3.php">IEDB website</a>, then:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="n">iedb_file</span> <span class="o">=</span> <span class="s1">&#39;epitope_full_v3.csv&#39;</span>
+<span class="n">iedb</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">iedb_file</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+<span class="n">iedb</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Epitope IRI&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;sequence&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">iedb</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;seq&#39;</span>
+<span class="c1"># The dataframe can be used as shown above (note: this is a huge dataset):</span>
+<span class="n">protein_record</span> <span class="o">=</span> <span class="n">minotaor</span><span class="o">.</span><span class="n">annotate_record</span><span class="p">(</span><span class="n">protein_record</span><span class="p">,</span> <span class="n">seq_dataset</span><span class="o">=</span><span class="n">iedb</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>The epitopes can then be looked up with the link provided as their names. Alternatively,
+a more informative epitope name can be constructed from the other columns, as shown in the next section.</p>
+<h4 id="vdjdb">VDJdb</h4>
+<p>Download and unzip the latest <a href="https://github.com/antigenomics/vdjdb-db/releases/latest">VDJdb release</a>, then:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="n">vdjdb_file</span> <span class="o">=</span> <span class="s1">&#39;vdjdb-YYYY-MM-DD/vdjdb.slim.txt&#39;</span>
+<span class="n">vdjdb</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">vdjdb_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># Create a unique subset of the epitopes:</span>
+<span class="n">vdjdb_dataset</span> <span class="o">=</span> <span class="n">vdjdb</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">vdjdb_dataset</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;antigen.gene&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">vdjdb_dataset</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vdjdb_dataset</span><span class="p">[</span><span class="s1">&#39;antigen.epitope&#39;</span><span class="p">]</span>  <span class="c1"># or &#39;cdr3&#39; for antibodies</span>
+<span class="n">vdjdb_dataset</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;seq&#39;</span>
+<span class="n">vdjdb_dataset</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;VDJdb epitope &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">antigen</span><span class="p">)</span>
+                         <span class="k">for</span> <span class="n">antigen</span> <span class="ow">in</span> <span class="n">vdjdb_dataset</span><span class="p">[</span><span class="s1">&#39;antigen.gene&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()]</span>
+
+<span class="n">protein_record</span> <span class="o">=</span> <span class="n">minotaor</span><span class="o">.</span><span class="n">annotate_record</span><span class="p">(</span><span class="n">protein_record</span><span class="p">,</span> <span class="n">seq_dataset</span><span class="o">=</span><span class="n">vdjdb_dataset</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>The motifs then can be looked up in VDJdb for more details.
+A similar approach can be used for the McPAS-TCR database.</p>
+<h3 id="prosite">PROSITE</h3>
+<p>A function is provided for reading <a href="https://prosite.expasy.org/scanprosite">ScanProsite</a> results.
+Query your sequence with Biopython:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Bio.ExPASy</span> <span class="kn">import</span> <span class="n">ScanProsite</span>
+<span class="n">my_seq</span> <span class="o">=</span> <span class="s1">&#39;MYHHHHHHYAGDLPGLMDGAAAGGGA&#39;</span>  <span class="c1"># cannot contain &#39;*&#39;</span>
+<span class="n">scanprosite_handle</span> <span class="o">=</span> <span class="n">ScanProsite</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">seq</span><span class="o">=</span><span class="n">my_seq</span><span class="p">,</span> <span class="n">mirror</span><span class="o">=</span><span class="s1">&#39;https://prosite.expasy.org/&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;xml&#39;</span><span class="p">)</span>
+<span class="n">scanprosite_record</span> <span class="o">=</span> <span class="n">ScanProsite</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">scanprosite_handle</span><span class="p">)</span>
+
+<span class="n">protein_record</span> <span class="o">=</span> <span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="n">my_seq</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;my_seq&quot;</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;molecule_type&quot;</span><span class="p">:</span> <span class="s2">&quot;protein&quot;</span><span class="p">})</span>
+<span class="n">protein_record</span> <span class="o">=</span> <span class="n">minotaor</span><span class="o">.</span><span class="n">add_scanprosite_results</span><span class="p">(</span><span class="n">protein_record</span><span class="p">,</span> <span class="n">scanprosite_record</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><img alt="Prosite" src="images/example_prosite.png" /></p>
+<h4 id="conversion">Conversion</h4>
+<p>Convert between PROSITE and regex formats:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">regex</span> <span class="o">=</span> <span class="n">minotaor</span><span class="o">.</span><span class="n">convert_prosite_to_regex</span><span class="p">(</span><span class="s2">&quot;&lt;A-[GV]-</span><span class="si">{PR}</span><span class="s2">-[FYW](2)-</span><span class="si">{P}</span><span class="s2">(4)-x-x(8)&gt;.&quot;</span><span class="p">)</span>
+<span class="n">regex</span>
+<span class="c1"># &#39;^A[GV][^PR][FYW]{2}[^P]{4}[^\\*][^\\*]{8}$&#39;</span>
+<span class="n">minotaor</span><span class="o">.</span><span class="n">convert_regex_to_prosite</span><span class="p">(</span><span class="n">regex</span><span class="p">)</span>
+<span class="c1"># &#39;&lt;A-[GV]-{PR}-[FYW](2)-{P}(4)-x-x(8)&gt;.&#39;</span>
+</code></pre></div>
+
+
+<p>Given a DNA sequence, return amino acid sequences that may contain it:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">bsmbi_site</span> <span class="o">=</span> <span class="s2">&quot;CGTCTC&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minotaor</span><span class="o">.</span><span class="n">convert_dna_to_aa_pattern</span><span class="p">(</span><span class="n">bsmbi_site</span><span class="p">))</span>
+<span class="c1"># [&#39;RL&#39;, &#39;[DATRSICYNLFPHVG]V[S]&#39;, &#39;[SPAT]S[RPLQH]&#39;, &#39;ET&#39;, &#39;[MAT*RSPKLEVQGW]R[R]&#39;, &#39;[G*R]D[DAVEG]&#39;]</span>
+</code></pre></div>
+
+
+<p>Returns a regex for each of the 6 translation frames. Note that the search with regex is case sensitive.</p>
 <h2 id="versioning">Versioning</h2>
 <p>Minotaor uses the <a href="https://semver.org">semantic versioning</a> scheme.</p>
 <h2 id="license-mit">License = MIT</h2>
-<p>Minotaor is <a href="https://www.gnu.org/philosophy/free-sw.en.html">free software</a>, which means the users have the freedom to run, copy, distribute, study, change and improve the software.</p>
-<p>Minotaor was written at the <a href="https://edinburgh-genome-foundry.github.io/">Edinburgh Genome Foundry</a> by <a href="https://github.com/veghp">Peter Vegh</a> and is released under the MIT license.</p>
+<p>Minotaor is <a href="https://www.gnu.org/philosophy/free-sw.en.html">free software</a>, which means
+the users have the freedom to run, copy, distribute, study, change and improve the software.</p>
+<p>Minotaor was written at the <a href="https://edinburgh-genome-foundry.github.io/">Edinburgh Genome Foundry</a>
+by <a href="https://github.com/veghp">Peter Vegh</a> and is released under the MIT license.</p>
                 
               
               
