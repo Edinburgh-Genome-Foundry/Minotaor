@@ -1,0 +1,3 @@
+elm_identifier	start	stop	is_annotated	is_phiblastmatch	is_filtered	phiblast	topodomfilter	taxonfilter	structure
+DEG_APCC_DBOX_1	7	15	False	False	False	False	False	False	False
+DEG_Nend_UBRbox_3	1	3	False	False	False	False	False	False	False

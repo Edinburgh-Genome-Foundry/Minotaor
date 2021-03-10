@@ -1,6 +1,8 @@
 import pytest
 from unittest import mock
 
+import os
+
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 
@@ -26,6 +28,8 @@ testdata = [
     "[GR]-C-[IV]-G-R-[ILS]-x-W.",
     "<F-G(3)-x-x(0,1)-[GSTV]-[ST](2,3)-{PR}-{L}(2,5)-x-A>.",
 ]
+
+mock_elm_tsv_path = os.path.join("tests", "data", "mock_elm.tsv")
 
 
 def test_MinotaorTranslator():
@@ -230,3 +234,16 @@ def test_add_interpro():
     protein_record = minotaor.add_interpro(protein_record, mock_interpro)
     assert len(protein_record.features) == 1
     assert protein_record.features[0].id == "phobius: Mock_ID Mock_description"
+
+
+def test_add_elm_tsv():
+    # Also tests add_elm()
+    protein = Seq("HHHHHHDLGEDINBURGHGENQMEFQUNDRY")
+    seqrecord = SeqRecord(
+        protein, id="example", annotations={"molecule_type": "protein"}
+    )
+    seqrecord = minotaor.add_elm_tsv(seqrecord, elm_tsv=mock_elm_tsv_path)
+    assert len(seqrecord.features) == 2
+    assert seqrecord.features[0].id == "ELM:DEG_APCC_DBOX_1"
+    assert seqrecord.features[0].location.start == 6
+    assert seqrecord.features[0].location.end == 14
