@@ -8,8 +8,6 @@
 [![Build Status](https://travis-ci.org/Edinburgh-Genome-Foundry/Minotaor.svg?branch=main)](https://travis-ci.org/Edinburgh-Genome-Foundry/Minotaor)
 [![Coverage Status](https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/Minotaor/badge.svg?branch=main)](https://coveralls.io/github/Edinburgh-Genome-Foundry/Minotaor?branch=main)
 
-**Work in progress**
-
 Minotaor is an a**mino** acid sequence anno**ta**t**or** for quickly identifying common protein tags and linkers in an ORF. Additionally, it can flag peptide motifs that are known to cause problems during translation. It uses Biopython.
 
 
@@ -136,14 +134,6 @@ minotaor.convert_regex_to_prosite(regex)
 # '<A-[GV]-{PR}-[FYW](2)-{P}(4)-x-x(8)>.'
 ```
 
-Given a DNA sequence, return amino acid sequences that may contain it:
-```python
-bsmbi_site = "CGTCTC"
-print(minotaor.convert_dna_to_aa_pattern(bsmbi_site))
-# ['RL', '[DATRSICYNLFPHVG]V[S]', '[SPAT]S[RPLQH]', 'ET', '[MAT*RSPKLEVQGW]R[R]', '[G*R]D[DAVEG]']
-```
-Returns a regex for each of the 6 translation frames. Note that the search with regex is case sensitive.
-
 
 ### InterPro
 
@@ -166,6 +156,24 @@ The Eukaryotic Linear Motif (ELM) database is a manually curated collection of e
 seqrecord_annotated = minotaor.add_elm_tsv(seqrecord, elm_tsv="elm.tsv")
 ```
 Alternatively, TSV files of the datasets [can be downloaded](http://elm.eu.org/downloads.html) then edited for use with `annotate_record(seqrecord, seq_dataset=`). Note that ELM indexing starts from 1.
+
+
+### Other
+
+Given a DNA sequence, return amino acid sequences that may contain it:
+```python
+bsmbi_site = "CGTCTC"
+print(minotaor.convert_dna_to_aa_pattern(bsmbi_site))
+# ['RL', '[DATRSICYNLFPHVG]V[S]', '[SPAT]S[RPLQH]', 'ET', '[MAT*RSPKLEVQGW]R[R]', '[G*R]D[DAVEG]']
+```
+Returns a regex for each of the 6 translation frames. Note that the search with regex is case sensitive.
+
+
+Compute % content of selected amino acids:
+```python
+minotaor.add_aa_content(seqrecord, aa=["D", "E"], window_size=10, cutoff=0.3, name="Acidic sequence"):
+```
+Useful for finding proline-rich (P) or acidic sequences (D/E) that may interfere with translation.
 
 
 ## Versioning
