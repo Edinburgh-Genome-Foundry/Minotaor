@@ -583,12 +583,34 @@ def add_interpro(seqrecord, interpro, hit_types=None, include_description=True):
 
 
 def add_elm_tsv(seqrecord, elm_tsv):
+    """Annotate SeqRecord with Eukaryotic Linear Motif (ELM) database search results.
+
+
+    **Parameters**
+
+    **seqrecord**
+    > `SeqRecord` to annotate.
+
+    **elm_tsv**
+    > Path to TSV file of results (`str`).
+    """
     elm = pandas.read_csv(elm_tsv, sep="\t")
 
     return add_elm(seqrecord, elm)
 
 
 def add_elm(seqrecord, elm):
+    """Annotate SeqRecord with Eukaryotic Linear Motif (ELM) database search results.
+
+
+    **Parameters**
+
+    **seqrecord**
+    > `SeqRecord` to annotate.
+
+    **elm**
+    > Dataframe of results (`pandas.DataFrame`).
+    """
     for row in elm.itertuples(index=True, name="Pandas"):
         seqrecord.features.append(
             SeqFeature(
