@@ -314,6 +314,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#add_elm" class="md-nav__link">
+    add_elm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_elm_tsv" class="md-nav__link">
+    add_elm_tsv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_interpro" class="md-nav__link">
+    add_interpro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#add_scanprosite_results" class="md-nav__link">
     add_scanprosite_results
   </a>
@@ -671,6 +692,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#add_elm" class="md-nav__link">
+    add_elm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_elm_tsv" class="md-nav__link">
+    add_elm_tsv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_interpro" class="md-nav__link">
+    add_interpro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#add_scanprosite_results" class="md-nav__link">
     add_scanprosite_results
   </a>
@@ -1014,21 +1056,39 @@
 
         <span class="s s-Atom">def</span> <span class="nf">compute_feature_color</span><span class="p">(</span><span class="s s-Atom">self</span><span class="p">,</span> <span class="s s-Atom">feature</span><span class="p">)</span><span class="s s-Atom">:</span>
 
-            <span class="s s-Atom">if</span> <span class="s s-Atom">feature</span><span class="p">.</span><span class="s s-Atom">type</span> <span class="o">==</span> <span class="s2">&quot;warning&quot;</span><span class="s s-Atom">:</span>
+            <span class="s s-Atom">mino_class</span> <span class="o">=</span> <span class="s2">&quot;mino_class&quot;</span>
+
+            <span class="s s-Atom">if</span> <span class="s s-Atom">feature</span><span class="p">.</span><span class="s s-Atom">qualifiers</span><span class="p">[</span><span class="s s-Atom">mino_class</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;error&quot;</span><span class="s s-Atom">:</span>
 
                 <span class="s s-Atom">return</span> <span class="s2">&quot;red&quot;</span>
 
-            <span class="s s-Atom">elif</span> <span class="s s-Atom">feature</span><span class="p">.</span><span class="s s-Atom">type</span> <span class="o">==</span> <span class="s2">&quot;CDS&quot;</span><span class="s s-Atom">:</span>
+            <span class="s s-Atom">elif</span> <span class="s s-Atom">feature</span><span class="p">.</span><span class="s s-Atom">qualifiers</span><span class="p">[</span><span class="s s-Atom">mino_class</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;warning&quot;</span><span class="s s-Atom">:</span>
 
-                <span class="s s-Atom">return</span> <span class="s2">&quot;#7245dc&quot;</span>
+                <span class="s s-Atom">return</span> <span class="s2">&quot;yellow&quot;</span>
+
+            <span class="s s-Atom">elif</span> <span class="s s-Atom">feature</span><span class="p">.</span><span class="s s-Atom">qualifiers</span><span class="p">[</span><span class="s s-Atom">mino_class</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;tag&quot;</span><span class="s s-Atom">:</span>
+
+                <span class="s s-Atom">return</span> <span class="s2">&quot;tab:blue&quot;</span>
+
+            <span class="s s-Atom">elif</span> <span class="s s-Atom">feature</span><span class="p">.</span><span class="s s-Atom">qualifiers</span><span class="p">[</span><span class="s s-Atom">mino_class</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;linker&quot;</span><span class="s s-Atom">:</span>
+
+                <span class="s s-Atom">return</span> <span class="s2">&quot;tab:cyan&quot;</span>
 
             <span class="nn">else</span><span class="p">:</span>
 
-                <span class="s s-Atom">return</span> <span class="s2">&quot;blue&quot;</span>
+                <span class="s s-Atom">return</span> <span class="s2">&quot;#7245dc&quot;</span>  <span class="s s-Atom">#</span> <span class="s s-Atom">default</span> <span class="s s-Atom">dna_features_viewer</span> <span class="s s-Atom">color</span>
 
         <span class="s s-Atom">def</span> <span class="nf">compute_feature_label</span><span class="p">(</span><span class="s s-Atom">self</span><span class="p">,</span> <span class="s s-Atom">feature</span><span class="p">)</span><span class="s s-Atom">:</span>
 
-            <span class="s s-Atom">return</span> <span class="s s-Atom">feature</span><span class="p">.</span><span class="s s-Atom">id</span>
+            <span class="nn">try</span><span class="p">:</span>
+
+                <span class="s s-Atom">label</span> <span class="o">=</span> <span class="s s-Atom">feature</span><span class="p">.</span><span class="s s-Atom">qualifiers</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
+
+            <span class="s s-Atom">except</span> <span class="nv">Exception</span><span class="s s-Atom">:</span>
+
+                <span class="s s-Atom">label</span> <span class="o">=</span> <span class="s s-Atom">feature</span><span class="p">.</span><span class="s s-Atom">id</span>
+
+            <span class="s s-Atom">return</span> <span class="s s-Atom">label</span>
 
 <span class="s s-Atom">def</span> <span class="nf">annotate_record</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">,</span> <span class="s s-Atom">seq_dataset</span><span class="o">=</span><span class="nv">None</span><span class="p">)</span><span class="s s-Atom">:</span>
 
@@ -1058,7 +1118,17 @@
 
         <span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">features</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span>
 
-            <span class="nv">SeqFeature</span><span class="p">(</span><span class="nv">FeatureLocation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s s-Atom">type=</span><span class="s2">&quot;warning&quot;</span><span class="p">,</span> <span class="s s-Atom">id=</span><span class="s2">&quot;no start codon&quot;</span><span class="p">)</span>
+            <span class="nv">SeqFeature</span><span class="p">(</span>
+
+                <span class="nv">FeatureLocation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+
+                <span class="s s-Atom">type=</span><span class="s2">&quot;misc_feature&quot;</span><span class="p">,</span>
+
+                <span class="s s-Atom">id=</span><span class="s2">&quot;no start codon&quot;</span><span class="p">,</span>
+
+                <span class="s s-Atom">qualifiers=</span><span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;no start codon&quot;</span><span class="p">,</span> <span class="s2">&quot;mino_class&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;warning&quot;</span><span class="p">},</span>
+
+            <span class="p">)</span>
 
         <span class="p">)</span>
 
@@ -1072,9 +1142,11 @@
 
                 <span class="nv">FeatureLocation</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">)),</span>
 
-                <span class="s s-Atom">type=</span><span class="s2">&quot;warning&quot;</span><span class="p">,</span>
+                <span class="s s-Atom">type=</span><span class="s2">&quot;misc_feature&quot;</span><span class="p">,</span>
 
                 <span class="s s-Atom">id=</span><span class="s2">&quot;not a stop codon&quot;</span><span class="p">,</span>
+
+                <span class="s s-Atom">qualifiers=</span><span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;not a stop codon&quot;</span><span class="p">,</span> <span class="s2">&quot;mino_class&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;warning&quot;</span><span class="p">},</span>
 
             <span class="p">)</span>
 
@@ -1090,13 +1162,29 @@
 
             <span class="nv">SeqFeature</span><span class="p">(</span>
 
-                <span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">position</span><span class="p">,</span> <span class="s s-Atom">position</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s s-Atom">type=</span><span class="s2">&quot;warning&quot;</span><span class="p">,</span> <span class="s s-Atom">id=</span><span class="s2">&quot;STOP&quot;</span>
+                <span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">position</span><span class="p">,</span> <span class="s s-Atom">position</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+
+                <span class="s s-Atom">type=</span><span class="s2">&quot;misc_feature&quot;</span><span class="p">,</span>
+
+                <span class="s s-Atom">id=</span><span class="s2">&quot;STOP&quot;</span><span class="p">,</span>
+
+                <span class="s s-Atom">qualifiers=</span><span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;STOP&quot;</span><span class="p">,</span> <span class="s2">&quot;mino_class&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;error&quot;</span><span class="p">},</span>
 
             <span class="p">)</span>
 
         <span class="p">)</span>
 
     <span class="s s-Atom">#</span> <span class="nv">ANNOTATE</span> <span class="nv">SEQUENCES</span>
+
+    <span class="s s-Atom">if</span> <span class="s2">&quot;class&quot;</span> <span class="s s-Atom">in</span> <span class="s s-Atom">seq_dataset</span><span class="p">.</span><span class="nn">columns</span><span class="p">:</span>
+
+        <span class="s s-Atom">has_mino_class</span> <span class="o">=</span> <span class="nv">True</span>
+
+    <span class="nn">else</span><span class="p">:</span>
+
+        <span class="s s-Atom">has_mino_class</span> <span class="o">=</span> <span class="nv">False</span>
+
+        <span class="s s-Atom">mino_class</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
 
     <span class="s s-Atom">sequences</span> <span class="o">=</span> <span class="s s-Atom">seq_dataset</span><span class="p">.</span><span class="s s-Atom">loc</span><span class="p">[</span><span class="s s-Atom">seq_dataset</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;seq&quot;</span><span class="p">][</span><span class="s2">&quot;sequence&quot;</span><span class="p">].</span><span class="nf">to_list</span><span class="p">()</span>
 
@@ -1107,6 +1195,10 @@
         <span class="s s-Atom">len_sequence</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="s s-Atom">sequence</span><span class="p">)</span>
 
         <span class="s s-Atom">name</span> <span class="o">=</span> <span class="s s-Atom">names</span><span class="p">[</span><span class="s s-Atom">index</span><span class="p">]</span>
+
+        <span class="s s-Atom">if</span> <span class="s s-Atom">has_mino_class:</span>
+
+            <span class="s s-Atom">mino_class</span> <span class="o">=</span> <span class="s s-Atom">seq_dataset</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">][</span><span class="s s-Atom">index</span><span class="p">]</span>
 
         <span class="s s-Atom">matches</span> <span class="o">=</span> <span class="p">[</span>
 
@@ -1120,7 +1212,13 @@
 
                 <span class="nv">SeqFeature</span><span class="p">(</span>
 
-                    <span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">match</span><span class="p">,</span> <span class="p">(</span><span class="s s-Atom">match</span> <span class="o">+</span> <span class="s s-Atom">len_sequence</span><span class="p">)),</span> <span class="s s-Atom">type=</span><span class="s2">&quot;CDS&quot;</span><span class="p">,</span> <span class="s s-Atom">id</span><span class="o">=</span><span class="s s-Atom">name</span>
+                    <span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">match</span><span class="p">,</span> <span class="p">(</span><span class="s s-Atom">match</span> <span class="o">+</span> <span class="s s-Atom">len_sequence</span><span class="p">)),</span>
+
+                    <span class="s s-Atom">type=</span><span class="s2">&quot;misc_feature&quot;</span><span class="p">,</span>
+
+                    <span class="s s-Atom">id</span><span class="o">=</span><span class="s s-Atom">name</span><span class="p">,</span>
+
+                    <span class="s s-Atom">qualifiers=</span><span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="s s-Atom">:</span> <span class="s s-Atom">name</span><span class="p">,</span> <span class="s2">&quot;mino_class&quot;</span><span class="s s-Atom">:</span> <span class="s s-Atom">mino_class</span><span class="p">},</span>
 
                 <span class="p">)</span>
 
@@ -1136,13 +1234,27 @@
 
         <span class="s s-Atom">name</span> <span class="o">=</span> <span class="s s-Atom">names</span><span class="p">[</span><span class="s s-Atom">index</span><span class="p">]</span>
 
+        <span class="s s-Atom">if</span> <span class="s s-Atom">has_mino_class:</span>
+
+            <span class="s s-Atom">mino_class</span> <span class="o">=</span> <span class="s s-Atom">seq_dataset</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">][</span><span class="s s-Atom">index</span><span class="p">]</span>
+
         <span class="s s-Atom">matches</span> <span class="o">=</span> <span class="p">{</span><span class="s s-Atom">m</span><span class="p">.</span><span class="nf">start</span><span class="p">()</span><span class="s s-Atom">:</span> <span class="s s-Atom">m</span><span class="p">.</span><span class="nf">end</span><span class="p">()</span> <span class="s s-Atom">for</span> <span class="s s-Atom">m</span> <span class="s s-Atom">in</span> <span class="s s-Atom">re</span><span class="p">.</span><span class="nf">finditer</span><span class="p">(</span><span class="s s-Atom">pattern</span><span class="p">,</span> <span class="nf">str</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">seq</span><span class="p">))}</span>
 
         <span class="s s-Atom">for</span> <span class="s s-Atom">start</span><span class="p">,</span> <span class="s s-Atom">end</span> <span class="s s-Atom">in</span> <span class="s s-Atom">matches</span><span class="p">.</span><span class="nf">items</span><span class="p">()</span><span class="s s-Atom">:</span>
 
             <span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">features</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span>
 
-                <span class="nv">SeqFeature</span><span class="p">(</span><span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">start</span><span class="p">,</span> <span class="s s-Atom">end</span><span class="p">),</span> <span class="s s-Atom">type=</span><span class="s2">&quot;CDS&quot;</span><span class="p">,</span> <span class="s s-Atom">id</span><span class="o">=</span><span class="s s-Atom">name</span><span class="p">)</span>
+                <span class="nv">SeqFeature</span><span class="p">(</span>
+
+                    <span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">start</span><span class="p">,</span> <span class="s s-Atom">end</span><span class="p">),</span>
+
+                    <span class="s s-Atom">type=</span><span class="s2">&quot;misc_feature&quot;</span><span class="p">,</span>
+
+                    <span class="s s-Atom">id</span><span class="o">=</span><span class="s s-Atom">name</span><span class="p">,</span>
+
+                    <span class="s s-Atom">qualifiers=</span><span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="s s-Atom">:</span> <span class="s s-Atom">name</span><span class="p">,</span> <span class="s2">&quot;mino_class&quot;</span><span class="s s-Atom">:</span> <span class="s s-Atom">mino_class</span><span class="p">},</span>
+
+                <span class="p">)</span>
 
             <span class="p">)</span>
 
@@ -1640,7 +1752,17 @@
 
 <span class="s2">        seqrecord.features.append(</span>
 
-<span class="s2">            SeqFeature(FeatureLocation(start_index, stop_index), type=&quot;</span><span class="nv">CDS</span><span class="s2">&quot;, id=name)</span>
+<span class="s2">            SeqFeature(</span>
+
+<span class="s2">                FeatureLocation(start_index, stop_index),</span>
+
+<span class="s2">                type=&quot;</span><span class="s s-Atom">misc_feature</span><span class="s2">&quot;,</span>
+
+<span class="s2">                id=name,</span>
+
+<span class="s2">                qualifiers={&quot;</span><span class="s s-Atom">label</span><span class="s2">&quot;: name, &quot;</span><span class="s s-Atom">mino_class</span><span class="s2">&quot;: &quot;</span><span class="s s-Atom">default</span><span class="s2">&quot;},</span>
+
+<span class="s2">            )</span>
 
 <span class="s2">        )</span>
 
@@ -1754,7 +1876,149 @@
 
         <span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">features</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span>
 
-            <span class="nv">SeqFeature</span><span class="p">(</span><span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">start</span><span class="p">,</span> <span class="s s-Atom">stop</span><span class="p">),</span> <span class="s s-Atom">type=</span><span class="s2">&quot;CDS&quot;</span><span class="p">,</span> <span class="s s-Atom">id</span><span class="o">=</span><span class="s s-Atom">name</span><span class="p">)</span>
+            <span class="nv">SeqFeature</span><span class="p">(</span>
+
+                <span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">start</span><span class="p">,</span> <span class="s s-Atom">stop</span><span class="p">),</span>
+
+                <span class="s s-Atom">type=</span><span class="s2">&quot;misc_feature&quot;</span><span class="p">,</span>
+
+                <span class="s s-Atom">id</span><span class="o">=</span><span class="s s-Atom">name</span><span class="p">,</span>
+
+                <span class="s s-Atom">qualifiers=</span><span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="s s-Atom">:</span> <span class="s s-Atom">name</span><span class="p">,</span> <span class="s2">&quot;mino_class&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;warning&quot;</span><span class="p">},</span>
+
+            <span class="p">)</span>
+
+        <span class="p">)</span>
+
+    <span class="s s-Atom">return</span> <span class="s s-Atom">seqrecord</span>
+
+<span class="s s-Atom">def</span> <span class="nf">add_interpro</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">,</span> <span class="s s-Atom">interpro</span><span class="p">,</span> <span class="s s-Atom">hit_types</span><span class="o">=</span><span class="nv">None</span><span class="p">,</span> <span class="s s-Atom">include_description</span><span class="o">=</span><span class="nv">True</span><span class="p">)</span><span class="s s-Atom">:</span>
+
+    <span class="s2">&quot;&quot;&quot;Annotate SeqRecord with InterPro results.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **seqrecord**</span>
+
+<span class="s2">    &gt; `SeqRecord` to annotate.</span>
+
+<span class="s2">    **interpro**</span>
+
+<span class="s2">    &gt; `QueryResult` object output of `Bio.SearchIO.read(handle, &quot;</span><span class="s s-Atom">interproscan</span><span class="o">-</span><span class="s s-Atom">xml</span><span class="s2">&quot;)`.</span>
+
+<span class="s2">    **hit_types**</span>
+
+<span class="s2">    &gt; The InterProScan hit types to filter for (`list`). Default includes all.</span>
+
+<span class="s2">    **include_description**</span>
+
+<span class="s2">    &gt; If True, includes description in the label, otherwise only in the `note`</span>
+
+<span class="s2">    qualifier of the SeqRecord.</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="s s-Atom">for</span> <span class="s s-Atom">hit</span> <span class="s s-Atom">in</span> <span class="s s-Atom">interpro</span><span class="p">.</span><span class="nn">hits</span><span class="p">:</span>
+
+        <span class="s s-Atom">if</span> <span class="s s-Atom">hit_types</span> <span class="o">is</span> <span class="nv">None</span> <span class="s s-Atom">or</span> <span class="s s-Atom">hit</span><span class="p">.</span><span class="s s-Atom">attributes</span><span class="p">[</span><span class="s2">&quot;Hit type&quot;</span><span class="p">]</span> <span class="s s-Atom">in</span> <span class="s s-Atom">hit_types:</span>
+
+            <span class="s s-Atom">for</span> <span class="s s-Atom">fragment</span> <span class="s s-Atom">in</span> <span class="s s-Atom">hit</span><span class="p">.</span><span class="nn">fragments</span><span class="p">:</span>
+
+                <span class="s s-Atom">start</span> <span class="o">=</span> <span class="s s-Atom">fragment</span><span class="p">.</span><span class="s s-Atom">query_start</span>
+
+                <span class="s s-Atom">end</span> <span class="o">=</span> <span class="s s-Atom">fragment</span><span class="p">.</span><span class="s s-Atom">query_end</span>
+
+                <span class="s s-Atom">identifier</span> <span class="o">=</span> <span class="s2">&quot;%s: %s&quot;</span> <span class="c1">% (hit.attributes[&quot;Hit type&quot;], fragment.hit_id)</span>
+
+                <span class="s s-Atom">if</span> <span class="s s-Atom">include_description:</span>
+
+                    <span class="s s-Atom">identifier</span> <span class="o">=</span> <span class="s s-Atom">identifier</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="s s-Atom">fragment</span><span class="p">.</span><span class="s s-Atom">hit_description</span>
+
+                <span class="s s-Atom">qualifier</span> <span class="o">=</span> <span class="p">{</span>
+
+                    <span class="s2">&quot;note&quot;</span><span class="s s-Atom">:</span> <span class="s s-Atom">fragment</span><span class="p">.</span><span class="s s-Atom">hit_description</span><span class="p">,</span>
+
+                    <span class="s2">&quot;label&quot;</span><span class="s s-Atom">:</span> <span class="s s-Atom">identifier</span><span class="p">,</span>
+
+                    <span class="s2">&quot;mino_class&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+
+                <span class="p">}</span>
+
+                <span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">features</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span>
+
+                    <span class="nv">SeqFeature</span><span class="p">(</span>
+
+                        <span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">start</span><span class="p">,</span> <span class="s s-Atom">end</span><span class="p">),</span>
+
+                        <span class="s s-Atom">type=</span><span class="s2">&quot;interpro&quot;</span><span class="p">,</span>
+
+                        <span class="s s-Atom">id</span><span class="o">=</span><span class="s s-Atom">identifier</span><span class="p">,</span>
+
+                        <span class="s s-Atom">qualifiers</span><span class="o">=</span><span class="s s-Atom">qualifier</span><span class="p">,</span>
+
+                    <span class="p">)</span>
+
+                <span class="p">)</span>
+
+    <span class="s s-Atom">return</span> <span class="s s-Atom">seqrecord</span>
+
+<span class="s s-Atom">def</span> <span class="nf">add_elm_tsv</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">,</span> <span class="s s-Atom">elm_tsv</span><span class="p">)</span><span class="s s-Atom">:</span>
+
+    <span class="s2">&quot;&quot;&quot;Annotate SeqRecord with Eukaryotic Linear Motif (ELM) database search results.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **seqrecord**</span>
+
+<span class="s2">    &gt; `SeqRecord` to annotate.</span>
+
+<span class="s2">    **elm_tsv**</span>
+
+<span class="s2">    &gt; Path to TSV file of results (`str`).</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="s s-Atom">elm</span> <span class="o">=</span> <span class="s s-Atom">pandas</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s s-Atom">elm_tsv</span><span class="p">,</span> <span class="s s-Atom">sep=</span><span class="s2">&quot;\t&quot;</span><span class="p">)</span>
+
+    <span class="s s-Atom">return</span> <span class="nf">add_elm</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">,</span> <span class="s s-Atom">elm</span><span class="p">)</span>
+
+<span class="s s-Atom">def</span> <span class="nf">add_elm</span><span class="p">(</span><span class="s s-Atom">seqrecord</span><span class="p">,</span> <span class="s s-Atom">elm</span><span class="p">)</span><span class="s s-Atom">:</span>
+
+    <span class="s2">&quot;&quot;&quot;Annotate SeqRecord with Eukaryotic Linear Motif (ELM) database search results.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **seqrecord**</span>
+
+<span class="s2">    &gt; `SeqRecord` to annotate.</span>
+
+<span class="s2">    **elm**</span>
+
+<span class="s2">    &gt; Dataframe of results (`pandas.DataFrame`).</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="s s-Atom">for</span> <span class="s s-Atom">row</span> <span class="s s-Atom">in</span> <span class="s s-Atom">elm</span><span class="p">.</span><span class="nf">itertuples</span><span class="p">(</span><span class="s s-Atom">index</span><span class="o">=</span><span class="nv">True</span><span class="p">,</span> <span class="s s-Atom">name=</span><span class="s2">&quot;Pandas&quot;</span><span class="p">)</span><span class="s s-Atom">:</span>
+
+        <span class="s s-Atom">seqrecord</span><span class="p">.</span><span class="s s-Atom">features</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span>
+
+            <span class="nv">SeqFeature</span><span class="p">(</span>
+
+                <span class="nv">FeatureLocation</span><span class="p">(</span><span class="s s-Atom">row</span><span class="p">.</span><span class="s s-Atom">start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s s-Atom">row</span><span class="p">.</span><span class="s s-Atom">stop</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>  <span class="s s-Atom">#</span> <span class="s s-Atom">indexing</span> <span class="s s-Atom">starts</span> <span class="s s-Atom">from</span> <span class="mi">1</span>
+
+                <span class="s s-Atom">type=</span><span class="s2">&quot;misc_feature&quot;</span><span class="p">,</span>
+
+                <span class="s s-Atom">id=</span><span class="s2">&quot;ELM:&quot;</span> <span class="o">+</span> <span class="s s-Atom">row</span><span class="p">.</span><span class="s s-Atom">elm_identifier</span><span class="p">,</span>
+
+                <span class="s s-Atom">qualifiers=</span><span class="p">{</span>
+
+                    <span class="s2">&quot;label&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;ELM:&quot;</span> <span class="o">+</span> <span class="s s-Atom">row</span><span class="p">.</span><span class="s s-Atom">elm_identifier</span><span class="p">,</span>
+
+                    <span class="s2">&quot;mino_class&quot;</span><span class="s s-Atom">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+
+                <span class="p">},</span>
+
+            <span class="p">)</span>
 
         <span class="p">)</span>
 
@@ -1850,9 +2114,225 @@
 
         <span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span>
 
-            <span class="n">SeqFeature</span><span class="p">(</span><span class="n">FeatureLocation</span><span class="p">(</span><span class="k">start</span><span class="p">,</span> <span class="k">stop</span><span class="p">),</span> <span class="k">type</span><span class="o">=</span><span class="s2">&quot;CDS&quot;</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="k">name</span><span class="p">)</span>
+            <span class="n">SeqFeature</span><span class="p">(</span>
+
+                <span class="n">FeatureLocation</span><span class="p">(</span><span class="k">start</span><span class="p">,</span> <span class="k">stop</span><span class="p">),</span>
+
+                <span class="k">type</span><span class="o">=</span><span class="s2">&quot;misc_feature&quot;</span><span class="p">,</span>
+
+                <span class="n">id</span><span class="o">=</span><span class="k">name</span><span class="p">,</span>
+
+                <span class="n">qualifiers</span><span class="o">=</span><span class="err">{</span><span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="k">name</span><span class="p">,</span> <span class="s2">&quot;mino_class&quot;</span><span class="o">:</span> <span class="s2">&quot;warning&quot;</span><span class="err">}</span><span class="p">,</span>
+
+            <span class="p">)</span>
 
         <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">seqrecord</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="add_elm">add_elm</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">add_elm</span><span class="p">(</span>
+    <span class="n">seqrecord</span><span class="p">,</span>
+    <span class="n">elm</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Annotate SeqRecord with Eukaryotic Linear Motif (ELM) database search results.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>seqrecord</strong></p>
+<blockquote>
+<p><code>SeqRecord</code> to annotate.</p>
+</blockquote>
+<p><strong>elm</strong></p>
+<blockquote>
+<p>Dataframe of results (<code>pandas.DataFrame</code>).</p>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">add_elm</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">,</span> <span class="n">elm</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Annotate SeqRecord with Eukaryotic Linear Motif (ELM) database search results.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **seqrecord**</span>
+
+<span class="s2">    &gt; `SeqRecord` to annotate.</span>
+
+<span class="s2">    **elm**</span>
+
+<span class="s2">    &gt; Dataframe of results (`pandas.DataFrame`).</span>
+
+<span class="s2">    </span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+
+    <span class="k">for</span> <span class="k">row</span> <span class="k">in</span> <span class="n">elm</span><span class="p">.</span><span class="n">itertuples</span><span class="p">(</span><span class="k">index</span><span class="o">=</span><span class="no">True</span><span class="p">,</span> <span class="k">name</span><span class="o">=</span><span class="s2">&quot;Pandas&quot;</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span>
+
+            <span class="n">SeqFeature</span><span class="p">(</span>
+
+                <span class="n">FeatureLocation</span><span class="p">(</span><span class="k">row</span><span class="p">.</span><span class="k">start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="k">row</span><span class="p">.</span><span class="k">stop</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>  <span class="c1"># indexing starts from 1</span>
+
+                <span class="k">type</span><span class="o">=</span><span class="s2">&quot;misc_feature&quot;</span><span class="p">,</span>
+
+                <span class="n">id</span><span class="o">=</span><span class="s2">&quot;ELM:&quot;</span> <span class="o">+</span> <span class="k">row</span><span class="p">.</span><span class="n">elm_identifier</span><span class="p">,</span>
+
+                <span class="n">qualifiers</span><span class="o">=</span><span class="err">{</span>
+
+                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;ELM:&quot;</span> <span class="o">+</span> <span class="k">row</span><span class="p">.</span><span class="n">elm_identifier</span><span class="p">,</span>
+
+                    <span class="s2">&quot;mino_class&quot;</span><span class="o">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+
+                <span class="err">}</span><span class="p">,</span>
+
+            <span class="p">)</span>
+
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">seqrecord</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="add_elm_tsv">add_elm_tsv</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">add_elm_tsv</span><span class="p">(</span>
+    <span class="n">seqrecord</span><span class="p">,</span>
+    <span class="n">elm_tsv</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Annotate SeqRecord with Eukaryotic Linear Motif (ELM) database search results.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>seqrecord</strong></p>
+<blockquote>
+<p><code>SeqRecord</code> to annotate.</p>
+</blockquote>
+<p><strong>elm_tsv</strong></p>
+<blockquote>
+<p>Path to TSV file of results (<code>str</code>).</p>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">add_elm_tsv</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">,</span> <span class="n">elm_tsv</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Annotate SeqRecord with Eukaryotic Linear Motif (ELM) database search results.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **seqrecord**</span>
+
+<span class="s2">    &gt; `SeqRecord` to annotate.</span>
+
+<span class="s2">    **elm_tsv**</span>
+
+<span class="s2">    &gt; Path to TSV file of results (`str`).</span>
+
+<span class="s2">    </span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+
+    <span class="n">elm</span> <span class="o">=</span> <span class="n">pandas</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">elm_tsv</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">add_elm</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">,</span> <span class="n">elm</span><span class="p">)</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="add_interpro">add_interpro</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">add_interpro</span><span class="p">(</span>
+    <span class="n">seqrecord</span><span class="p">,</span>
+    <span class="n">interpro</span><span class="p">,</span>
+    <span class="n">hit_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">include_description</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Annotate SeqRecord with InterPro results.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>seqrecord</strong></p>
+<blockquote>
+<p><code>SeqRecord</code> to annotate.</p>
+</blockquote>
+<p><strong>interpro</strong></p>
+<blockquote>
+<p><code>QueryResult</code> object output of <code>Bio.SearchIO.read(handle, "interproscan-xml")</code>.</p>
+</blockquote>
+<p><strong>hit_types</strong></p>
+<blockquote>
+<p>The InterProScan hit types to filter for (<code>list</code>). Default includes all.</p>
+</blockquote>
+<p><strong>include_description</strong></p>
+<blockquote>
+<p>If True, includes description in the label, otherwise only in the <code>note</code>
+qualifier of the SeqRecord.</p>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">add_interpro</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">,</span> <span class="n">interpro</span><span class="p">,</span> <span class="n">hit_types</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">include_description</span><span class="o">=</span><span class="no">True</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Annotate SeqRecord with InterPro results.</span>
+
+<span class="s2">    **Parameters**</span>
+
+<span class="s2">    **seqrecord**</span>
+
+<span class="s2">    &gt; `SeqRecord` to annotate.</span>
+
+<span class="s2">    **interpro**</span>
+
+<span class="s2">    &gt; `QueryResult` object output of `Bio.SearchIO.read(handle, &quot;</span><span class="n">interproscan</span><span class="o">-</span><span class="k">xml</span><span class="s2">&quot;)`.</span>
+
+<span class="s2">    **hit_types**</span>
+
+<span class="s2">    &gt; The InterProScan hit types to filter for (`list`). Default includes all.</span>
+
+<span class="s2">    **include_description**</span>
+
+<span class="s2">    &gt; If True, includes description in the label, otherwise only in the `note`</span>
+
+<span class="s2">    qualifier of the SeqRecord.</span>
+
+<span class="s2">    </span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+
+    <span class="k">for</span> <span class="n">hit</span> <span class="k">in</span> <span class="n">interpro</span><span class="p">.</span><span class="n">hits</span><span class="o">:</span>
+
+        <span class="k">if</span> <span class="n">hit_types</span> <span class="k">is</span> <span class="k">None</span> <span class="k">or</span> <span class="n">hit</span><span class="p">.</span><span class="n">attributes</span><span class="err">[</span><span class="s2">&quot;Hit type&quot;</span><span class="err">]</span> <span class="k">in</span> <span class="n">hit_types</span><span class="o">:</span>
+
+            <span class="k">for</span> <span class="n">fragment</span> <span class="k">in</span> <span class="n">hit</span><span class="p">.</span><span class="n">fragments</span><span class="o">:</span>
+
+                <span class="k">start</span> <span class="o">=</span> <span class="n">fragment</span><span class="p">.</span><span class="n">query_start</span>
+
+                <span class="k">end</span> <span class="o">=</span> <span class="n">fragment</span><span class="p">.</span><span class="n">query_end</span>
+
+                <span class="n">identifier</span> <span class="o">=</span> <span class="s2">&quot;%s: %s&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">hit</span><span class="p">.</span><span class="n">attributes</span><span class="err">[</span><span class="s2">&quot;Hit type&quot;</span><span class="err">]</span><span class="p">,</span> <span class="n">fragment</span><span class="p">.</span><span class="n">hit_id</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">include_description</span><span class="o">:</span>
+
+                    <span class="n">identifier</span> <span class="o">=</span> <span class="n">identifier</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">fragment</span><span class="p">.</span><span class="n">hit_description</span>
+
+                <span class="n">qualifier</span> <span class="o">=</span> <span class="err">{</span>
+
+                    <span class="s2">&quot;note&quot;</span><span class="o">:</span> <span class="n">fragment</span><span class="p">.</span><span class="n">hit_description</span><span class="p">,</span>
+
+                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="n">identifier</span><span class="p">,</span>
+
+                    <span class="s2">&quot;mino_class&quot;</span><span class="o">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+
+                <span class="err">}</span>
+
+                <span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span>
+
+                    <span class="n">SeqFeature</span><span class="p">(</span>
+
+                        <span class="n">FeatureLocation</span><span class="p">(</span><span class="k">start</span><span class="p">,</span> <span class="k">end</span><span class="p">),</span>
+
+                        <span class="k">type</span><span class="o">=</span><span class="s2">&quot;interpro&quot;</span><span class="p">,</span>
+
+                        <span class="n">id</span><span class="o">=</span><span class="n">identifier</span><span class="p">,</span>
+
+                        <span class="n">qualifiers</span><span class="o">=</span><span class="n">qualifier</span><span class="p">,</span>
+
+                    <span class="p">)</span>
+
+                <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">seqrecord</span>
 </code></pre></div>
@@ -1879,7 +2359,17 @@
 
         <span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span>
 
-            <span class="n">SeqFeature</span><span class="p">(</span><span class="n">FeatureLocation</span><span class="p">(</span><span class="n">start_index</span><span class="p">,</span> <span class="n">stop_index</span><span class="p">),</span> <span class="k">type</span><span class="o">=</span><span class="ss">&quot;CDS&quot;</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">SeqFeature</span><span class="p">(</span>
+
+                <span class="n">FeatureLocation</span><span class="p">(</span><span class="n">start_index</span><span class="p">,</span> <span class="n">stop_index</span><span class="p">),</span>
+
+                <span class="k">type</span><span class="o">=</span><span class="ss">&quot;misc_feature&quot;</span><span class="p">,</span>
+
+                <span class="n">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+
+                <span class="n">qualifiers</span><span class="o">=</span><span class="err">{</span><span class="ss">&quot;label&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="ss">&quot;mino_class&quot;</span><span class="p">:</span> <span class="ss">&quot;default&quot;</span><span class="err">}</span><span class="p">,</span>
+
+            <span class="p">)</span>
 
         <span class="p">)</span>
 
@@ -1935,7 +2425,17 @@
 
 <span class="w">        </span><span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="w"></span>
 
-<span class="w">            </span><span class="n">SeqFeature</span><span class="p">(</span><span class="n">FeatureLocation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;warning&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="ss">&quot;no start codon&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">SeqFeature</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">FeatureLocation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;misc_feature&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">id</span><span class="o">=</span><span class="ss">&quot;no start codon&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">qualifiers</span><span class="o">=</span><span class="err">{</span><span class="ss">&quot;label&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;no start codon&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;mino_class&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;warning&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
 
 <span class="w">        </span><span class="p">)</span><span class="w"></span>
 
@@ -1949,9 +2449,11 @@
 
 <span class="w">                </span><span class="n">FeatureLocation</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">)),</span><span class="w"></span>
 
-<span class="w">                </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;warning&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;misc_feature&quot;</span><span class="p">,</span><span class="w"></span>
 
 <span class="w">                </span><span class="n">id</span><span class="o">=</span><span class="ss">&quot;not a stop codon&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">qualifiers</span><span class="o">=</span><span class="err">{</span><span class="ss">&quot;label&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;not a stop codon&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;mino_class&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;warning&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
 
 <span class="w">            </span><span class="p">)</span><span class="w"></span>
 
@@ -1967,13 +2469,29 @@
 
 <span class="w">            </span><span class="n">SeqFeature</span><span class="p">(</span><span class="w"></span>
 
-<span class="w">                </span><span class="n">FeatureLocation</span><span class="p">(</span><span class="k">position</span><span class="p">,</span><span class="w"> </span><span class="k">position</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;warning&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="ss">&quot;STOP&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="n">FeatureLocation</span><span class="p">(</span><span class="k">position</span><span class="p">,</span><span class="w"> </span><span class="k">position</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;misc_feature&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">id</span><span class="o">=</span><span class="ss">&quot;STOP&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">qualifiers</span><span class="o">=</span><span class="err">{</span><span class="ss">&quot;label&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;STOP&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;mino_class&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;error&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
 
 <span class="w">            </span><span class="p">)</span><span class="w"></span>
 
 <span class="w">        </span><span class="p">)</span><span class="w"></span>
 
 <span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">ANNOTATE</span><span class="w"> </span><span class="n">SEQUENCES</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ss">&quot;class&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">seq_dataset</span><span class="p">.</span><span class="nl">columns</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">has_mino_class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">True</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">has_mino_class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">mino_class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;default&quot;</span><span class="w"></span>
 
 <span class="w">    </span><span class="n">sequences</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq_dataset</span><span class="p">.</span><span class="n">loc</span><span class="o">[</span><span class="n">seq_dataset[&quot;type&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;seq&quot;</span><span class="err">]</span><span class="o">[</span><span class="n">&quot;sequence&quot;</span><span class="o">]</span><span class="p">.</span><span class="n">to_list</span><span class="p">()</span><span class="w"></span>
 
@@ -1984,6 +2502,10 @@
 <span class="w">        </span><span class="n">len_sequence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="k">sequence</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">names</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nl">has_mino_class</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">mino_class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq_dataset</span><span class="o">[</span><span class="n">&quot;class&quot;</span><span class="o">][</span><span class="n">index</span><span class="o">]</span><span class="w"></span>
 
 <span class="w">        </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
 
@@ -1997,7 +2519,13 @@
 
 <span class="w">                </span><span class="n">SeqFeature</span><span class="p">(</span><span class="w"></span>
 
-<span class="w">                    </span><span class="n">FeatureLocation</span><span class="p">(</span><span class="k">match</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">match</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">len_sequence</span><span class="p">)),</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;CDS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="n">name</span><span class="w"></span>
+<span class="w">                    </span><span class="n">FeatureLocation</span><span class="p">(</span><span class="k">match</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">match</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">len_sequence</span><span class="p">)),</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;misc_feature&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">qualifiers</span><span class="o">=</span><span class="err">{</span><span class="ss">&quot;label&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;mino_class&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">mino_class</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
 
 <span class="w">                </span><span class="p">)</span><span class="w"></span>
 
@@ -2013,13 +2541,27 @@
 
 <span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">names</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w"></span>
 
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nl">has_mino_class</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">mino_class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq_dataset</span><span class="o">[</span><span class="n">&quot;class&quot;</span><span class="o">][</span><span class="n">index</span><span class="o">]</span><span class="w"></span>
+
 <span class="w">        </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="n">m</span><span class="p">.</span><span class="k">start</span><span class="p">()</span><span class="err">:</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="k">end</span><span class="p">()</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">re</span><span class="p">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">.</span><span class="n">seq</span><span class="p">))</span><span class="err">}</span><span class="w"></span>
 
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="k">start</span><span class="p">,</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">matches</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
 
 <span class="w">            </span><span class="n">seqrecord</span><span class="p">.</span><span class="n">features</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="w"></span>
 
-<span class="w">                </span><span class="n">SeqFeature</span><span class="p">(</span><span class="n">FeatureLocation</span><span class="p">(</span><span class="k">start</span><span class="p">,</span><span class="w"> </span><span class="k">end</span><span class="p">),</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;CDS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="n">name</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="n">SeqFeature</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">FeatureLocation</span><span class="p">(</span><span class="k">start</span><span class="p">,</span><span class="w"> </span><span class="k">end</span><span class="p">),</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;misc_feature&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">qualifiers</span><span class="o">=</span><span class="err">{</span><span class="ss">&quot;label&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;mino_class&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">mino_class</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                </span><span class="p">)</span><span class="w"></span>
 
 <span class="w">            </span><span class="p">)</span><span class="w"></span>
 
@@ -2894,19 +3436,29 @@ BiopythonTranslator.quick_plot(my_record)</p>
 the classe's <code>default_feature_color</code> is used.</p>
 <p>To change the behaviour, create a subclass of <code>BiopythonTranslator</code>
 and overwrite this method.</p>
-<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>        <span class="n">def</span> <span class="n">compute_feature_color</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="w">        </span><span class="n">def</span><span class="w"> </span><span class="n">compute_feature_color</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">feature</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
 
-            <span class="k">if</span> <span class="n">feature</span><span class="p">.</span><span class="k">type</span> <span class="o">==</span> <span class="ss">&quot;warning&quot;</span><span class="p">:</span>
+<span class="w">            </span><span class="n">mino_class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;mino_class&quot;</span><span class="w"></span>
 
-                <span class="k">return</span> <span class="ss">&quot;red&quot;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">feature</span><span class="p">.</span><span class="n">qualifiers</span><span class="o">[</span><span class="n">mino_class</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;error&quot;</span><span class="err">:</span><span class="w"></span>
 
-            <span class="n">elif</span> <span class="n">feature</span><span class="p">.</span><span class="k">type</span> <span class="o">==</span> <span class="ss">&quot;CDS&quot;</span><span class="p">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ss">&quot;red&quot;</span><span class="w"></span>
 
-                <span class="k">return</span> <span class="ss">&quot;#7245dc&quot;</span>
+<span class="w">            </span><span class="n">elif</span><span class="w"> </span><span class="n">feature</span><span class="p">.</span><span class="n">qualifiers</span><span class="o">[</span><span class="n">mino_class</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;warning&quot;</span><span class="err">:</span><span class="w"></span>
 
-            <span class="k">else</span><span class="p">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ss">&quot;yellow&quot;</span><span class="w"></span>
 
-                <span class="k">return</span> <span class="ss">&quot;blue&quot;</span>
+<span class="w">            </span><span class="n">elif</span><span class="w"> </span><span class="n">feature</span><span class="p">.</span><span class="n">qualifiers</span><span class="o">[</span><span class="n">mino_class</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;tag&quot;</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ss">&quot;tab:blue&quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">elif</span><span class="w"> </span><span class="n">feature</span><span class="p">.</span><span class="n">qualifiers</span><span class="o">[</span><span class="n">mino_class</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;linker&quot;</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ss">&quot;tab:cyan&quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ss">&quot;#7245dc&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">dna_features_viewer</span><span class="w"> </span><span class="n">color</span><span class="w"></span>
 </code></pre></div>
 
 
@@ -2958,7 +3510,15 @@ and overwrite this method.</p>
 <p>Compute the label of the feature.</p>
 <details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>        <span class="n">def</span> <span class="n">compute_feature_label</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
 
-            <span class="k">return</span> <span class="n">feature</span><span class="p">.</span><span class="n">id</span>
+            <span class="n">try</span><span class="p">:</span>
+
+                <span class="n">label</span> <span class="o">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">qualifiers</span><span class="p">[</span><span class="ss">&quot;label&quot;</span><span class="p">]</span>
+
+            <span class="k">except</span> <span class="k">Exception</span><span class="p">:</span>
+
+                <span class="n">label</span> <span class="o">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">id</span>
+
+            <span class="k">return</span> <span class="n">label</span>
 </code></pre></div>
 
 

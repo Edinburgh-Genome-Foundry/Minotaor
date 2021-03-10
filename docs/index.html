@@ -296,6 +296,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#interpro" class="md-nav__link">
+    InterPro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-linear-motifs-slims" class="md-nav__link">
+    Short linear motifs (SLiMs)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -519,6 +533,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#interpro" class="md-nav__link">
+    InterPro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-linear-motifs-slims" class="md-nav__link">
+    Short linear motifs (SLiMs)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -571,7 +599,8 @@
 <p>In the <a href="https://prosite.expasy.org/">PROSITE</a> nomenclature, a sequence <em>motif</em> is a description
 of the occurrence of amino acids (signature, fingerprint), and can be either a pattern or a profile.
 A <em>pattern</em> is a qualitative description of a motif in a regular expression-like syntax.
-A <em>profile</em> (or weight matrix) is a table of position-specific amino acid weights and gap costs.</p>
+A <em>profile</em> (or weight matrix) is a table of position-specific amino acid weights and gap costs.
+Many independent binary classifications can be applied to these motifs: <em>is tag? is linker? is epitope? etc..</em></p>
 <h2 id="install">Install</h2>
 <div class="codehilite"><pre><span></span><code><span class="err">pip install minotaor</span>
 </code></pre></div>
@@ -598,6 +627,14 @@ A <em>profile</em> (or weight matrix) is a table of position-specific amino acid
 
 
 <p><img alt="Example" src="images/example.png" /></p>
+<p>The different annotation classes have a different color:</p>
+<ul>
+<li><img alt="tab:blue" src="images/color_tab_blue.png" />  Tags</li>
+<li><img alt="tab:cyan" src="images/color_tab_cyan.png" />  Linkers</li>
+<li><img alt="yellow" src="images/color_yellow.png" />  Warnings (potential issues, translation pauses etc.)</li>
+<li><img alt="red" src="images/color_red.png" />  Errors and stop codons</li>
+<li><img alt="default" src="images/color_default.png" />  All other classes (protein domain, epitope, CDR3 region, motif etc.)</li>
+</ul>
 <h3 id="reference-datasets">Reference datasets</h3>
 <p>Minotaor can use custom reference pandas dataframes, specified with <code>seq_dataset</code>. The <code>sequence</code> and <code>name</code> columns are used for search and naming of the motifs. The <code>type</code> column sets the search type, which can be <code>seq</code> for strings or <code>pattern</code> or regexes (regular expressions). This is shown in the below examples of epitope datasets.</p>
 <h4 id="immune-epitope-database">Immune Epitope Database</h4>
@@ -665,6 +702,25 @@ Query your sequence with Biopython:</p>
 
 
 <p>Returns a regex for each of the 6 translation frames. Note that the search with regex is case sensitive.</p>
+<h3 id="interpro">InterPro</h3>
+<p><a href="http://www.ebi.ac.uk/interpro/">InterPro</a> provides functional analysis of protein sequences, using several databases. We can annotate our protein with the results, as shown below:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">minotaor</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SearchIO</span><span class="p">,</span> <span class="n">SeqIO</span>
+
+<span class="n">interpro</span> <span class="o">=</span> <span class="n">SearchIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s1">&#39;interproscan-xml&#39;</span><span class="p">)</span>  <span class="c1"># handle is an InterProScan xml file</span>
+<span class="n">seqrecord</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;protein.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span>
+
+<span class="n">seqrecord_annotated</span> <span class="o">=</span> <span class="n">minotaor</span><span class="o">.</span><span class="n">add_interpro</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">,</span> <span class="n">interpro</span><span class="p">,</span> <span class="n">hit_types</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;phobius&#39;</span><span class="p">])</span>
+</code></pre></div>
+
+
+<h3 id="short-linear-motifs-slims">Short linear motifs (SLiMs)</h3>
+<p>The Eukaryotic Linear Motif (ELM) database is a manually curated collection of experimentally validated SLiMs. The <a href="http://elm.eu.org/api/manual.html">ELM API</a> returns a tab-separated values (TSV) text file that can be used for annotation:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">seqrecord_annotated</span> <span class="o">=</span> <span class="n">minotaor</span><span class="o">.</span><span class="n">add_elm_tsv</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">,</span> <span class="n">elm_tsv</span><span class="o">=</span><span class="s2">&quot;elm.tsv&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Alternatively, TSV files of the datasets <a href="http://elm.eu.org/downloads.html">can be downloaded</a> then edited for use with <code>annotate_record(seqrecord, seq_dataset=</code>). Note that ELM indexing starts from 1.</p>
 <h2 id="versioning">Versioning</h2>
 <p>Minotaor uses the <a href="https://semver.org">semantic versioning</a> scheme.</p>
 <h2 id="license-mit">License = MIT</h2>
