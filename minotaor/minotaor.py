@@ -109,7 +109,9 @@ def annotate_record(seqrecord, seq_dataset=None):
         len_sequence = len(sequence)
         name = names[index]
         if has_mino_class:
-            mino_class = seq_dataset["class"][index]
+            mino_class = seq_dataset.loc[seq_dataset["type"] == "seq"][
+                "class"
+            ].to_list()[index]
         matches = [
             m.start() for m in re.finditer(re.escape(sequence), str(seqrecord.seq))
         ]
@@ -128,7 +130,9 @@ def annotate_record(seqrecord, seq_dataset=None):
     for index, pattern in enumerate(patterns):
         name = names[index]
         if has_mino_class:
-            mino_class = seq_dataset["class"][index]
+            mino_class = seq_dataset.loc[seq_dataset["type"] == "pattern"][
+                "class"
+            ].to_list()[index]
         matches = {m.start(): m.end() for m in re.finditer(pattern, str(seqrecord.seq))}
         for start, end in matches.items():
             seqrecord.features.append(

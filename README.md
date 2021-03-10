@@ -36,7 +36,7 @@ import minotaor
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 
-protein = Seq("SYYHHHHHHDYDIPTTENLYFQG*EDINBURGHGENQMEFQUNDRY*")
+protein = Seq("SYYHHHHHHHDYPTEGKSSGSGSESKST*EDINBURGHGENQMEFQUNDRY*")
 protein_record = SeqRecord(protein, id="example", annotations={"molecule_type": "protein"})
 
 protein_record = minotaor.annotate_record(protein_record)  # search is case sensitive
@@ -52,15 +52,13 @@ graphic_record.plot_sequence(ax)
 ```
 ![Example](images/example.png)
 
-The different annotation classes have a different color:
+The annotation classes are colored as follows:
 
 - ![tab:blue](images/color_tab_blue.png)  Tags
 - ![tab:cyan](images/color_tab_cyan.png)  Linkers
 - ![yellow](images/color_yellow.png)  Warnings (potential issues, translation pauses etc.)
 - ![red](images/color_red.png)  Errors and stop codons
 - ![default](images/color_default.png)  All other classes (protein domain, epitope, CDR3 region, motif etc.)
-
-
 
 
 ### Reference datasets
