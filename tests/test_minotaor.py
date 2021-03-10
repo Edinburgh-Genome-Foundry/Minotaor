@@ -51,11 +51,11 @@ def test_annotate_record():
 
     protein_record = minotaor.annotate_record(protein_record)
 
-    assert len(protein_record.features) == 5
+    assert len(protein_record.features) == 4
     assert protein_record.features[0].id == "no start codon"
     assert protein_record.features[1].id == "not a stop codon"
     assert protein_record.features[2].id == "STOP"
-    assert protein_record.features[3].id == "6xHis"
+    assert protein_record.features[3].id == "His tag"
 
 
 def test_create_and_annotate_record():
