@@ -271,6 +271,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#igem" class="md-nav__link">
+    iGEM
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -306,6 +313,13 @@
           <li class="md-nav__item">
   <a href="#short-linear-motifs-slims" class="md-nav__link">
     Short linear motifs (SLiMs)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
   </a>
   
 </li>
@@ -508,6 +522,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#igem" class="md-nav__link">
+    iGEM
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -543,6 +564,13 @@
           <li class="md-nav__item">
   <a href="#short-linear-motifs-slims" class="md-nav__link">
     Short linear motifs (SLiMs)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
   </a>
   
 </li>
@@ -593,7 +621,6 @@
 <h1 id="minotaor">Minotaor</h1>
 <p><a href="https://travis-ci.org/Edinburgh-Genome-Foundry/Minotaor"><img alt="Build Status" src="https://travis-ci.org/Edinburgh-Genome-Foundry/Minotaor.svg?branch=main" /></a>
 <a href="https://coveralls.io/github/Edinburgh-Genome-Foundry/Minotaor?branch=main"><img alt="Coverage Status" src="https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/Minotaor/badge.svg?branch=main" /></a></p>
-<p><strong>Work in progress</strong></p>
 <p>Minotaor is an a<strong>mino</strong> acid sequence anno<strong>ta</strong>t<strong>or</strong> for quickly identifying common protein tags and linkers in an ORF. Additionally, it can flag peptide motifs that are known to cause problems during translation. It uses Biopython.</p>
 <h2 id="background">Background</h2>
 <p>In the <a href="https://prosite.expasy.org/">PROSITE</a> nomenclature, a sequence <em>motif</em> is a description
@@ -611,7 +638,7 @@ Many independent binary classifications can be applied to these motifs: <em>is t
 <span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
 <span class="kn">from</span> <span class="nn">Bio.SeqRecord</span> <span class="kn">import</span> <span class="n">SeqRecord</span>
 
-<span class="n">protein</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;SYYHHHHHHDYDIPTTENLYFQG*EDINBURGHGENQMEFQUNDRY*&quot;</span><span class="p">)</span>
+<span class="n">protein</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;SYYHHHHHHHDYPTEGKSSGSGSESKST*EDINBURGHGENQMEFQUNDRY*&quot;</span><span class="p">)</span>
 <span class="n">protein_record</span> <span class="o">=</span> <span class="n">SeqRecord</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;molecule_type&quot;</span><span class="p">:</span> <span class="s2">&quot;protein&quot;</span><span class="p">})</span>
 
 <span class="n">protein_record</span> <span class="o">=</span> <span class="n">minotaor</span><span class="o">.</span><span class="n">annotate_record</span><span class="p">(</span><span class="n">protein_record</span><span class="p">)</span>  <span class="c1"># search is case sensitive</span>
@@ -627,7 +654,7 @@ Many independent binary classifications can be applied to these motifs: <em>is t
 
 
 <p><img alt="Example" src="images/example.png" /></p>
-<p>The different annotation classes have a different color:</p>
+<p>The annotation classes are colored as follows:</p>
 <ul>
 <li><img alt="tab:blue" src="images/color_tab_blue.png" />  Tags</li>
 <li><img alt="tab:cyan" src="images/color_tab_cyan.png" />  Linkers</li>
@@ -670,6 +697,8 @@ a more informative epitope name can be constructed from the other columns, as sh
 
 <p>The motifs then can be looked up in VDJdb for more details.
 A similar approach can be used for the McPAS-TCR database.</p>
+<h4 id="igem">iGEM</h4>
+<p>Sequences can also be annotated with parts in the Registry of the International Genetically Engineered Machine (iGEM) Foundation. A FASTA of all parts can be downloaded and prepared into a reference dataset as shown in <code>examples/igem.py</code>. Alternatively, the <a href="http://parts.igem.org/Registry_API">exported MySQL database</a> can be prepared in a similar way.</p>
 <h3 id="prosite">PROSITE</h3>
 <p>A function is provided for reading <a href="https://prosite.expasy.org/scanprosite">ScanProsite</a> results.
 Query your sequence with Biopython:</p>
@@ -694,14 +723,6 @@ Query your sequence with Biopython:</p>
 </code></pre></div>
 
 
-<p>Given a DNA sequence, return amino acid sequences that may contain it:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">bsmbi_site</span> <span class="o">=</span> <span class="s2">&quot;CGTCTC&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">minotaor</span><span class="o">.</span><span class="n">convert_dna_to_aa_pattern</span><span class="p">(</span><span class="n">bsmbi_site</span><span class="p">))</span>
-<span class="c1"># [&#39;RL&#39;, &#39;[DATRSICYNLFPHVG]V[S]&#39;, &#39;[SPAT]S[RPLQH]&#39;, &#39;ET&#39;, &#39;[MAT*RSPKLEVQGW]R[R]&#39;, &#39;[G*R]D[DAVEG]&#39;]</span>
-</code></pre></div>
-
-
-<p>Returns a regex for each of the 6 translation frames. Note that the search with regex is case sensitive.</p>
 <h3 id="interpro">InterPro</h3>
 <p><a href="http://www.ebi.ac.uk/interpro/">InterPro</a> provides functional analysis of protein sequences, using several databases. We can annotate our protein with the results, as shown below:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">minotaor</span>
@@ -721,6 +742,21 @@ Query your sequence with Biopython:</p>
 
 
 <p>Alternatively, TSV files of the datasets <a href="http://elm.eu.org/downloads.html">can be downloaded</a> then edited for use with <code>annotate_record(seqrecord, seq_dataset=</code>). Note that ELM indexing starts from 1.</p>
+<h3 id="other">Other</h3>
+<p>Given a DNA sequence, return amino acid sequences that may contain it:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">bsmbi_site</span> <span class="o">=</span> <span class="s2">&quot;CGTCTC&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minotaor</span><span class="o">.</span><span class="n">convert_dna_to_aa_pattern</span><span class="p">(</span><span class="n">bsmbi_site</span><span class="p">))</span>
+<span class="c1"># [&#39;RL&#39;, &#39;[DATRSICYNLFPHVG]V[S]&#39;, &#39;[SPAT]S[RPLQH]&#39;, &#39;ET&#39;, &#39;[MAT*RSPKLEVQGW]R[R]&#39;, &#39;[G*R]D[DAVEG]&#39;]</span>
+</code></pre></div>
+
+
+<p>Returns a regex for each of the 6 translation frames. Note that the search with regex is case sensitive.</p>
+<p>Compute % content of selected amino acids:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">minotaor</span><span class="o">.</span><span class="n">add_aa_content</span><span class="p">(</span><span class="n">seqrecord</span><span class="p">,</span> <span class="n">aa</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Acidic sequence&quot;</span><span class="p">):</span>
+</code></pre></div>
+
+
+<p>Useful for finding proline-rich (P) or acidic sequences (D/E) that may interfere with translation.</p>
 <h2 id="versioning">Versioning</h2>
 <p>Minotaor uses the <a href="https://semver.org">semantic versioning</a> scheme.</p>
 <h2 id="license-mit">License = MIT</h2>
