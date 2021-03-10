@@ -103,6 +103,11 @@ The motifs then can be looked up in VDJdb for more details.
 A similar approach can be used for the McPAS-TCR database.
 
 
+#### iGEM
+
+Sequences can also be annotated with parts in the Registry of the International Genetically Engineered Machine (iGEM) Foundation. A FASTA of all parts can be downloaded and prepared into a reference dataset as shown in `examples/igem.py`. Alternatively, the [exported MySQL database](http://parts.igem.org/Registry_API) can be prepared in a similar way.
+
+
 ### PROSITE
 
 A function is provided for reading [ScanProsite](https://prosite.expasy.org/scanprosite) results.
