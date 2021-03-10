@@ -19,6 +19,7 @@ In the [PROSITE](https://prosite.expasy.org/) nomenclature, a sequence *motif* i
 of the occurrence of amino acids (signature, fingerprint), and can be either a pattern or a profile.
 A *pattern* is a qualitative description of a motif in a regular expression-like syntax.
 A *profile* (or weight matrix) is a table of position-specific amino acid weights and gap costs.
+Many independent binary classifications can be applied to these motifs: *is tag? is linker? is epitope? etc..*
 
 
 ## Install
@@ -50,6 +51,16 @@ ax, _ = graphic_record.plot(figure_width=10, strand_in_label_threshold=7)
 graphic_record.plot_sequence(ax)
 ```
 ![Example](images/example.png)
+
+The different annotation classes have a different color:
+
+- ![tab:blue](images/color_tab_blue.png)  Tags
+- ![tab:cyan](images/color_tab_cyan.png)  Linkers
+- ![yellow](images/color_yellow.png)  Warnings (potential issues, translation pauses etc.)
+- ![red](images/color_red.png)  Errors and stop codons
+- ![default](images/color_default.png)  All other classes (protein domain, epitope, CDR3 region, motif etc.)
+
+
 
 
 ### Reference datasets

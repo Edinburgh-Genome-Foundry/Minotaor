@@ -1,5 +1,4 @@
 id,type,name,sequence,class,dna,code,species,description,reference
-6xHis,seq,6xHis,HHHHHH,tag,,,,,
 TEV_site,seq,TEV site,ENLYFQG,tag,,,,Cleavage tag for the TEV protease (cleaves between Gln and Ser),
 ALFA_tag,seq,ALFA-tag,SRLEEELRRRLTE,tag,,,,Helical peptide tag for recognition by a repertoire of antibodies,
 AviTag,seq,AviTag,GLNDIFEAQKIEWHE,tag,,,,For biotinylation by BirA and streptavidin isolation,
