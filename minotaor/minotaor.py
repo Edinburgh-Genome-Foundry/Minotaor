@@ -97,42 +97,18 @@ def annotate_record(seqrecord, seq_dataset=None):
                 qualifiers={"label": "STOP", "mino_class": "error"},
             )
         )
-    # ANNOTATE SEQUENCES
+    # ANNOTATE PATTERNS
     if "class" in seq_dataset.columns:
         has_mino_class = True
     else:
         has_mino_class = False
         mino_class = "default"
-    sequences = seq_dataset.loc[seq_dataset["type"] == "seq"]["sequence"].to_list()
-    names = seq_dataset.loc[seq_dataset["type"] == "seq"]["name"].to_list()
-    for index, sequence in enumerate(sequences):
-        len_sequence = len(sequence)
-        name = names[index]
-        if has_mino_class:
-            mino_class = seq_dataset.loc[seq_dataset["type"] == "seq"][
-                "class"
-            ].to_list()[index]
-        matches = [
-            m.start() for m in re.finditer(re.escape(sequence), str(seqrecord.seq))
-        ]
-        for match in matches:
-            seqrecord.features.append(
-                SeqFeature(
-                    FeatureLocation(match, (match + len_sequence)),
-                    type="misc_feature",
-                    id=name,
-                    qualifiers={"label": name, "mino_class": mino_class},
-                )
-            )
-    # ANNOTATE PATTERNS
-    patterns = seq_dataset.loc[seq_dataset["type"] == "pattern"]["sequence"].to_list()
-    names = seq_dataset.loc[seq_dataset["type"] == "pattern"]["name"].to_list()
+    patterns = seq_dataset["sequence"].to_list()
+    names = seq_dataset["name"].to_list()
     for index, pattern in enumerate(patterns):
         name = names[index]
         if has_mino_class:
-            mino_class = seq_dataset.loc[seq_dataset["type"] == "pattern"][
-                "class"
-            ].to_list()[index]
+            mino_class = seq_dataset["class"].to_list()[index]
         matches = {m.start(): m.end() for m in re.finditer(pattern, str(seqrecord.seq))}
         for start, end in matches.items():
             seqrecord.features.append(
