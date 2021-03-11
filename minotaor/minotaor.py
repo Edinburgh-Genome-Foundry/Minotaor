@@ -104,6 +104,7 @@ def annotate_record(seqrecord, seq_dataset=None):
     # ANNOTATE PATTERNS
     if "class" in seq_dataset.columns:
         has_mino_class = True
+        class_list = seq_dataset["class"].to_list()
     else:
         has_mino_class = False
         mino_class = "default"
@@ -117,16 +118,15 @@ def annotate_record(seqrecord, seq_dataset=None):
     for index, pattern in enumerate(patterns):
         name = names[index]
         if has_mino_class:
-            mino_class = seq_dataset["class"].to_list()[index]
+            mino_class = class_list[index]
         matches = {m.start(): m.end() for m in re.finditer(pattern, str(seqrecord.seq))}
 
-        qualifier = {"label": name, "mino_class": mino_class}
         if has_description:
             description = description_list[index]
             note = name + " " + str(description)
         else:
             note = name
-        qualifier["note"] = note
+        qualifier = {"label": name, "mino_class": mino_class, "note": note}
 
         for start, end in matches.items():
             seqrecord.features.append(
