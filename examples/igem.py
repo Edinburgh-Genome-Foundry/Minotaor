@@ -27,11 +27,9 @@ for seq_record in SeqIO.parse("All_Parts.fasta", "fasta"):
             names += [seq_record.description.split(" ")[0]]  # 0: Part name
             descriptions += [seq_record.description]
 
-seq_types = len(names) * ["seq"]
 
 # Prepare reference dataframe
 data_dict = {
-    "type": pandas.Series(seq_types),
     "name": pandas.Series(names),
     "sequence": pandas.Series(aa_sequences),
     "description": pandas.Series(descriptions),

@@ -61,7 +61,7 @@ The annotation classes are colored as follows:
 
 ### Reference datasets
 
-Minotaor can use custom reference pandas dataframes, specified with `seq_dataset`. The `sequence` and `name` columns are used for search and naming of the motifs. The `type` column sets the search type, which can be `seq` for strings or `pattern` or regexes (regular expressions). This is shown in the below examples of epitope datasets.
+Minotaor can use custom reference pandas dataframes, specified with `seq_dataset`. The `sequence` and `name` columns are used for search and naming of the motifs. This is shown in the below examples of epitope datasets.
 
 
 #### Immune Epitope Database
@@ -72,7 +72,6 @@ import pandas
 iedb_file = 'epitope_full_v3.csv'
 iedb = pandas.read_csv(iedb_file, skiprows=1, dtype='str')
 iedb.rename(columns={"Epitope IRI": "name", "Description": "sequence"}, inplace=True)
-iedb['type'] = 'seq'
 # The dataframe can be used as shown above (note: this is a huge dataset):
 protein_record = minotaor.annotate_record(protein_record, seq_dataset=iedb)
 ```
@@ -91,7 +90,6 @@ vdjdb = pandas.read_csv(vdjdb_file, sep='\t')
 vdjdb_dataset = vdjdb.copy(deep=True)
 vdjdb_dataset.drop_duplicates(subset=['antigen.gene'], inplace=True, ignore_index=True)
 vdjdb_dataset['sequence'] = vdjdb_dataset['antigen.epitope']  # or 'cdr3' for antibodies
-vdjdb_dataset['type'] = 'seq'
 vdjdb_dataset['name'] = ['VDJdb epitope ' + str(antigen)
                          for antigen in vdjdb_dataset['antigen.gene'].to_list()]
 

@@ -63,6 +63,9 @@ def annotate_record(seqrecord, seq_dataset=None):
 
     **seq_dataset**
     > A minotaor sequence dataset (`pandas.DataFrame`). Default uses the built-in data.
+    The `sequence` and `name` columns are used for search and naming of the motifs.
+    If there is a `class` column, then it is used for the SeqFeature's mino_class
+    qualifier, which is used to determine the color during plotting.
     """
     if seq_dataset is None:
         seq_dataset = SEQ_DATA
