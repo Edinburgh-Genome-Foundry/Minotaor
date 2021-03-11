@@ -512,7 +512,7 @@ def add_aa_content(seqrecord, aa, window_size, cutoff, name=None):
 
     **Parameters**
 
-    **seqrecord*
+    **seqrecord**
     > The amino acid SeqRecord to annotate.
 
     **aa**
@@ -524,7 +524,7 @@ def add_aa_content(seqrecord, aa, window_size, cutoff, name=None):
     **cutoff**
     > Annotate section with at least this proportion (between 0 and 1).
 
-    *name**
+    **name**
     > Annotation label (`str`). Default: `>=#% X/Y/Z`.
     """
     if name is None:
