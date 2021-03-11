@@ -65,7 +65,8 @@ def annotate_record(seqrecord, seq_dataset=None):
     > A minotaor sequence dataset (`pandas.DataFrame`). Default uses the built-in data.
     The `sequence` and `name` columns are used for search and naming of the motifs.
     If there is a `class` column, then it is used for the SeqFeature's mino_class
-    qualifier, which is used to determine the color during plotting.
+    qualifier, which is used to determine the color during plotting. If the dataframe
+    has a `description` column, then its entry is added as a `note` qualifier.
     """
     if seq_dataset is None:
         seq_dataset = SEQ_DATA
@@ -123,7 +124,9 @@ def annotate_record(seqrecord, seq_dataset=None):
         if has_description:
             description = description_list[index]
             note = name + " " + str(description)
-            qualifier["note"] = note
+        else:
+            note = name
+        qualifier["note"] = note
 
         for start, end in matches.items():
             seqrecord.features.append(
