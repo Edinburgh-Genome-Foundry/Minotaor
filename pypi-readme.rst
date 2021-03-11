@@ -1,7 +1,7 @@
 Project description
 ===================
 
-Minotaor mino acid sequence annotator for quickly identifying common protein tags and linkers in an ORF. Additionally, it can flag peptide sequences or patterns that are known to cause problems during translation.
+Minotaor is an amino acid sequence annotator for quickly identifying common protein tags and linkers in an ORF. Additionally, it can flag peptide sequences or patterns that are known to cause problems during translation.
 
 
 **Install:**
@@ -14,6 +14,7 @@ Minotaor mino acid sequence annotator for quickly identifying common protein tag
 **Web documentation:**
 
 `<https://edinburgh-genome-foundry.github.io/Minotaor/>`_
+
 
 **Github page:**
 
