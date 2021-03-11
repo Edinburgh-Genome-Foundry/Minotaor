@@ -123,7 +123,7 @@ def annotate_record(seqrecord, seq_dataset=None):
 
         if has_description:
             description = description_list[index]
-            note = name + " " + str(description)
+            note = name + ". Description: " + str(description)
         else:
             note = name
         qualifier = {"label": name, "mino_class": mino_class, "note": note}
