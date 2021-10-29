@@ -80,6 +80,17 @@ def annotate_record(seqrecord, seq_dataset=None):
                 qualifiers={"label": "no start codon", "mino_class": "warning"},
             )
         )
+    # FLAG INTERNAL START: M (ATG)
+    atg_positions = [i for i, letter in enumerate(str(seqrecord.seq)) if letter == "M"]
+    for position in atg_positions:
+        seqrecord.features.append(
+            SeqFeature(
+                FeatureLocation(position, position + 1),
+                type="misc_feature",
+                id="ATG",
+                qualifiers={"label": "ATG", "mino_class": "warning"},
+            )
+        )
     # FLAG NO END: *
     if str(seqrecord.seq)[-1] != "*":
         seqrecord.features.append(
